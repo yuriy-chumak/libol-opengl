@@ -104,7 +104,7 @@ GL_CURRENT_PROGRAM
     (define glUniform1fv    (GL GLvoid "glUniform1fv" GLint GLsizei GLfloat*))
     (define glUniformMatrix4fv (GL GLvoid "glUniformMatrix4fv" GLint GLsizei GLboolean GLfloat*))
   (define glEnableVertexAttribArray (GL GLvoid "glEnableVertexAttribArray" GLuint))
-  (define glVertexAttribPointer (GL GLvoid "glVertexAttribPointer" GLuint GLint GLenum GLboolean GLsizei void*))
+  (define glVertexAttribPointer (GL GLvoid "glVertexAttribPointer" GLuint GLint GLenum GLboolean GLsizei fft-any))
     (define GL_FLOAT #x1406)
   (define glDrawArrays         (GL GLvoid "glDrawArrays" GLenum GLint GLsizei))
 

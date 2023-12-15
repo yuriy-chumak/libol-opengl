@@ -109,7 +109,7 @@
 
    (define glBindBuffer (GL GLvoid "glBindBuffer" GLenum GLuint))
    (define glDeleteBuffers (GL GLvoid "glDeleteBuffers" GLsizei GLuint*))
-   (define glGenBuffers (GL GLvoid "glGenBuffers" GLsizei GLuint*))
+   (define glGenBuffers (GL GLvoid "glGenBuffers" GLsizei GLuint&))
    (define glIsBuffer (GL GLboolean "glIsBuffer" GLuint))
    (define glBufferData (GL GLvoid "glBufferData" GLenum GLsizeiptr fft-any GLenum))
    (define glBufferSubData (GL GLvoid "glBufferSubData" GLenum GLintptr GLsizeiptr fft-any))
