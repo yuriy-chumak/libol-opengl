@@ -570,7 +570,7 @@
 
    (define glBindVertexArray (gl:GetProcAddress GLvoid "glBindVertexArray" GLuint))
    (define glDeleteVertexArrays (gl:GetProcAddress GLvoid "glDeleteVertexArrays" GLsizei GLuint*))
-   (define glGenVertexArrays (gl:GetProcAddress GLvoid "glGenVertexArrays" GLsizei GLuint*))
+   (define glGenVertexArrays (gl:GetProcAddress GLvoid "glGenVertexArrays" GLsizei GLuint&))
    (define glIsVertexArray (gl:GetProcAddress GLboolean "glIsVertexArray" GLuint))
    
  ; ARB_framebuffer_object
