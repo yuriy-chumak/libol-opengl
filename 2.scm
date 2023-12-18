@@ -1,5 +1,5 @@
 ; OpenGL 2.0 (7 Sep 2004), GLSL 1.1
-(define-library (OpenGL 2.0)
+(define-library (OpenGL version-2-0)
 (export
       (exports (OpenGL 1.5))
 ; + ARB_shader_objects, heavily modified
@@ -50,16 +50,14 @@ glVertexAttribPointer
 GL_FLOAT
 glDrawArrays
 
-glGetAttribLocation
-
 GL_CURRENT_PROGRAM
 
-   gl:create-program)
+   gl:CreateProgram)
 
-   (import (scheme base)
+   (import (scheme core)
+      (owl string) (owl io)
       (scheme bytevector)
       (OpenGL 1.5))
-
 (begin
    (define GL_VERSION_2_0 1)
 
@@ -110,97 +108,10 @@ GL_CURRENT_PROGRAM
     (define GL_FLOAT #x1406)
   (define glDrawArrays         (GL GLvoid "glDrawArrays" GLenum GLint GLsizei))
 
-   (define glGetAttribLocation (GL GLint "glGetAttribLocation" GLuint type-string))
-
-   (define GL_CURRENT_PROGRAM #x8B8D))
+   (define GL_CURRENT_PROGRAM #x8B8D)
 
 
-; -=( native functions )=-------------------------------------
-; todo: move "#version" from the source to the top
-; note:
-;  no GL_VERTEX_PROGRAM_TWO_SIDE
-(cond-expand
-   (Android
-      (include "lib/gl-2/GL2ES.scm"))
-   (else
-      (include "lib/gl-2/GL2.scm")))
-
-(begin
-   (define (compile shader sources)
-      (glShaderSource shader (length sources) sources #false)
-      (glCompileShader shader)
-      (let ((isCompiled (box 0)))
-         (glGetShaderiv shader GL_COMPILE_STATUS isCompiled)
-
-         (if (eq? (unbox isCompiled) 0)
-            (let*((maxLength (box 0))
-                  (_ (glGetShaderiv shader GL_INFO_LOG_LENGTH maxLength))
-                  (maxLengthValue (unbox maxLength))
-                  (errorLog (make-bytevector maxLengthValue 0))
-                  (_ (glGetShaderInfoLog shader maxLengthValue maxLength errorLog)))
-               (raise (utf8->string errorLog))))))
-
-   (define (link program . shaders)
-      (for-each (lambda (shader)
-            (glAttachShader program shader))
-         shaders)
-
-      (glLinkProgram program)
-      (let ((isLinked (box 0)))
-         (glGetProgramiv program GL_LINK_STATUS isLinked)
-         (if (eq? (unbox isLinked) 0)
-            ;; the maxLength includes the NULL character
-            (let*((maxLength (box 0))
-                  (_ (glGetProgramiv program GL_INFO_LOG_LENGTH maxLength))
-                  (maxLengthValue (unbox maxLength))
-                  (errorLog (make-bytevector maxLengthValue 0))
-                  (_ (glGetProgramInfoLog program maxLengthValue maxLength errorLog)))
-
-               ;; we don't need the program anymore.
-               (glDeleteProgram program)
-               ;; don't leak shaders either.
-               (for-each (lambda (shader)
-                     (glDeleteShader shader))
-                  shaders)
-               ;; throw error
-               (raise (utf8->string errorLog)))))
-
-      (for-each (lambda (shader)
-            ;; always detach shaders after a successful link.
-            (glDetachShader program shader))
-         shaders))
-
-   (define gl:create-program (case-lambda
-      ((vstext fstext)
-               (let ((po (glCreateProgram))
-                     (vs (glCreateShader GL_VERTEX_SHADER))
-                     (fs (glCreateShader GL_FRAGMENT_SHADER)))
-                  (if (eq? po 0)
-                     (raise "Can't create shader program."))
-
-                  (compile vs (vertex-preprocessor vstext))
-                  (compile fs (fragment-preprocessor fstext))
-
-                  (link po vs fs)
-                  po))
-      ((vstext
-        inputType outputType outputCount gstext
-        fstext)
-               (let ((program (glCreateProgram))
-                     (gs (glCreateShader GL_GEOMETRY_SHADER))
-                     (vs (glCreateShader GL_VERTEX_SHADER))
-                     (fs (glCreateShader GL_FRAGMENT_SHADER)))
-                  (if (eq? program 0)
-                     (raise "Can't create shader program."))
-
-                  (compile vs (vertex-preprocessor vstext))
-                  (compile gs (geometry-preprocessor gstext inputType outputType outputCount))
-                  (compile fs (fragment-preprocessor fstext))
-
-                  (glProgramParameteri program GL_GEOMETRY_INPUT_TYPE inputType)
-                  (glProgramParameteri program GL_GEOMETRY_OUTPUT_TYPE outputType) ; only POINTS, LINE_STRIP and TRIANGLE_STRIP is allowed:
-                  (glProgramParameteri program GL_GEOMETRY_VERTICES_OUT outputCount)
-
-                  (link program gs vs fs)
-                  program))))
+   (define (gl:CreateProgram . args)
+      (print-to stderr "gl:CreateProgram is deprecated.")
+      (print-to stderr "  Use (import (lib gl-2)) and (gl:create-program . args) instead."))
 ))
