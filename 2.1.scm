@@ -19,13 +19,6 @@
    glUniformMatrix3x4fv ;void (GLint location, GLsizei count, GLboolean transpose, const GLfloat *value)
    glUniformMatrix4x3fv ;void (GLint location, GLsizei count, GLboolean transpose, const GLfloat *value)
 
-   GL_FLOAT_MAT2x3
-   GL_FLOAT_MAT2x4
-   GL_FLOAT_MAT3x2
-   GL_FLOAT_MAT3x4
-   GL_FLOAT_MAT4x2
-   GL_FLOAT_MAT4x3
-
 ;; J.3 ARB_pixel_buffer_object
 
    GL_PIXEL_PACK_BUFFER
@@ -49,6 +42,13 @@
 
 ;; 2.1 Features
    GL_CURRENT_RASTER_SECONDARY_COLOR
+
+   GL_FLOAT_MAT2x3
+   GL_FLOAT_MAT2x4
+   GL_FLOAT_MAT3x2
+   GL_FLOAT_MAT3x4
+   GL_FLOAT_MAT4x2
+   GL_FLOAT_MAT4x3
 )
 
 ; ============================================================================
@@ -72,13 +72,6 @@
    (define glUniformMatrix3x4fv (gl:GetProcAddress GLvoid "glUniformMatrix3x4fv" GLint GLsizei GLboolean GLfloat*))
    (define glUniformMatrix4x3fv (gl:GetProcAddress GLvoid "glUniformMatrix4x3fv" GLint GLsizei GLboolean GLfloat*))
 
-   (define GL_FLOAT_MAT2x3                   #x8B65)
-   (define GL_FLOAT_MAT2x4                   #x8B66)
-   (define GL_FLOAT_MAT3x2                   #x8B67)
-   (define GL_FLOAT_MAT3x4                   #x8B68)
-   (define GL_FLOAT_MAT4x2                   #x8B69)
-   (define GL_FLOAT_MAT4x3                   #x8B6A)
-
  ; J.3 ARB_pixel_buffer_object
    (define GL_PIXEL_PACK_BUFFER              #x88EB)
    (define GL_PIXEL_UNPACK_BUFFER            #x88EC)
@@ -101,6 +94,13 @@
 
  ; 2.1 Features
    (define GL_CURRENT_RASTER_SECONDARY_COLOR #x845F)
+
+   (define GL_FLOAT_MAT2x3                   #x8B65)
+   (define GL_FLOAT_MAT2x4                   #x8B66)
+   (define GL_FLOAT_MAT3x2                   #x8B67)
+   (define GL_FLOAT_MAT3x4                   #x8B68)
+   (define GL_FLOAT_MAT4x2                   #x8B69)
+   (define GL_FLOAT_MAT4x3                   #x8B6A)
 
    ; notes:
    ; These are useful extensions when targeting GL 2.1 hardware.

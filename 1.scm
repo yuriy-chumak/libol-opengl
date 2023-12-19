@@ -1,8 +1,9 @@
 ; OpenGL 1.0 (1 Jul 1994)
 ; OpenGL base implementation
+
 (define-library (OpenGL 1.0)
 (export
-      (exports (OpenGL platform))
+   (exports (OpenGL platform))
 
    GL_VERSION_1_0
 

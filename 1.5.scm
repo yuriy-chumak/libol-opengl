@@ -89,7 +89,6 @@
    GL_SRC0_ALPHA
    GL_SRC1_ALPHA
    GL_SRC2_ALPHA
-   GL_FOG_COORD_ARRAY_BUFFER_BINDING ; not in standard, but in .h file
 
 )
 
@@ -183,7 +182,5 @@
    (define GL_SRC0_ALPHA              GL_SOURCE0_ALPHA)
    (define GL_SRC1_ALPHA              GL_SOURCE1_ALPHA)
    (define GL_SRC2_ALPHA              GL_SOURCE2_ALPHA)
-   ; not in standard, but in .h file:
-   (define GL_FOG_COORD_ARRAY_BUFFER_BINDING GL_FOG_COORDINATE_ARRAY_BUFFER_BINDING)
 
 ))

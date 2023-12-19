@@ -139,7 +139,7 @@
 ;; I.6 Changed Tokens
    GL_FOG_COORD_ARRAY_BUFFER_BINDING
 
-;; 2.0 Functions
+;; 2.0 Features
    glBlendEquationSeparate ;void (GLenum modeRGB, GLenum modeAlpha);
    glStencilMaskSeparate ;void (GLenum face, GLuint mask);
 
@@ -222,7 +222,8 @@
    GL_VERTEX_PROGRAM_TWO_SIDE
    GL_MAX_TEXTURE_COORDS
 
-   gl:create-program)
+   gl:create-program
+)
 
 ; ============================================================================
 ; == implementation ==========================================================
