@@ -1,6 +1,8 @@
 ; OpenGL 3.1 (24 Mar 2009) GLSL 1.4
-(define-library (OpenGL version-3-1)
+(define-library (OpenGL 3.1)
 (export
+      (exports (OpenGL 3.0))
+
    GL_VERSION_3_1
 
    GL_RED_SNORM
@@ -18,11 +20,12 @@
    GL_SIGNED_NORMALIZED
    GL_PRIMITIVE_RESTART
    GL_PRIMITIVE_RESTART_INDEX
+)
 
-   (exports (OpenGL version-3-0)))
-
+; ============================================================================
+; == implementation ==========================================================
 (import (scheme core)
-   (OpenGL version-3-0))
+        (OpenGL 3.0))
 
 (begin
    (define GL_VERSION_3_1 1)

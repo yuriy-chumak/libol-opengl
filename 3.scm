@@ -1,5 +1,5 @@
 ; OpenGL 3.0 (11 Aug 2008) GLSL 1.3
-(define-library (OpenGL version-3-0)
+(define-library (OpenGL 3.0)
 (export
 ; this version provides new functionality over old
 ; so, OpenGL 1.0, 1.1, ..., 2.1 still available.
@@ -324,10 +324,10 @@
    glRenderbufferStorageMultisample; GLAPI void (GLenum, GLsizei, GLenum, GLsizei, GLsizei)
    glFramebufferTextureLayer; GLAPI void (GLenum, GLenum, GLuint, GLint, GLint)
 
-   (exports (OpenGL version-2-1)))
+   (exports (OpenGL 2.1)))
 
 (import (scheme core)
-   (OpenGL version-2-1))
+   (OpenGL 2.1))
 
 ; os independent context creation function:
 (cond-expand
