@@ -231,10 +231,11 @@
             (lambda args
                (ffi function rtti args)))))
 
+   (define split (string->regex "c/ /"))
    (define (gl:QueryExtension extension)
       ;; (display-to stderr (string-append
       ;;    "Checking " extension " support..."))
-      (let ((extensions (c/ / (or ; split by space character
+      (let ((extensions (split (or ; split by space character
                (cond
                   ; GLX, Linux
                   ((and (>= (size extension) 4) (string-eq? (substring extension 0 4) "GLX_"))
