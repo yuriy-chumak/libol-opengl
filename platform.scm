@@ -232,8 +232,8 @@
                (ffi function rtti args)))))
 
    (define (gl:QueryExtension extension)
-      ;; (display-to stderr (string-append
-      ;;    "Checking " extension " support..."))
+      (display-to stderr (string-append
+         "Checking " extension " support... "))
       (let ((extensions (c/ / (or ; split by space character
                (cond
                   ; GLX, Linux
@@ -245,7 +245,7 @@
                ; if no extensions - use empty string:
                ""))))
          (if (member extension extensions)
-            (begin (print-to stderr "Checking " extension " support... ok.") #true)
-            (begin (print-to stderr "Checking " extension " support... not found.") #false))))
+            (begin (print-to stderr "ok.") #true)
+            (begin (print-to stderr "not found.") #false))))
 
 ))
