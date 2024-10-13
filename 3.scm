@@ -334,11 +334,11 @@
    (Windows
       (import (OpenGL WGL ARB create_context))
       (begin
-         (define gl:CreateContextAttribs wglCreateContextAttribsARB)))
+         (define gl:CreateContextAttribs wglCreateContextAttribs)))
    (else
       (import (OpenGL GLX ARB create_context))
       (begin
-         (define gl:CreateContextAttribs glXCreateContextAttribsARB))))
+         (define gl:CreateContextAttribs glXCreateContextAttribs))))
 
 (begin
    (define GL_VERSION_3_0 1)

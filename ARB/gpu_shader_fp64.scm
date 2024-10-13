@@ -1,25 +1,24 @@
-; ===========================================================================
-; GL_ARB_gpu_shader_fp64
-;
-;	https://www.khronos.org/registry/OpenGL/extensions/ARB/GL_ARB_gpu_shader_fp64.txt
+; https://registry.khronos.org/OpenGL/extensions/ARB/ARB_gpu_shader_fp64.txt
+
+; ARB_gpu_shader_fp64
 ;
 ; Version
+;  Last Modified Date: August 27, 2012
+;  NVIDIA Revision: 11
 ;
-; Overview
-;
+; Number
+;  ARB Extension #89
+
 (define-library (OpenGL ARB gpu_shader_fp64)
 
-; ---------------------------------------------------------------------------
-; Dependencies
 (import (scheme core)
    (OpenGL platform))
 
-; ---------------------------------------------------------------------------
-(export ARB_gpu_shader_fp64
+(export  ARB_gpu_shader_fp64
 
-; ---------------------------------------------------------------------------
+; ----------------------------
 ; New Procedures and Functions
-
+;
    ;; glUniform1d ; void (int location, double x);
    ;; glUniform2d ; void (int location, double x, double y);
    ;; glUniform3d ; void (int location, double x, double y, double z);
@@ -63,8 +62,9 @@
    ;; glProgramUniformMatrix4x2dvEXT ; void (uint program, int location, sizei count, boolean transpose, const double *value);
    ;; glProgramUniformMatrix4x3dvEXT ; void (uint program, int location, sizei count, boolean transpose, const double *value);
 
-; ---------------------------------------------------------------------------
+; ----------
 ; New Tokens
+;
    GL_DOUBLE         ; double
    GL_DOUBLE_VEC2    ; dvec2
    GL_DOUBLE_VEC3    ; dvec3
@@ -78,11 +78,10 @@
    GL_DOUBLE_MAT3x4  ; dmat3x4
    GL_DOUBLE_MAT4x2  ; dmat4x2
    GL_DOUBLE_MAT4x3  ; dmat4x3
-
 )
 
 (import (only (OpenGL 1.1) GL_DOUBLE))
-; ---------------------------------------------------------------------------
+; --------------------------------------------------------------------------
 (begin
    (define ARB_gpu_shader_fp64 (gl:QueryExtension "GL_ARB_gpu_shader_fp64"))
    (setq GL gl:GetProcAddress)
@@ -143,4 +142,5 @@
    ;; void ProgramUniformMatrix3x4dvEXT(uint program, int location, sizei count, boolean transpose, const double *value);
    ;; void ProgramUniformMatrix4x2dvEXT(uint program, int location, sizei count, boolean transpose, const double *value);
    ;; void ProgramUniformMatrix4x3dvEXT(uint program, int location, sizei count, boolean transpose, const double *value);
+
 ))

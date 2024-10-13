@@ -1,46 +1,40 @@
-; ==========================================================================
+; https://registry.khronos.org/OpenGL/extensions/EXT/WGL_EXT_swap_control.txt
+
 ; WGL_EXT_swap_control
 ;
-;     https://www.khronos.org/registry/OpenGL/extensions/EXT/WGL_EXT_swap_control.txt
-;
 ; Version
-;     Date: 9/23/1999   Revision: 1.5
+;  Date: 9/23/1999   Revision: 1.5
 ;
-; Overview
-;     ...
+; Number
+;  172
+
 (define-library (OpenGL WGL EXT swap_control)
 
-; --------------------------------------------------------------------------
-; Dependencies
-;     WGL_EXT_extensions_string is required.
-(import
-   (scheme core)
+(import (scheme core)
    (OpenGL platform))
 
-; --------------------------------------------------------------------------
 (export  WGL_EXT_swap_control
 
-; --------------------------------------------------------------------------
+; ----------------------------
 ; New Procedures and Functions
-   wglSwapIntervalEXT
-   wglGetSwapIntervalEXT
+;
+   wglSwapInterval
+   wglGetSwapInterval
 
-; --------------------------------------------------------------------------
+; ----------
 ; New Tokens
 ;
-;  None
+;  none
 )
 
-; --------------------------------------------------------------------------
+; -------------------------------------------------------------------------
 (begin
    (define WGL_EXT_swap_control (gl:QueryExtension "WGL_EXT_swap_control"))
+   (setq GL gl:GetProcAddress)
 
    (setq BOOL fft-int)
 
-   (define wglSwapIntervalEXT
-      (gl:GetProcAddress BOOL "wglSwapIntervalEXT" fft-int))
-
-   (define wglGetSwapIntervalEXT
-      (gl:GetProcAddress fft-int "wglGetSwapIntervalEXT"))
+   (define wglSwapInterval (GL BOOL "wglSwapIntervalEXT" fft-int))
+   (define wglGetSwapInterval (GL fft-int "wglGetSwapIntervalEXT"))
 
 ))

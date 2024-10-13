@@ -1,217 +1,230 @@
-; ==========================================================================
+; https://registry.khronos.org/OpenGL/extensions/ARB/ARB_shader_objects.txt
+
 ; ARB_shader_objects
 ;
-;     https://registry.khronos.org/OpenGL/extensions/ARB/ARB_shader_objects.txt
-;
 ; Version
+;  Last Modified Date: December 14, 2009
+;  Author Revision: 0.90
 ;
-; Overview
-;
+; Number
+;  ARB Extension #30
+
 (define-library (OpenGL ARB shader_objects)
 
-(import (scheme core)
+(import (scheme base)
    (OpenGL platform))
 
-; --------------------------------------------------------------------------
-; Dependencies
-(import
-   (OpenGL 1.0))
+(export  ARB_shader_objects
 
-; --------------------------------------------------------------------------
-(export ARB_shader_objects
+   GLchar* GLchar**
+   GLhandle GLhandle*
 
-   GLcharARB* GLcharARB**
-   GLhandleARB GLhandleARB*
-
-; --------------------------------------------------------------------------
+; ----------------------------
 ; New Procedures and Functions
+;
+   glDeleteObject
+   glGetHandle
+   glDetachObject
+   glCreateShaderObject
 
-   glDeleteObjectARB
-   glGetHandleARB
-   glDetachObjectARB
-   glCreateShaderObjectARB
+   glShaderSource
+   glCompileShader
 
-   glShaderSourceARB
-   glCompileShaderARB
+   glCreateProgramObject
+   glAttachObject
+   glLinkProgram
+   glUseProgramObject
+   glValidateProgram
 
-   glCreateProgramObjectARB
-   glAttachObjectARB
-   glLinkProgramARB
-   glUseProgramObjectARB
-   glValidateProgramARB
+   glUniform1f
+   glUniform2f
+   glUniform3f
+   glUniform4f
+   glUniform1i
+   glUniform2i
+   glUniform3i
+   glUniform4i
+   glUniform1fv
+   glUniform2fv
+   glUniform3fv
+   glUniform4fv
+   glUniform1iv
+   glUniform2iv
+   glUniform3iv
+   glUniform4iv
+   glUniformMatrix2fv
+   glUniformMatrix3fv
+   glUniformMatrix4fv
 
-   glUniform1fARB
-   glUniform2fARB
-   glUniform3fARB
-   glUniform4fARB
-   glUniform1iARB
-   glUniform2iARB
-   glUniform3iARB
-   glUniform4iARB
-   glUniform1fvARB
-   glUniform2fvARB
-   glUniform3fvARB
-   glUniform4fvARB
-   glUniform1ivARB
-   glUniform2ivARB
-   glUniform3ivARB
-   glUniform4ivARB
-   glUniformMatrix2fvARB
-   glUniformMatrix3fvARB
-   glUniformMatrix4fvARB
+   glGetObjectParameterfv
+   glGetObjectParameteriv
 
-   glGetObjectParameterfvARB
-   glGetObjectParameterivARB
+   glGetInfoLog
+   glGetAttachedObjects
+   glGetUniformLocation
+   glGetActiveUniform
+   glGetUniformfv
+   glGetUniformiv
+   glGetShaderSource
 
-   glGetInfoLogARB
-   glGetAttachedObjectsARB
-   glGetUniformLocationARB
-   glGetActiveUniformARB
-   glGetUniformfvARB
-   glGetUniformivARB
-   glGetShaderSourceARB
-
-; --------------------------------------------------------------------------
+; ----------
 ; New Tokens
+;
+   GL_PROGRAM_OBJECT
 
-   GL_PROGRAM_OBJECT_ARB
+   GL_OBJECT_TYPE
+   GL_OBJECT_SUBTYPE
+   GL_OBJECT_DELETE_STATUS
+   GL_OBJECT_COMPILE_STATUS
+   GL_OBJECT_LINK_STATUS
+   GL_OBJECT_VALIDATE_STATUS
+   GL_OBJECT_INFO_LOG_LENGTH
+   GL_OBJECT_ATTACHED_OBJECTS
+   GL_OBJECT_ACTIVE_UNIFORMS
+   GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH
+   GL_OBJECT_SHADER_SOURCE_LENGTH
 
-   GL_OBJECT_TYPE_ARB
-   GL_OBJECT_SUBTYPE_ARB
-   GL_OBJECT_DELETE_STATUS_ARB
-   GL_OBJECT_COMPILE_STATUS_ARB
-   GL_OBJECT_LINK_STATUS_ARB
-   GL_OBJECT_VALIDATE_STATUS_ARB
-   GL_OBJECT_INFO_LOG_LENGTH_ARB
-   GL_OBJECT_ATTACHED_OBJECTS_ARB
-   GL_OBJECT_ACTIVE_UNIFORMS_ARB
-   GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB
-   GL_OBJECT_SHADER_SOURCE_LENGTH_ARB
-
-   GL_SHADER_OBJECT_ARB
+   GL_SHADER_OBJECT
 
    GL_FLOAT
-   GL_FLOAT_VEC2_ARB
-   GL_FLOAT_VEC3_ARB
-   GL_FLOAT_VEC4_ARB
+   GL_FLOAT_VEC2
+   GL_FLOAT_VEC3
+   GL_FLOAT_VEC4
    GL_INT
-   GL_INT_VEC2_ARB
-   GL_INT_VEC3_ARB
-   GL_INT_VEC4_ARB
-   GL_BOOL_ARB
-   GL_BOOL_VEC2_ARB
-   GL_BOOL_VEC3_ARB
-   GL_BOOL_VEC4_ARB
-   GL_FLOAT_MAT2_ARB
-   GL_FLOAT_MAT3_ARB
-   GL_FLOAT_MAT4_ARB
-   GL_SAMPLER_1D_ARB
-   GL_SAMPLER_2D_ARB
-   GL_SAMPLER_3D_ARB
-   GL_SAMPLER_CUBE_ARB
-   GL_SAMPLER_1D_SHADOW_ARB
-   GL_SAMPLER_2D_SHADOW_ARB
-   GL_SAMPLER_2D_RECT_ARB
-   GL_SAMPLER_2D_RECT_SHADOW_ARB
+   GL_INT_VEC2
+   GL_INT_VEC3
+   GL_INT_VEC4
+   GL_BOOL
+   GL_BOOL_VEC2
+   GL_BOOL_VEC3
+   GL_BOOL_VEC4
+   GL_FLOAT_MAT2
+   GL_FLOAT_MAT3
+   GL_FLOAT_MAT4
+   GL_SAMPLER_1D
+   GL_SAMPLER_2D
+   GL_SAMPLER_3D
+   GL_SAMPLER_CUBE
+   GL_SAMPLER_1D_SHADOW
+   GL_SAMPLER_2D_SHADOW
+   GL_SAMPLER_2D_RECT
+   GL_SAMPLER_2D_RECT_SHADOW
+
+   ; * ol internal
+   gl:compile-shader
 )
 
-; --------------------------------------------------------------------------
+; ------------------------------------------------------------------------
 (begin
    (define ARB_shader_objects (gl:QueryExtension "GL_ARB_shader_objects"))
+   (setq GL gl:GetProcAddress)
 
-   (define GLcharARB* type-string)
-   (define GLcharARB** (fft* GLcharARB*))
-   (define GLhandleARB type-vptr)
-   (define GLhandleARB* (fft* GLhandleARB)) ;?
-   (define GLhandleARB& (fft& GLhandleARB)) ;?
+   (define GLchar* type-string)
+   (define GLchar** (fft* GLchar*))
+   (define GLhandle type-vptr)
+   (define GLhandle* (fft* GLhandle)) ;?
+   (define GLhandle& (fft& GLhandle)) ;?
    (define GLfloat& (fft& GLfloat))
    (define GLsizei& (fft& GLsizei))
    (define GLsizei* (fft* GLsizei))
    (define GLenum* (fft* GLenum))
 
-   (setq GL gl:GetProcAddress)
-   (define glDeleteObjectARB (GL GLvoid "glDeleteObjectARB" GLhandleARB))
-   (define glGetHandleARB (GL GLhandleARB "glGetHandleARB" GLenum))
-   (define glDetachObjectARB (GL GLvoid "glDetachObjectARB" GLhandleARB GLhandleARB))
-   (define glCreateShaderObjectARB (GL GLhandleARB "glCreateShaderObjectARB" GLenum))
-   (define glShaderSourceARB (GL GLvoid "glShaderSourceARB" GLhandleARB GLsizei GLcharARB** GLint*))
-   (define glCompileShaderARB (GL GLvoid "glCompileShaderARB" GLhandleARB))
-   (define glCreateProgramObjectARB (GL GLhandleARB "glCreateProgramObjectARB"))
-   (define glAttachObjectARB (GL GLvoid "glAttachObjectARB" GLhandleARB GLhandleARB))
-   (define glLinkProgramARB (GL GLvoid "glLinkProgramARB" GLhandleARB))
-   (define glUseProgramObjectARB (GL GLvoid "glUseProgramObjectARB" GLhandleARB))
-   (define glValidateProgramARB (GL GLvoid "glValidateProgramARB" GLhandleARB))
-   (define glUniform1fARB (GL GLvoid "glUniform1fARB" GLint GLfloat))
-   (define glUniform2fARB (GL GLvoid "glUniform2fARB" GLint GLfloat GLfloat))
-   (define glUniform3fARB (GL GLvoid "glUniform3fARB" GLint GLfloat GLfloat GLfloat))
-   (define glUniform4fARB (GL GLvoid "glUniform4fARB" GLint GLfloat GLfloat GLfloat GLfloat))
-   (define glUniform1iARB (GL GLvoid "glUniform1iARB" GLint GLint))
-   (define glUniform2iARB (GL GLvoid "glUniform2iARB" GLint GLint GLint))
-   (define glUniform3iARB (GL GLvoid "glUniform3iARB" GLint GLint GLint GLint))
-   (define glUniform4iARB (GL GLvoid "glUniform4iARB" GLint GLint GLint GLint GLint))
-   (define glUniform1fvARB (GL GLvoid "glUniform1fvARB" GLint GLsizei GLfloat*))
-   (define glUniform2fvARB (GL GLvoid "glUniform2fvARB" GLint GLsizei GLfloat*))
-   (define glUniform3fvARB (GL GLvoid "glUniform3fvARB" GLint GLsizei GLfloat*))
-   (define glUniform4fvARB (GL GLvoid "glUniform4fvARB" GLint GLsizei GLfloat*))
-   (define glUniform1ivARB (GL GLvoid "glUniform1ivARB" GLint GLsizei GLint*))
-   (define glUniform2ivARB (GL GLvoid "glUniform2ivARB" GLint GLsizei GLint*))
-   (define glUniform3ivARB (GL GLvoid "glUniform3ivARB" GLint GLsizei GLint*))
-   (define glUniform4ivARB (GL GLvoid "glUniform4ivARB" GLint GLsizei GLint*))
-   (define glUniformMatrix2fvARB (GL GLvoid "glUniformMatrix2fvARB" GLint GLsizei GLboolean GLfloat*))
-   (define glUniformMatrix3fvARB (GL GLvoid "glUniformMatrix3fvARB" GLint GLsizei GLboolean GLfloat*))
-   (define glUniformMatrix4fvARB (GL GLvoid "glUniformMatrix4fvARB" GLint GLsizei GLboolean GLfloat*))
+   (define glDeleteObject (GL GLvoid "glDeleteObjectARB" GLhandle))
+   (define glGetHandle (GL GLhandle "glGetHandleARB" GLenum))
+   (define glDetachObject (GL GLvoid "glDetachObjectARB" GLhandle GLhandle))
+   (define glCreateShaderObject (GL GLhandle "glCreateShaderObjectARB" GLenum))
+   (define glShaderSource (GL GLvoid "glShaderSourceARB" GLhandle GLsizei GLchar** GLint*))
+   (define glCompileShader (GL GLvoid "glCompileShaderARB" GLhandle))
+   (define glCreateProgramObject (GL GLhandle "glCreateProgramObjectARB"))
+   (define glAttachObject (GL GLvoid "glAttachObjectARB" GLhandle GLhandle))
+   (define glLinkProgram (GL GLvoid "glLinkProgramARB" GLhandle))
+   (define glUseProgramObject (GL GLvoid "glUseProgramObjectARB" GLhandle))
+   (define glValidateProgram (GL GLvoid "glValidateProgramARB" GLhandle))
+   (define glUniform1f (GL GLvoid "glUniform1fARB" GLint GLfloat))
+   (define glUniform2f (GL GLvoid "glUniform2fARB" GLint GLfloat GLfloat))
+   (define glUniform3f (GL GLvoid "glUniform3fARB" GLint GLfloat GLfloat GLfloat))
+   (define glUniform4f (GL GLvoid "glUniform4fARB" GLint GLfloat GLfloat GLfloat GLfloat))
+   (define glUniform1i (GL GLvoid "glUniform1iARB" GLint GLint))
+   (define glUniform2i (GL GLvoid "glUniform2iARB" GLint GLint GLint))
+   (define glUniform3i (GL GLvoid "glUniform3iARB" GLint GLint GLint GLint))
+   (define glUniform4i (GL GLvoid "glUniform4iARB" GLint GLint GLint GLint GLint))
+   (define glUniform1fv (GL GLvoid "glUniform1fvARB" GLint GLsizei GLfloat*))
+   (define glUniform2fv (GL GLvoid "glUniform2fvARB" GLint GLsizei GLfloat*))
+   (define glUniform3fv (GL GLvoid "glUniform3fvARB" GLint GLsizei GLfloat*))
+   (define glUniform4fv (GL GLvoid "glUniform4fvARB" GLint GLsizei GLfloat*))
+   (define glUniform1iv (GL GLvoid "glUniform1ivARB" GLint GLsizei GLint*))
+   (define glUniform2iv (GL GLvoid "glUniform2ivARB" GLint GLsizei GLint*))
+   (define glUniform3iv (GL GLvoid "glUniform3ivARB" GLint GLsizei GLint*))
+   (define glUniform4iv (GL GLvoid "glUniform4ivARB" GLint GLsizei GLint*))
+   (define glUniformMatrix2fv (GL GLvoid "glUniformMatrix2fvARB" GLint GLsizei GLboolean GLfloat*))
+   (define glUniformMatrix3fv (GL GLvoid "glUniformMatrix3fvARB" GLint GLsizei GLboolean GLfloat*))
+   (define glUniformMatrix4fv (GL GLvoid "glUniformMatrix4fvARB" GLint GLsizei GLboolean GLfloat*))
 
-   (define glGetObjectParameterfvARB (GL GLvoid "glGetObjectParameterfvARB" GLhandleARB GLenum GLfloat&))
-   (define glGetObjectParameterivARB (GL GLvoid "glGetObjectParameterivARB" GLhandleARB GLenum GLint&))
+   (define glGetObjectParameterfv (GL GLvoid "glGetObjectParameterfvARB" GLhandle GLenum GLfloat&))
+   (define glGetObjectParameteriv (GL GLvoid "glGetObjectParameterivARB" GLhandle GLenum GLint&))
 
-   (define glGetInfoLogARB (GL GLvoid "glGetInfoLogARB" GLhandleARB GLsizei GLsizei& type-bytevector))
-   (define glGetAttachedObjectsARB (GL GLvoid "glGetAttachedObjectsARB" GLhandleARB GLsizei GLsizei& GLhandleARB&)) ;?
+   (define glGetInfoLog (GL GLvoid "glGetInfoLogARB" GLhandle GLsizei GLsizei& type-bytevector))
+   (define glGetAttachedObjects (GL GLvoid "glGetAttachedObjectsARB" GLhandle GLsizei GLsizei& GLhandle&)) ;?
 
-   (define glGetUniformLocationARB (GL GLint "glGetUniformLocationARB" GLhandleARB GLcharARB*))
+   (define glGetUniformLocation (GL GLint "glGetUniformLocationARB" GLhandle GLchar*))
 
-   (define glGetActiveUniformARB (GL GLvoid "glGetActiveUniformARB" GLhandleARB GLuint GLsizei GLsizei* GLint* GLenum* GLcharARB*))
-   (define glGetUniformfvARB (GL GLvoid "glGetUniformfvARB" GLhandleARB GLint GLfloat*))
-   (define glGetUniformivARB (GL GLvoid "glGetUniformivARB" GLhandleARB GLint GLint*))
-   (define glGetShaderSourceARB (GL GLvoid "glGetShaderSourceARB" GLhandleARB GLsizei GLsizei* GLcharARB*))
+   (define glGetActiveUniform (GL GLvoid "glGetActiveUniformARB" GLhandle GLuint GLsizei GLsizei* GLint* GLenum* GLchar*))
+   (define glGetUniformfv (GL GLvoid "glGetUniformfvARB" GLhandle GLint GLfloat*))
+   (define glGetUniformiv (GL GLvoid "glGetUniformivARB" GLhandle GLint GLint*))
+   (define glGetShaderSource (GL GLvoid "glGetShaderSourceARB" GLhandle GLsizei GLsizei* GLchar*))
 
-   (define GL_PROGRAM_OBJECT_ARB                              #x8B40)
+   (define GL_PROGRAM_OBJECT                              #x8B40)
 
-   (define GL_OBJECT_TYPE_ARB                                 #x8B4E)
-   (define GL_OBJECT_SUBTYPE_ARB                              #x8B4F)
-   (define GL_OBJECT_DELETE_STATUS_ARB                        #x8B80)
-   (define GL_OBJECT_COMPILE_STATUS_ARB                       #x8B81)
-   (define GL_OBJECT_LINK_STATUS_ARB                          #x8B82)
-   (define GL_OBJECT_VALIDATE_STATUS_ARB                      #x8B83)
-   (define GL_OBJECT_INFO_LOG_LENGTH_ARB                      #x8B84)
-   (define GL_OBJECT_ATTACHED_OBJECTS_ARB                     #x8B85)
-   (define GL_OBJECT_ACTIVE_UNIFORMS_ARB                      #x8B86)
-   (define GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB            #x8B87)
-   (define GL_OBJECT_SHADER_SOURCE_LENGTH_ARB                 #x8B88)
+   (define GL_OBJECT_TYPE                                 #x8B4E)
+   (define GL_OBJECT_SUBTYPE                              #x8B4F)
+   (define GL_OBJECT_DELETE_STATUS                        #x8B80)
+   (define GL_OBJECT_COMPILE_STATUS                       #x8B81)
+   (define GL_OBJECT_LINK_STATUS                          #x8B82)
+   (define GL_OBJECT_VALIDATE_STATUS                      #x8B83)
+   (define GL_OBJECT_INFO_LOG_LENGTH                      #x8B84)
+   (define GL_OBJECT_ATTACHED_OBJECTS                     #x8B85)
+   (define GL_OBJECT_ACTIVE_UNIFORMS                      #x8B86)
+   (define GL_OBJECT_ACTIVE_UNIFORM_MAX_LENGTH            #x8B87)
+   (define GL_OBJECT_SHADER_SOURCE_LENGTH                 #x8B88)
 
-   (define GL_SHADER_OBJECT_ARB                               #x8B48)
+   (define GL_SHADER_OBJECT                               #x8B48)
 
    (define GL_FLOAT                                           #x1406)
-   (define GL_FLOAT_VEC2_ARB                                  #x8B50)
-   (define GL_FLOAT_VEC3_ARB                                  #x8B51)
-   (define GL_FLOAT_VEC4_ARB                                  #x8B52)
+   (define GL_FLOAT_VEC2                                  #x8B50)
+   (define GL_FLOAT_VEC3                                  #x8B51)
+   (define GL_FLOAT_VEC4                                  #x8B52)
    (define GL_INT                                             #x1404)
-   (define GL_INT_VEC2_ARB                                    #x8B53)
-   (define GL_INT_VEC3_ARB                                    #x8B54)
-   (define GL_INT_VEC4_ARB                                    #x8B55)
-   (define GL_BOOL_ARB                                        #x8B56)
-   (define GL_BOOL_VEC2_ARB                                   #x8B57)
-   (define GL_BOOL_VEC3_ARB                                   #x8B58)
-   (define GL_BOOL_VEC4_ARB                                   #x8B59)
-   (define GL_FLOAT_MAT2_ARB                                  #x8B5A)
-   (define GL_FLOAT_MAT3_ARB                                  #x8B5B)
-   (define GL_FLOAT_MAT4_ARB                                  #x8B5C)
-   (define GL_SAMPLER_1D_ARB                                  #x8B5D)
-   (define GL_SAMPLER_2D_ARB                                  #x8B5E)
-   (define GL_SAMPLER_3D_ARB                                  #x8B5F)
-   (define GL_SAMPLER_CUBE_ARB                                #x8B60)
-   (define GL_SAMPLER_1D_SHADOW_ARB                           #x8B61)
-   (define GL_SAMPLER_2D_SHADOW_ARB                           #x8B62)
-   (define GL_SAMPLER_2D_RECT_ARB                             #x8B63)
-   (define GL_SAMPLER_2D_RECT_SHADOW_ARB                      #x8B64)
+   (define GL_INT_VEC2                                    #x8B53)
+   (define GL_INT_VEC3                                    #x8B54)
+   (define GL_INT_VEC4                                    #x8B55)
+   (define GL_BOOL                                        #x8B56)
+   (define GL_BOOL_VEC2                                   #x8B57)
+   (define GL_BOOL_VEC3                                   #x8B58)
+   (define GL_BOOL_VEC4                                   #x8B59)
+   (define GL_FLOAT_MAT2                                  #x8B5A)
+   (define GL_FLOAT_MAT3                                  #x8B5B)
+   (define GL_FLOAT_MAT4                                  #x8B5C)
+   (define GL_SAMPLER_1D                                  #x8B5D)
+   (define GL_SAMPLER_2D                                  #x8B5E)
+   (define GL_SAMPLER_3D                                  #x8B5F)
+   (define GL_SAMPLER_CUBE                                #x8B60)
+   (define GL_SAMPLER_1D_SHADOW                           #x8B61)
+   (define GL_SAMPLER_2D_SHADOW                           #x8B62)
+   (define GL_SAMPLER_2D_RECT                             #x8B63)
+   (define GL_SAMPLER_2D_RECT_SHADOW                      #x8B64)
 
+   ; * ol internal
+   (define (gl:compile-shader shader sources)
+      (glShaderSource shader (length sources) sources #false)
+      (glCompileShader shader)
+      (let ((isCompiled (list 0)))
+         (glGetObjectParameteriv shader GL_OBJECT_COMPILE_STATUS isCompiled)
+
+         (if (eq? (car isCompiled) 0)
+            (let*((maxLength (list 0))
+                  (_ (glGetObjectParameteriv shader GL_OBJECT_INFO_LOG_LENGTH maxLength))
+                  (maxLengthValue (unbox maxLength))
+                  (errorLog (make-bytevector maxLengthValue 0))
+                  (_ (glGetInfoLog shader maxLengthValue maxLength errorLog)))
+               (raise (utf8->string errorLog))))))
 ))
