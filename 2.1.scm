@@ -65,12 +65,12 @@
    ; none
 
  ; J.2 Non-Square Matrices
-   (define glUniformMatrix2x3fv (gl:GetProcAddress GLvoid "glUniformMatrix2x3fv" GLint GLsizei GLboolean GLfloat*))
-   (define glUniformMatrix3x2fv (gl:GetProcAddress GLvoid "glUniformMatrix3x2fv" GLint GLsizei GLboolean GLfloat*))
-   (define glUniformMatrix2x4fv (gl:GetProcAddress GLvoid "glUniformMatrix2x4fv" GLint GLsizei GLboolean GLfloat*))
-   (define glUniformMatrix4x2fv (gl:GetProcAddress GLvoid "glUniformMatrix4x2fv" GLint GLsizei GLboolean GLfloat*))
-   (define glUniformMatrix3x4fv (gl:GetProcAddress GLvoid "glUniformMatrix3x4fv" GLint GLsizei GLboolean GLfloat*))
-   (define glUniformMatrix4x3fv (gl:GetProcAddress GLvoid "glUniformMatrix4x3fv" GLint GLsizei GLboolean GLfloat*))
+   (define glUniformMatrix2x3fv (GL GLvoid "glUniformMatrix2x3fv" GLint GLsizei GLboolean GLfloat*))
+   (define glUniformMatrix3x2fv (GL GLvoid "glUniformMatrix3x2fv" GLint GLsizei GLboolean GLfloat*))
+   (define glUniformMatrix2x4fv (GL GLvoid "glUniformMatrix2x4fv" GLint GLsizei GLboolean GLfloat*))
+   (define glUniformMatrix4x2fv (GL GLvoid "glUniformMatrix4x2fv" GLint GLsizei GLboolean GLfloat*))
+   (define glUniformMatrix3x4fv (GL GLvoid "glUniformMatrix3x4fv" GLint GLsizei GLboolean GLfloat*))
+   (define glUniformMatrix4x3fv (GL GLvoid "glUniformMatrix4x3fv" GLint GLsizei GLboolean GLfloat*))
 
  ; J.3 ARB_pixel_buffer_object
    (define GL_PIXEL_PACK_BUFFER              #x88EB)

@@ -1,9 +1,9 @@
 ; ===========================================================================
 ; EXT_geometry_shader4                               (included in OpenGL 3.2)
 ;
-;    A new shader type available to be run on the GPU, called a geometry shader.
+;  A new shader type available to be run on the GPU, called a geometry shader.
 ;
-;    https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_geometry_shader4.txt
+;  https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_geometry_shader4.txt
 ;
 ; Version
 ;    Last Modified Date:         12/14/2009
@@ -30,11 +30,12 @@
 ;    EXT_texture_buffer_object trivially affects the definition of this extension.
 ;    NV_primitive_restart trivially affects the definition of this extension.
 ;    This extension interacts with EXT_tranform_feedback.
-(import (scheme core)
+(import (scheme base)
         (OpenGL platform))
 
-;    OpenGL 1.1 is required.
-(import (OpenGL 1.1))
+;  OpenGL 1.1 is required.
+;  This extension is written against the OpenGL 2.0 specification.
+(import (OpenGL 2.0))
 
 ; ---------------------------------------------------------------------------
 (export EXT_geometry_shader4
@@ -99,13 +100,14 @@
 
         GL_PROGRAM_POINT_SIZE
 
+   gl:create-program
 )
 
 ; ---------------------------------------------------------------------------
 (begin
    (define EXT_geometry_shader4 (gl:QueryExtension "GL_EXT_geometry_shader4"))
 
-   (setq GL GL_LIBRARY)
+   (setq GL gl:GetProcAddress)
    
    (define glProgramParameteri (GL fft-void "glProgramParameteri" GLuint GLenum GLint))
    (define glFramebufferTexture (GL GLvoid "glFramebufferTextureEXT" GLenum GLenum GLuint GLint))
@@ -138,4 +140,35 @@
         (define GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LAYER         #x8CD4)
 
         (define GL_PROGRAM_POINT_SIZE                           #x8642)
+
+   (define gl:create-program
+   (case-lambda
+      ; vertex and fragment shaders
+      ((vstext fstext)
+            (gl:create-program vstext fstext))
+      ; vertex, geometry, and fragment shaders
+      ; todo: add automatic extraction of inputType outputType outputCount from gstext
+      ((vstext
+        inputType outputType outputCount gstext
+        fstext)
+            (let ((program (glCreateProgram))
+                  (vs (glCreateShader GL_VERTEX_SHADER))
+                  (gs (glCreateShader GL_GEOMETRY_SHADER))
+                  (fs (glCreateShader GL_FRAGMENT_SHADER)))
+               (if (eq? program 0)
+                  (raise "Can't create shader program."))
+
+               (gl:compile-shader vs (gl:vertex-preprocessor vstext))
+               (gl:compile-shader gs (gl:geometry-preprocessor gstext))
+               (gl:compile-shader fs (gl:fragment-preprocessor fstext))
+
+               (glProgramParameteri program GL_GEOMETRY_INPUT_TYPE inputType)
+               ; only POINTS, LINE_STRIP and TRIANGLE_STRIP is allowed
+               (glProgramParameteri program GL_GEOMETRY_OUTPUT_TYPE outputType)
+               (glProgramParameteri program GL_GEOMETRY_VERTICES_OUT outputCount)
+
+               (gl:link-shaders program vs gs fs)
+               program))
+      ))
+
 ))

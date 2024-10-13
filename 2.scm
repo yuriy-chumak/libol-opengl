@@ -222,7 +222,12 @@
    GL_VERTEX_PROGRAM_TWO_SIDE
    GL_MAX_TEXTURE_COORDS
 
+   gl:compile-shader
+   gl:link-shaders
    gl:create-program
+   gl:vertex-preprocessor
+   gl:geometry-preprocessor
+   gl:fragment-preprocessor
 )
 
 ; ============================================================================
@@ -477,6 +482,7 @@
          (define (preprocessor source)
             (if (list? source) source (list source)))
          (define vertex-preprocessor preprocessor)
+         (define geometry-preprocessor preprocessor)
          (define fragment-preprocessor preprocessor))
       ))
 
@@ -543,5 +549,12 @@
 
          (link po vs fs)
          po))
+
+   ; publicly available names
+   (define gl:compile-shader compile)
+   (define gl:link-shaders link)
+   (define gl:vertex-preprocessor vertex-preprocessor)
+   (define gl:geometry-preprocessor geometry-preprocessor)
+   (define gl:fragment-preprocessor fragment-preprocessor)
 
 ))
