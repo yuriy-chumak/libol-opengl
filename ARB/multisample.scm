@@ -50,8 +50,8 @@
 ; ------------------------------------------------------------------
 (begin
    (define ARB_multisample (gl:QueryExtension "GL_ARB_multisample"))
-   (setq GL gl:GetProcAddress)
 
+   (setq GL gl:GetProcAddress)
    (define glSampleCoverage (GL GLvoid "SampleCoverage" GLclampf GLboolean))
 
    (define GLX_SAMPLE_BUFFERS                  100000)
@@ -63,9 +63,10 @@
    (define GL_SAMPLE_ALPHA_TO_COVERAGE         #x809E)
    (define GL_SAMPLE_ALPHA_TO_ONE              #x809F)
    (define GL_SAMPLE_COVERAGE                  #x80A0)
-   (define GL_MULTISAMPLE_BIT                  #x20000000)
+   (define GL_MULTISAMPLE_BIT              #x20000000)
    (define GL_SAMPLE_BUFFERS                   #x80A8)
    (define GL_SAMPLES                          #x80A9)
    (define GL_SAMPLE_COVERAGE_VALUE            #x80AA)
    (define GL_SAMPLE_COVERAGE_INVERT           #x80AB)
+
 ))

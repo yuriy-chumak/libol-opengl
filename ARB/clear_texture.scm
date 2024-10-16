@@ -31,8 +31,8 @@
 ; ----------------------------------------------------------------------
 (begin
    (define ARB_clear_texture (gl:QueryExtension "GL_ARB_clear_texture"))
-   (setq GL gl:GetProcAddress)
 
+   (setq GL gl:GetProcAddress)
    (define glClearTexImage (GL GLvoid "glClearTexImage" GLuint GLint GLenum GLenum fft-any))
    (define glClearTexSubImage (GL GLvoid "ARB_clear_texture" GLuint GLint GLint GLint GLint GLsizei GLsizei GLsizei GLenum GLenum fft-any))
 

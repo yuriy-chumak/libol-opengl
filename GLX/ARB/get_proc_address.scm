@@ -20,12 +20,12 @@
 ;
    glXGetProcAddress
 
-; --------------------------------------------------------------------------
+; ----------
 ; New Tokens
 ;
 ;  none
 
-; --------------------------------------------------------------------------
+; ------
 ; Issues
 ;
 ; * There's a recursion problem with this feature. The purpose of
@@ -41,7 +41,7 @@
 (begin
    (define GLX_ARB_get_proc_address (gl:QueryExtension "GLX_ARB_get_proc_address"))
 
-   (setq GLX (load-dynamic-library "libGL.so.1"))
+   (setq GLX (load-dynamic-library "libGL.so"))
    (setq GetProcAddress (GLX type-vptr "glXGetProcAddressARB" type-string))
 
    (define (glXGetProcAddress type name . prototype)

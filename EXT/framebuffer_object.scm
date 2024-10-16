@@ -1,152 +1,114 @@
-; ==========================================================================
-; EXT_framebuffer_object                            (included in OpenGL 3.0)
-;
-;     https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_framebuffer_object.txt
+; https://registry.khronos.org/OpenGL/extensions/EXT/EXT_framebuffer_object.txt
+
+; EXT_framebuffer_object                               (included in OpenGL 3.0)
 ;
 ; Version
-;     Last Modified Date: October 6, 2016
-;     Revision: #123
+;  Last Modified Date: October 6, 2016
+;  Revision: #123
 ;
-; Status:
-;     Approved by the ARB "superbuffers" Working Group on January 31, 2005.
-;
-; Overview
-;
-;     ...
+; Number
+;  310
 
 (define-library (OpenGL EXT framebuffer_object)
 
-; --------------------------------------------------------------------------
-; Dependencies
-;     a lot of
-   (import
-      (scheme core)(owl io)
-      (OpenGL 1.1))
+(import (scheme core)
+   (OpenGL platform))
 
-; --------------------------------------------------------------------------
-   (export  EXT_framebuffer_object
+(export  EXT_framebuffer_object
 
-; --------------------------------------------------------------------------
+; ----------------------------
 ; New Procedures and Functions
-   glIsRenderbuffer ;boolean (uint renderbuffer);
-   ;; glBindRenderbuffer ;void (enum target, uint renderbuffer);
-   ;; glDeleteRenderbuffers ;void (sizei n, const uint *renderbuffers);
-   ;; glGenRenderbuffers ;void (sizei n, uint *renderbuffers);
+;
+   glIsRenderbuffer
+   glBindRenderbuffer
+   glDeleteRenderbuffers
+   glGenRenderbuffers
 
-   ;; glRenderbufferStorage ;void (enum target, enum internalformat, sizei width, sizei height);
+   glRenderbufferStorage
 
-   ;; glGetRenderbufferParameteriv ;void (enum target, enum pname, int *params);
+   glGetRenderbufferParameteriv
 
-   ;; glIsFramebuffer ;boolean (uint framebuffer);
-   ;; glBindFramebuffer ;void (enum target, uint framebuffer);
-   ;; glDeleteFramebuffers ;void (sizei n, const uint *framebuffers);
-   ;; glGenFramebuffers ;void (sizei n, uint *framebuffers);
+   glIsFramebuffer
+   glBindFramebuffer
+   glDeleteFramebuffers
+   glGenFramebuffers
 
-   ;; glCheckFramebufferStatus ;enum (enum target);
+   glCheckFramebufferStatus
 
-   ;; glFramebufferTexture1D ;void (enum target, enum attachment, enum textarget, uint texture, int level);
-   ;; glFramebufferTexture2D ;void (enum target, enum attachment, enum textarget, uint texture, int level);
-   ;; glFramebufferTexture3D ;void (enum target, enum attachment, enum textarget, uint texture, int level, int zoffset);
+   glFramebufferTexture1D
+   glFramebufferTexture2D
+   glFramebufferTexture3D
 
-   ;; glFramebufferRenderbuffer ;void (enum target, enum attachment, enum renderbuffertarget, uint renderbuffer);
+   glFramebufferRenderbuffer
 
-   ;; glGetFramebufferAttachmentParameteriv ;void (enum target, enum attachment, enum pname, int *params);
+   glGetFramebufferAttachmentParameteriv
 
-   ;; glGenerateMipmap ;void (enum target);
+   glGenerateMipmap
 
-; --------------------------------------------------------------------------
+; ----------
 ; New Tokens
+;
+   GL_FRAMEBUFFER
+   GL_RENDERBUFFER
 
-   ;;  Accepted by the <target> parameter of BindFramebufferEXT,
-   ;;  CheckFramebufferStatusEXT, FramebufferTexture{1D|2D|3D}EXT,
-   ;;  FramebufferRenderbufferEXT, and
-   ;;  GetFramebufferAttachmentParameterivEXT:
+   GL_STENCIL_INDEX1
+   GL_STENCIL_INDEX4
+   GL_STENCIL_INDEX8
+   GL_STENCIL_INDEX16
 
-   GL_FRAMEBUFFER                     ;0x8D40
+   GL_RENDERBUFFER_WIDTH
+   GL_RENDERBUFFER_HEIGHT
+   GL_RENDERBUFFER_INTERNAL_FORMAT
+   GL_RENDERBUFFER_RED_SIZE
+   GL_RENDERBUFFER_GREEN_SIZE
+   GL_RENDERBUFFER_BLUE_SIZE
+   GL_RENDERBUFFER_ALPHA_SIZE
+   GL_RENDERBUFFER_DEPTH_SIZE
+   GL_RENDERBUFFER_STENCIL_SIZE
 
-   ;;  Accepted by the <target> parameter of BindRenderbufferEXT,
-   ;;  RenderbufferStorageEXT, and GetRenderbufferParameterivEXT, and
-   ;;  returned by GetFramebufferAttachmentParameterivEXT:
+   GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE
+   GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME
+   GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL
+   GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE
+   GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_3D_ZOFFSET
 
-   GL_RENDERBUFFER                    ;0x8D41
+   GL_COLOR_ATTACHMENT0
+   GL_COLOR_ATTACHMENT1
+   GL_COLOR_ATTACHMENT2
+   GL_COLOR_ATTACHMENT3
+   GL_COLOR_ATTACHMENT4
+   GL_COLOR_ATTACHMENT5
+   GL_COLOR_ATTACHMENT6
+   GL_COLOR_ATTACHMENT7
+   GL_COLOR_ATTACHMENT8
+   GL_COLOR_ATTACHMENT9
+   GL_COLOR_ATTACHMENT10
+   GL_COLOR_ATTACHMENT11
+   GL_COLOR_ATTACHMENT12
+   GL_COLOR_ATTACHMENT13
+   GL_COLOR_ATTACHMENT14
+   GL_COLOR_ATTACHMENT15
+   GL_DEPTH_ATTACHMENT
+   GL_STENCIL_ATTACHMENT
 
-   ;;  Accepted by the <internalformat> parameter of
-   ;;  RenderbufferStorageEXT:
+   GL_FRAMEBUFFER_COMPLETE
+   GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT
+   GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT
+   GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS
+   GL_FRAMEBUFFER_INCOMPLETE_FORMATS
+   GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER
+   GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER
+   GL_FRAMEBUFFER_UNSUPPORTED
 
-   GL_STENCIL_INDEX1                  ;0x8D46
-   GL_STENCIL_INDEX4                  ;0x8D47
-   GL_STENCIL_INDEX8                  ;0x8D48
-   GL_STENCIL_INDEX16                 ;0x8D49
+   GL_FRAMEBUFFER_BINDING
+   GL_RENDERBUFFER_BINDING
+   GL_MAX_COLOR_ATTACHMENTS
+   GL_MAX_RENDERBUFFER_SIZE
 
-   ;;  Accepted by the <pname> parameter of GetRenderbufferParameterivEXT:
-
-   GL_RENDERBUFFER_WIDTH              ;0x8D42
-   GL_RENDERBUFFER_HEIGHT             ;0x8D43
-   GL_RENDERBUFFER_INTERNAL_FORMAT    ;0x8D44
-   GL_RENDERBUFFER_RED_SIZE           ;0x8D50
-   GL_RENDERBUFFER_GREEN_SIZE         ;0x8D51
-   GL_RENDERBUFFER_BLUE_SIZE          ;0x8D52
-   GL_RENDERBUFFER_ALPHA_SIZE         ;0x8D53
-   GL_RENDERBUFFER_DEPTH_SIZE         ;0x8D54
-   GL_RENDERBUFFER_STENCIL_SIZE       ;0x8D55
-
-   ;;  Accepted by the <pname> parameter of
-   ;;  GetFramebufferAttachmentParameterivEXT:
-
-   GL_FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE            ;0x8CD0
-   GL_FRAMEBUFFER_ATTACHMENT_OBJECT_NAME            ;0x8CD1
-   GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL          ;0x8CD2
-   GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE  ;0x8CD3
-   GL_FRAMEBUFFER_ATTACHMENT_TEXTURE_3D_ZOFFSET     ;0x8CD4
-
-   ;;  Accepted by the <attachment> parameter of
-   ;;  FramebufferTexture{1D|2D|3D}EXT, FramebufferRenderbufferEXT, and
-   ;;  GetFramebufferAttachmentParameterivEXT
-
-   GL_COLOR_ATTACHMENT0                ;0x8CE0
-   GL_COLOR_ATTACHMENT1                ;0x8CE1
-   GL_COLOR_ATTACHMENT2                ;0x8CE2
-   GL_COLOR_ATTACHMENT3                ;0x8CE3
-   GL_COLOR_ATTACHMENT4                ;0x8CE4
-   GL_COLOR_ATTACHMENT5                ;0x8CE5
-   GL_COLOR_ATTACHMENT6                ;0x8CE6
-   GL_COLOR_ATTACHMENT7                ;0x8CE7
-   GL_COLOR_ATTACHMENT8                ;0x8CE8
-   GL_COLOR_ATTACHMENT9                ;0x8CE9
-   GL_COLOR_ATTACHMENT10               ;0x8CEA
-   GL_COLOR_ATTACHMENT11               ;0x8CEB
-   GL_COLOR_ATTACHMENT12               ;0x8CEC
-   GL_COLOR_ATTACHMENT13               ;0x8CED
-   GL_COLOR_ATTACHMENT14               ;0x8CEE
-   GL_COLOR_ATTACHMENT15               ;0x8CEF
-   GL_DEPTH_ATTACHMENT                 ;0x8D00
-   GL_STENCIL_ATTACHMENT               ;0x8D20
-
-   ;;  Returned by CheckFramebufferStatus():
-
-   GL_FRAMEBUFFER_COMPLETE                          ;0x8CD5
-   GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT             ;0x8CD6
-   GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT     ;0x8CD7
-   GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS             ;0x8CD9
-   GL_FRAMEBUFFER_INCOMPLETE_FORMATS                ;0x8CDA
-   GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER            ;0x8CDB
-   GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER            ;0x8CDC
-   GL_FRAMEBUFFER_UNSUPPORTED                       ;0x8CDD
-
-   ;;  Accepted by GetIntegerv():
-
-   GL_FRAMEBUFFER_BINDING             ;0x8CA6
-   GL_RENDERBUFFER_BINDING            ;0x8CA7
-   GL_MAX_COLOR_ATTACHMENTS           ;0x8CDF
-   GL_MAX_RENDERBUFFER_SIZE           ;0x84E8
-
-   ;;  Returned by GetError():
-
-   GL_INVALID_FRAMEBUFFER_OPERATION   ;0x0506
-
+   GL_INVALID_FRAMEBUFFER_OPERATION
 )
 
-; --------------------------------------------------------------------------
+; -------------------------------------------------------------------------------
 (begin
    (define EXT_framebuffer_object (gl:QueryExtension "GL_EXT_framebuffer_object"))
    (setq GL gl:GetProcAddress)

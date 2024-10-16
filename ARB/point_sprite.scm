@@ -28,10 +28,11 @@
    GL_COORD_REPLACE
 )
 
-; ---------------------------------------------------------------------------
+; --------------------------------------------------------------------
 (begin
    (define ARB_point_sprite (gl:QueryExtension "GL_ARB_point_sprite"))
 
-   (define POINT_SPRITE   #x8861)
-   (define COORD_REPLACE  #x8862)
+   (define GL_POINT_SPRITE   #x8861)
+   (define GL_COORD_REPLACE  #x8862)
+
 ))

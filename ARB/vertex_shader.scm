@@ -109,8 +109,8 @@
 ; ----------------------------------------------------------------------
 (begin
    (define ARB_vertex_shader (gl:QueryExtension "GL_ARB_vertex_shader"))
-   (setq GL gl:GetProcAddress)
 
+   (setq GL gl:GetProcAddress)
    (define glVertexAttrib1f (GL GLvoid "glVertexAttrib1fARB" GLuint GLfloat))
    (define glVertexAttrib1s (GL GLvoid "glVertexAttrib1sARB" GLuint GLshort))
    (define glVertexAttrib1d (GL GLvoid "glVertexAttrib1dARB" GLuint GLdouble))

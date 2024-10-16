@@ -1,27 +1,30 @@
-; ===========================================================================
+; https://registry.khronos.org/OpenGL/extensions/EXT/EXT_stencil_two_side.txt
+
 ; EXT_stencil_two_side                               (included in OpenGL 2.0)
 ;
-;	https://www.khronos.org/registry/OpenGL/extensions/EXT/EXT_stencil_two_side.txt
-;
 ; Version
+;  Last Modified Date:  09/15/2005
+;  Revision:            2
 ;
-; Overview
-;
+; Number
+;  268
+
 (define-library (OpenGL EXT stencil_two_side)
 
-; ---------------------------------------------------------------------------
-; Dependencies
-(import (scheme core) (OpenGL platform))
+(import (scheme core)
+   (OpenGL platform))
 
-; ---------------------------------------------------------------------------
-(export EXT_stencil_two_side
+(export  EXT_stencil_two_side
 
-; ---------------------------------------------------------------------------
+; ----------------------------
 ; New Procedures and Functions
+;
+;  none
 
-; ---------------------------------------------------------------------------
+; ----------
 ; New Tokens
-
+;
+;  none
 )
 
 ; ---------------------------------------------------------------------------

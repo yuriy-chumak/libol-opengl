@@ -25,14 +25,14 @@
 ;
 ;  Accepted by the <internalFormat> parameter of TexImage1D, TexImage2D,
 ;  CopyTexImage1D and CopyTexImage2D:
-   GL_DEPTH_COMPONENT
+;  GL_DEPTH_COMPONENT
    GL_DEPTH_COMPONENT16
    GL_DEPTH_COMPONENT24
    GL_DEPTH_COMPONENT32
 
 ;  Accepted by the <format> parameter of GetTexImage, TexImage1D,
 ;  TexImage2D, TexSubImage1D, and TexSubImage2D:
-   GL_DEPTH_COMPONENT
+;  GL_DEPTH_COMPONENT
 
 ;  Accepted by the <pname> parameter of GetTexLevelParameterfv and
 ;  GetTexLevelParameteriv:

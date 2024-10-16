@@ -28,6 +28,7 @@
    GLX_MAX_SWAP_INTERVAL
 )
 
+(import (OpenGL GLX ARB get_proc_address))
 ; -------------------------------------------------------------------------
 (begin
    (define GLX_EXT_swap_control (gl:QueryExtension "GLX_EXT_swap_control"))

@@ -1,29 +1,32 @@
-; ===========================================================================
-; ARB_texture_env_add                                (included in OpenGL 1.3)
-;
-;	https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_env_add.txt
+; https://registry.khronos.org/OpenGL/extensions/ARB/ARB_texture_env_add.txt
+
+; ARB_texture_env_add                               (included in OpenGL 1.3)
 ;
 ; Version
+;  Last Modified Date: June 22, 2000
+;  Author Revision: 0.3
+;  Based on:  EXT_texture_env_add
+;             Date: 1999/03/22 Revision: 1.1
 ;
-; Overview
-;
+; Number
+;  ARB Extension #6
+
 (define-library (OpenGL ARB texture_env_add)
 
 (import (scheme core)
    (OpenGL platform))
 
-; ---------------------------------------------------------------------------
-; Dependencies
-;  None
+(export  ARB_texture_env_add
 
-; ---------------------------------------------------------------------------
-(export ARB_texture_env_add
-
-; ---------------------------------------------------------------------------
+; ----------------------------
 ; New Procedures and Functions
+;
+;  none
 
-; ---------------------------------------------------------------------------
+; ----------
 ; New Tokens
+;
+;  GL_ADD
 
 )
 

@@ -43,8 +43,8 @@
 ; --------------------------------------------------------------------------
 (begin
    (define ARB_occlusion_query (gl:QueryExtension "GL_ARB_occlusion_query"))
-   (setq GL gl:GetProcAddress)
 
+   (setq GL gl:GetProcAddress)
    (define glGenQueries (GL GLvoid "GenQueriesARB" GLsizei GLuint*))
    (define glDeleteQueries (GL GLvoid "DeleteQueriesARB" GLsizei GLuint*))
    (define glIsQuery (GL GLboolean "IsQueryARB" GLuint))

@@ -81,25 +81,12 @@
 )
 
 (import (only (OpenGL 1.1) GL_DOUBLE))
+;OpenGL 3.2 and GLSL 1.50 are required.
 ; --------------------------------------------------------------------------
 (begin
    (define ARB_gpu_shader_fp64 (gl:QueryExtension "GL_ARB_gpu_shader_fp64"))
+
    (setq GL gl:GetProcAddress)
-
-   (define GL_DOUBLE        GL_DOUBLE)
-   (define GL_DOUBLE_VEC2      #x8FFC)
-   (define GL_DOUBLE_VEC3      #x8FFD)
-   (define GL_DOUBLE_VEC4      #x8FFE)
-   (define GL_DOUBLE_MAT2      #x8F46)
-   (define GL_DOUBLE_MAT3      #x8F47)
-   (define GL_DOUBLE_MAT4      #x8F48)
-   (define GL_DOUBLE_MAT2x3    #x8F49)
-   (define GL_DOUBLE_MAT2x4    #x8F4A)
-   (define GL_DOUBLE_MAT3x2    #x8F4B)
-   (define GL_DOUBLE_MAT3x4    #x8F4C)
-   (define GL_DOUBLE_MAT4x2    #x8F4D)
-   (define GL_DOUBLE_MAT4x3    #x8F4E)
-
    ;; void Uniform1d(int location, double x);
    ;; void Uniform2d(int location, double x, double y);
    ;; void Uniform3d(int location, double x, double y, double z);
@@ -142,5 +129,19 @@
    ;; void ProgramUniformMatrix3x4dvEXT(uint program, int location, sizei count, boolean transpose, const double *value);
    ;; void ProgramUniformMatrix4x2dvEXT(uint program, int location, sizei count, boolean transpose, const double *value);
    ;; void ProgramUniformMatrix4x3dvEXT(uint program, int location, sizei count, boolean transpose, const double *value);
+
+   (define GL_DOUBLE        GL_DOUBLE)
+   (define GL_DOUBLE_VEC2      #x8FFC)
+   (define GL_DOUBLE_VEC3      #x8FFD)
+   (define GL_DOUBLE_VEC4      #x8FFE)
+   (define GL_DOUBLE_MAT2      #x8F46)
+   (define GL_DOUBLE_MAT3      #x8F47)
+   (define GL_DOUBLE_MAT4      #x8F48)
+   (define GL_DOUBLE_MAT2x3    #x8F49)
+   (define GL_DOUBLE_MAT2x4    #x8F4A)
+   (define GL_DOUBLE_MAT3x2    #x8F4B)
+   (define GL_DOUBLE_MAT3x4    #x8F4C)
+   (define GL_DOUBLE_MAT4x2    #x8F4D)
+   (define GL_DOUBLE_MAT4x3    #x8F4E)
 
 ))

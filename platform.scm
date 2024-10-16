@@ -76,13 +76,6 @@
 
          (setq GL2 GL_LIBRARY)
          (setq GetProcAddress (GL2 type-vptr "gl2GetProcAddress" type-string)) ))
-
-         ;; (setq GL2 (dlopen "libgl2es.so"))
-         ;; (print "GL2: " GL2)
-         ;; (print "GetProcAddress: " GetProcAddress)
-         ;; ;; ))
-         ;; (define (GetProcAddress name)
-         ;;    (dlsym GL2 (string-append name))) ))
    ; -=( WebGL )=-----------
    (Emscripten
       (begin
@@ -223,6 +216,11 @@
 
 ; public interface
 (begin
+   (define atty? (syscall 16 stderr 19)) ; isatty
+   (define gray  (if atty? "\e[0;30m" ""))
+   (define red   (if atty? "\e[0;31m" ""))
+   (define green (if atty? "\e[0;32m" ""))
+   (define end   (if atty? "\e[0;0m"  ""))
 
    (define (gl:GetProcAddress type name . prototype)
       (let ((rtti (cons type prototype))
@@ -245,7 +243,7 @@
                ; if no extensions - use empty string:
                ""))))
          (if (member extension extensions)
-            (begin (print-to stderr "ok.") #true)
-            (begin (print-to stderr "not found.") #false))))
+            (begin (print-to stderr green "ok." end) #true)
+            (begin (print-to stderr red "not found." end) #false))))
 
 ))

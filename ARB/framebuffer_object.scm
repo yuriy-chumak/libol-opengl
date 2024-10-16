@@ -28,38 +28,35 @@
 ; ----------------------------
 ; New Procedures and Functions
 ;
-   glIsRenderbuffer ;boolean (uint renderbuffer);
-   glBindRenderbuffer ;void (enum target, uint renderbuffer);
-   glDeleteRenderbuffers ;void (sizei n, const uint *renderbuffers);
-   glGenRenderbuffers ;void (sizei n, uint *renderbuffers);
+   glIsRenderbuffer
+   glBindRenderbuffer
+   glDeleteRenderbuffers
+   glGenRenderbuffers
 
-   glRenderbufferStorage ;void (enum target, enum internalformat, sizei width, sizei height);
+   glRenderbufferStorage
 
-   glRenderbufferStorageMultisample ;void (enum target, sizei samples, enum internalformat, sizei width, sizei height);
+   glRenderbufferStorageMultisample
 
-   glGetRenderbufferParameteriv ;void (enum target, enum pname, int *params);
+   glGetRenderbufferParameteriv
 
-   glIsFramebuffer ;boolean (uint framebuffer);
-   glBindFramebuffer ;void (enum target, uint framebuffer);
-   glDeleteFramebuffers ;void (sizei n, const uint *framebuffers);
-   glGenFramebuffers ;void (sizei n, uint *framebuffers);
+   glIsFramebuffer
+   glBindFramebuffer
+   glDeleteFramebuffers
+   glGenFramebuffers
 
-   glCheckFramebufferStatus ;enum (enum target);
+   glCheckFramebufferStatus
 
-   glFramebufferTexture1D ;void (enum target, enum attachment, enum textarget, uint texture, int level);
-   glFramebufferTexture2D ;void (enum target, enum attachment, enum textarget, uint texture, int level);
-   glFramebufferTexture3D ;void (enum target, enum attachment, enum textarget, uint texture, int level, int layer);
-   glFramebufferTextureLayer ;void (enum target,enum attachment, uint texture,int level,int layer);
+   glFramebufferTexture1D
+   glFramebufferTexture2D
+   glFramebufferTexture3D
+   glFramebufferTextureLayer
 
-   glFramebufferRenderbuffer ;void (enum target, enum attachment, enum renderbuffertarget, uint renderbuffer);
+   glFramebufferRenderbuffer
 
-   glGetFramebufferAttachmentParameteriv ;void (enum target, enum attachment, enum pname, int *params);
+   glGetFramebufferAttachmentParameteriv
 
-   glBlitFramebuffer ;void (int srcX0, int srcY0, int srcX1, int srcY1,
-                            ;int dstX0, int dstY0, int dstX1, int dstY1,
-                            ;bitfield mask, enum filter);
-
-   glGenerateMipmap ;void (enum target);
+   glBlitFramebuffer
+   glGenerateMipmap
 
 ; ----------
 ; New Tokens
@@ -191,8 +188,8 @@
 ; --------------------------------------------------------------------------------
 (begin
    (define ARB_framebuffer_object (gl:QueryExtension "GL_ARB_framebuffer_object"))
-   (setq GL gl:GetProcAddress)
 
+   (setq GL gl:GetProcAddress)
    (define glIsRenderbuffer (GL GLboolean "glIsRenderbuffer" GLuint))
    (define glBindRenderbuffer (GL GLvoid "glBindRenderbuffer" GLenum GLuint))
    (define glDeleteRenderbuffers (GL GLvoid "glDeleteRenderbuffers" GLsizei GLuint*))
@@ -252,36 +249,36 @@
    (define GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE             #x8215)
    (define GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE             #x8216)
    (define GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE           #x8217)
-   (define GL_SRGB                                          #x8C40)
-   (define GL_UNSIGNED_NORMALIZED                           #x8C17)
-   (define GL_FRAMEBUFFER_DEFAULT                           #x8218)
-   (define GL_INDEX                                         #x8222)
-   (define GL_COLOR_ATTACHMENT0         #x8CE0)
-   (define GL_COLOR_ATTACHMENT1         #x8CE1)
-   (define GL_COLOR_ATTACHMENT2         #x8CE2)
-   (define GL_COLOR_ATTACHMENT3         #x8CE3)
-   (define GL_COLOR_ATTACHMENT4         #x8CE4)
-   (define GL_COLOR_ATTACHMENT5         #x8CE5)
-   (define GL_COLOR_ATTACHMENT6         #x8CE6)
-   (define GL_COLOR_ATTACHMENT7         #x8CE7)
-   (define GL_COLOR_ATTACHMENT8         #x8CE8)
-   (define GL_COLOR_ATTACHMENT9         #x8CE9)
-   (define GL_COLOR_ATTACHMENT10        #x8CEA)
-   (define GL_COLOR_ATTACHMENT11        #x8CEB)
-   (define GL_COLOR_ATTACHMENT12        #x8CEC)
-   (define GL_COLOR_ATTACHMENT13        #x8CED)
-   (define GL_COLOR_ATTACHMENT14        #x8CEE)
-   (define GL_COLOR_ATTACHMENT15        #x8CEF)
-   (define GL_DEPTH_ATTACHMENT          #x8D00)
-   (define GL_STENCIL_ATTACHMENT        #x8D20)
-   (define GL_DEPTH_STENCIL_ATTACHMENT  #x821A)
-   (define GL_MAX_SAMPLES               #x8D57)
-   (define GL_FRAMEBUFFER_BINDING       #x8CA6) ; alias DRAW_FRAMEBUFFER_BINDING
-   (define GL_DRAW_FRAMEBUFFER_BINDING  #x8CA6)
-   (define GL_READ_FRAMEBUFFER_BINDING  #x8CAA)
-   (define GL_RENDERBUFFER_BINDING      #x8CA7)
-   (define GL_MAX_COLOR_ATTACHMENTS     #x8CDF)
-   (define GL_MAX_RENDERBUFFER_SIZE     #x84E8)
+   (define GL_SRGB                          #x8C40)
+   (define GL_UNSIGNED_NORMALIZED           #x8C17)
+   (define GL_FRAMEBUFFER_DEFAULT           #x8218)
+   (define GL_INDEX                         #x8222)
+   (define GL_COLOR_ATTACHMENT0             #x8CE0)
+   (define GL_COLOR_ATTACHMENT1             #x8CE1)
+   (define GL_COLOR_ATTACHMENT2             #x8CE2)
+   (define GL_COLOR_ATTACHMENT3             #x8CE3)
+   (define GL_COLOR_ATTACHMENT4             #x8CE4)
+   (define GL_COLOR_ATTACHMENT5             #x8CE5)
+   (define GL_COLOR_ATTACHMENT6             #x8CE6)
+   (define GL_COLOR_ATTACHMENT7             #x8CE7)
+   (define GL_COLOR_ATTACHMENT8             #x8CE8)
+   (define GL_COLOR_ATTACHMENT9             #x8CE9)
+   (define GL_COLOR_ATTACHMENT10            #x8CEA)
+   (define GL_COLOR_ATTACHMENT11            #x8CEB)
+   (define GL_COLOR_ATTACHMENT12            #x8CEC)
+   (define GL_COLOR_ATTACHMENT13            #x8CED)
+   (define GL_COLOR_ATTACHMENT14            #x8CEE)
+   (define GL_COLOR_ATTACHMENT15            #x8CEF)
+   (define GL_DEPTH_ATTACHMENT              #x8D00)
+   (define GL_STENCIL_ATTACHMENT            #x8D20)
+   (define GL_DEPTH_STENCIL_ATTACHMENT      #x821A)
+   (define GL_MAX_SAMPLES                   #x8D57)
+   (define GL_FRAMEBUFFER_BINDING           #x8CA6) ; alias DRAW_FRAMEBUFFER_BINDING
+   (define GL_DRAW_FRAMEBUFFER_BINDING      #x8CA6)
+   (define GL_READ_FRAMEBUFFER_BINDING      #x8CAA)
+   (define GL_RENDERBUFFER_BINDING          #x8CA7)
+   (define GL_MAX_COLOR_ATTACHMENTS         #x8CDF)
+   (define GL_MAX_RENDERBUFFER_SIZE         #x84E8)
    (define GL_FRAMEBUFFER_COMPLETE                       #x8CD5)
    (define GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT          #x8CD6)
    (define GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT  #x8CD7)
@@ -290,10 +287,10 @@
    (define GL_FRAMEBUFFER_UNSUPPORTED                    #x8CDD)
    (define GL_FRAMEBUFFER_INCOMPLETE_MULTISAMPLE         #x8D56)
    (define GL_FRAMEBUFFER_UNDEFINED                      #x8219)
-   (define GL_INVALID_FRAMEBUFFER_OPERATION  #x0506)
-   (define GL_DEPTH_STENCIL                  #x84F9)
-   (define GL_UNSIGNED_INT_24_8              #x84FA)
-   (define GL_DEPTH24_STENCIL8               #x88F0)
-   (define GL_TEXTURE_STENCIL_SIZE           #x88F1)
+   (define GL_INVALID_FRAMEBUFFER_OPERATION #x0506)
+   (define GL_DEPTH_STENCIL                 #x84F9)
+   (define GL_UNSIGNED_INT_24_8             #x84FA)
+   (define GL_DEPTH24_STENCIL8              #x88F0)
+   (define GL_TEXTURE_STENCIL_SIZE          #x88F1)
 
 ))

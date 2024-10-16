@@ -117,8 +117,8 @@
 ; ------------------------------------------------------------------------
 (begin
    (define ARB_shader_objects (gl:QueryExtension "GL_ARB_shader_objects"))
-   (setq GL gl:GetProcAddress)
 
+   (setq GL gl:GetProcAddress)
    (define GLchar* type-string)
    (define GLchar** (fft* GLchar*))
    (define GLhandle type-vptr)
@@ -217,14 +217,15 @@
    (define (gl:compile-shader shader sources)
       (glShaderSource shader (length sources) sources #false)
       (glCompileShader shader)
-      (let ((isCompiled (list 0)))
+      (let ((isCompiled (box 0)))
          (glGetObjectParameteriv shader GL_OBJECT_COMPILE_STATUS isCompiled)
 
-         (if (eq? (car isCompiled) 0)
-            (let*((maxLength (list 0))
+         (if (eq? (unbox isCompiled) 0)
+            (let*((maxLength (box 0))
                   (_ (glGetObjectParameteriv shader GL_OBJECT_INFO_LOG_LENGTH maxLength))
                   (maxLengthValue (unbox maxLength))
                   (errorLog (make-bytevector maxLengthValue 0))
                   (_ (glGetInfoLog shader maxLengthValue maxLength errorLog)))
                (raise (utf8->string errorLog))))))
+
 ))

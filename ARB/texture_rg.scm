@@ -1,27 +1,27 @@
-; ===========================================================================
-; ARB_texture_rg                                     (included in OpenGL 3.0)
-;
-;	https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_rg.txt
+; https://registry.khronos.org/OpenGL/extensions/ARB/ARB_texture_rg.txt
+
+; ARB_texture_rg                               (included in OpenGL 3.0)
 ;
 ; Version
+;  Last Modified Date: May 28, 2009
+;  Author Revision: 6
 ;
-; Overview
-;
+; Number
+;  ARB Extension #53
+
 (define-library (OpenGL ARB texture_rg)
 
-; ---------------------------------------------------------------------------
-; Dependencies
-(import (scheme core) (OpenGL platform))
+(import (scheme core)
+   (OpenGL platform))
 
-; ---------------------------------------------------------------------------
-(export ARB_texture_rg
+(export  ARB_texture_rg
 
-; ---------------------------------------------------------------------------
+; ----------------------------
 ; New Procedures and Functions
+;
+;  none
 
-   ;None
-
-; ---------------------------------------------------------------------------
+; ----------
 ; New Tokens
 
 ;; Accepted by the <internalFormat> parameter of TexImage1D, TexImage2D,
@@ -80,7 +80,7 @@
    GL_RG_INTEGER
 )
 
-; ---------------------------------------------------------------------------
+; ----------------------------------------------------------------
 (begin
    (define ARB_texture_rg (gl:QueryExtension "GL_ARB_texture_rg"))
 

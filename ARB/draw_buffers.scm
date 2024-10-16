@@ -46,8 +46,8 @@
 ; --------------------------------------------------------------------
 (begin
    (define ARB_draw_buffers (gl:QueryExtension "GL_ARB_draw_buffers"))
-   (setq GL gl:GetProcAddress)
 
+   (setq GL gl:GetProcAddress)
    (define glDrawBuffers (GL GLvoid "glDrawBuffers" GLsizei (fft* GLenum)))
 
    (define GL_MAX_DRAW_BUFFERS  #x8824)

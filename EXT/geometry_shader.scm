@@ -1,41 +1,34 @@
-; ===========================================================================
+; https://registry.khronos.org/OpenGL/extensions/EXT/EXT_geometry_shader.txt
+
 ; EXT_geometry_shader
 ;
-;    A new shader type available to be run on the GPU, called a geometry shader.
-;
-;    https://registry.khronos.org/OpenGL/extensions/EXT/EXT_geometry_shader.txt
-;
 ; Version
-;    Last Modified Date: May 31, 2016
-;    Revision: 21
+;  Last Modified Date: May 31, 2016
+;  Revision: 21
 ;
 ; Number
-;    OpenGL ES Extension #177
+;  OpenGL ES Extension #177
 ;
 ; Overview
-;    EXT_geometry_shader defines a new shader type available to be run on the
-;    GPU, called a geometry shader. Geometry shaders are run after vertices are
-;    transformed, but prior to color clamping, flatshading and clipping.
-(define-library (OpenGL EXT geometry_shader)
+;  EXT_geometry_shader defines a new shader type available to be run on the
+;  GPU, called a geometry shader. Geometry shaders are run after vertices are
+;  transformed, but prior to color clamping, flatshading and clipping.
 
-; ---------------------------------------------------------------------------
-; Dependencies
-;    OpenGL ES 3.1 and OpenGL ES Shading Language 3.10 are required.
+(define-library (OpenGL EXT geometry_shader)
 
 (import (scheme core)
         (OpenGL platform))
 
-; ---------------------------------------------------------------------------
-(export EXT_geometry_shader
+(export  EXT_geometry_shader
 
-; ---------------------------------------------------------------------------
+; ----------------------------
 ; New Procedures and Functions
-
+;
    glFramebufferTexture
 
-; ---------------------------------------------------------------------------
+; ----------
 ; New Tokens
-
+;
    GL_GEOMETRY_SHADER
    GL_GEOMETRY_SHADER_BIT
 
@@ -123,4 +116,5 @@
    (define GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS        #x8DA8)
    (define GL_FRAMEBUFFER_ATTACHMENT_LAYERED              #x8DA7)
    (define GL_REFERENCED_BY_GEOMETRY_SHADER               #x9309)
+
 ))

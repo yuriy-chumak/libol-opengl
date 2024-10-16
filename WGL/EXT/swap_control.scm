@@ -1,6 +1,6 @@
 ; https://registry.khronos.org/OpenGL/extensions/EXT/WGL_EXT_swap_control.txt
 
-; WGL_EXT_swap_control
+; EXT_swap_control
 ;
 ; Version
 ;  Date: 9/23/1999   Revision: 1.5
@@ -13,7 +13,7 @@
 (import (scheme core)
    (OpenGL platform))
 
-(export  WGL_EXT_swap_control
+(export  EXT_swap_control
 
 ; ----------------------------
 ; New Procedures and Functions
@@ -29,7 +29,7 @@
 
 ; -------------------------------------------------------------------------
 (begin
-   (define WGL_EXT_swap_control (gl:QueryExtension "WGL_EXT_swap_control"))
+   (define EXT_swap_control (gl:QueryExtension "WGL_EXT_swap_control"))
    (setq GL gl:GetProcAddress)
 
    (setq BOOL fft-int)

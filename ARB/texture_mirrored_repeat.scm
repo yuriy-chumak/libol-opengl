@@ -1,36 +1,36 @@
-; ===========================================================================
-; ARB_texture_mirrored_repeat                        (included in OpenGL 1.4)
-;
-;	https://www.khronos.org/registry/OpenGL/extensions/ARB/ARB_texture_mirrored_repeat.txt
+; https://registry.khronos.org/OpenGL/extensions/ARB/ARB_texture_mirrored_repeat.txt
+
+; ARB_texture_mirrored_repeat                               (included in OpenGL 1.4)
 ;
 ; Version
+;  Last modified date: 2001/09/20
 ;
-; Overview
-;
+; Number
+;  ARB Extension #21
+
 (define-library (OpenGL ARB texture_mirrored_repeat)
 
 (import (scheme core)
    (OpenGL platform))
 
-; ---------------------------------------------------------------------------
-; Dependencies
+(export  ARB_texture_mirrored_repeat
+
+; ----------------------------
+; New Procedures and Functions
+;
+;  none
+
+; ----------
+; New Tokens
 ;
 
-; ---------------------------------------------------------------------------
-(export ARB_texture_mirrored_repeat
-
-; ---------------------------------------------------------------------------
-; New Procedures and Functions
-
-; ---------------------------------------------------------------------------
-; New Tokens
-
-   GL_MIRRORED_REPEAT_ARB
+   GL_MIRRORED_REPEAT
 )
 
-; ---------------------------------------------------------------------------
+; ------------------------------------------------------------------------------------------
 (begin
    (define ARB_texture_mirrored_repeat (gl:QueryExtension "GL_ARB_texture_mirrored_repeat"))
 
-   (define GL_MIRRORED_REPEAT_ARB                    #x8370)
+   (define GL_MIRRORED_REPEAT                    #x8370)
+
 ))

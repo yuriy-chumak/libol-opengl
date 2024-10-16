@@ -36,8 +36,8 @@
 ; ---------------------------------------------------------------------------
 (begin
    (define ARB_point_parameters (gl:QueryExtension "GL_ARB_point_parameters"))
-   (setq GL gl:GetProcAddress)
 
+   (setq GL gl:GetProcAddress)
    (define glPointParameterf (GL GLvoid "glPointParameterfARB" GLenum GLfloat))
    (define glPointParameterfv (GL GLvoid "glPointParameterfvARB" GLenum GLfloat*))
 
