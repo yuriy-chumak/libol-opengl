@@ -124,7 +124,7 @@
    (define glIsFramebuffer (GL GLboolean "glIsFramebufferEXT" GLuint))
    (define glBindFramebuffer (GL GLvoid "glBindFramebufferEXT" GLenum GLuint))
    (define glDeleteFramebuffers (GL GLvoid "glDeleteFramebuffersEXT" GLsizei GLuint*))
-   (define glGenFramebuffers (GL GLvoid "glGenFramebuffersEXT" GLsizei GLuint*))
+   (define glGenFramebuffers (GL GLvoid "glGenFramebuffersEXT" GLsizei GLuint&))
 
    (define glCheckFramebufferStatus (GL GLenum "glCheckFramebufferStatusEXT" GLenum))
 

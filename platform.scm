@@ -157,9 +157,9 @@
    (define GLdouble fft-double)
    (define GLclampd fft-double)
 
-   (define GLubyte* type-string) ; todo: ?
+   (define GLubyte* type-string)
 
-   ; pointers
+   ; -- pointers
    (define GLboolean* (fft* GLboolean))
    (define GLenum*    (fft* GLenum))
    (define GLbyte*    (fft* GLbyte))
@@ -171,19 +171,19 @@
    (define GLdouble*  (fft* GLdouble))
    (define GLsizei*   (fft* GLsizei))
 
-   ; references
+   ; -- references
    (define GLint&     (fft& GLint))
    (define GLuint&    (fft& GLuint))
    ; -------------------------------------------------------------------------
 
    ; Strings GL_VENDOR and GL_RENDERER together uniquely specify a platform.
-   ; They do not change from release to release and    ; should be used by platform-recognition algorithms.
+   ; They do not change from release to release and should be used by platform-recognition algorithms.
    (define GL_VENDOR     #x1F00)
    (define GL_RENDERER   #x1F01)
    (define GL_VERSION    #x1F02)
    (define GL_EXTENSIONS #x1F03)
 
-   ; Some basic functions
+   ; Minimal required GL function set
    (define glGetString (GL type-string "glGetString" fft-unsigned-int))
    (define glHint (GL fft-void "glHint" GLenum GLenum))
    (define glViewport (GL GLvoid "glViewport" GLint GLint GLsizei GLsizei))
@@ -230,8 +230,6 @@
                (ffi function rtti args)))))
 
    (define (gl:QueryExtension extension)
-      (display-to stderr (string-append
-         "Checking " extension " support... "))
       (let ((extensions (c/ / (or ; split by space character
                (cond
                   ; GLX, Linux
@@ -243,7 +241,7 @@
                ; if no extensions - use empty string:
                ""))))
          (if (member extension extensions)
-            (begin (print-to stderr green "ok." end) #true)
-            (begin (print-to stderr red "not found." end) #false))))
+            (begin (print-to stderr "Checking " extension " support... " green "ok." end) #true)
+            (begin (print-to stderr "Checking " extension " support... " red "not found." end) #false))))
 
 ))
