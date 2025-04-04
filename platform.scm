@@ -81,7 +81,6 @@
       (begin
          (setq GL_LIBRARY
             (load-dynamic-library #false))
-         (print "GL_LIBRARY: " GL_LIBRARY)
 
 ;;          ;; old gl4es hack: add "gl4es_" prefix to all opengl functions
 ;;          (define (GL_LIBRARY type name . prototype)
@@ -121,13 +120,6 @@
 ;;             (runtime-error "SwapBuffers is not supported, use libSDL instead" #null))
 ;;    ))
 
-   ; -=( Unknown )=--
-   ;"HP-UX"
-   ;"SunOS"
-   ;"FreeBSD"
-   ;"CYGWIN_NT-5.2-WOW64"
-   ;"MINGW32_NT-5.2"
-   ;...
    (else (begin
       (runtime-error "Unsupported platform" (uname)))))
 

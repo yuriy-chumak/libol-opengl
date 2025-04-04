@@ -197,8 +197,10 @@
    (define GL_GENERATE_MIPMAP_HINT     #x8192)
 
  ; G.2 NV_blend_square
+   ; None
 
  ; G.3 The subset of blending features
+   ; None
 
  ; G.4 ARB_depth_texture, ARB_shadow
    (define GL_DEPTH_COMPONENT16        #x81A5)

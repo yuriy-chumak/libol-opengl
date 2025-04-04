@@ -7,7 +7,17 @@
 ;  + SGIS texture_edge_clamp
 ;  + SGIS texture_lod
 ;  + EXT draw_range_elements
+; optional Imaging Subset:
+;  * EXT color_table
+;  * EXT color_subtable
+;  * EXT convolution
+;  * HP convolution_border_modes
+;  * EXT histogram
+;  * EXT blend_color
+;  * EXT blend_minmax
+;  * EXT blend_subtract
 ; OpenGL 1.2.1 (14 Oct 1998)
+;  + SGIS multitexture
 
 (define-library (OpenGL 1.2)
 (export
