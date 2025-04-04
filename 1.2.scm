@@ -32,9 +32,6 @@
    GL_ALIASED_LINE_WIDTH_RANGE
    GL_ALIASED_POINT_SIZE_RANGE ; GL_VERSION_1_2_DEPRECATED
 
-   glBlendColor
-   glBlendEquation
-
    glTexSubImage3D ; introduced back by 1.2 (removed by 1.1)
    glCopyTexSubImage3D ; introduced back by 1.2 (removed by 1.1)
 
@@ -112,9 +109,6 @@
    (define GL_SMOOTH_LINE_WIDTH_GRANULARITY  #x0B23)
    (define GL_ALIASED_LINE_WIDTH_RANGE       #x846E)
    (define GL_ALIASED_POINT_SIZE_RANGE       #x846D)
-
-   (define glBlendColor (GL GLvoid "glBlendColor" GLclampf GLclampf GLclampf GLclampf))
-   (define glBlendEquation (GL GLvoid "glBlendEquation" GLenum))
 
    ; introduced back by 1.2 (excluded in 1.1)
    (define glTexSubImage3D (GL GLvoid "glTexSubImage3D" GLenum GLint GLint GLint GLint GLsizei GLsizei GLsizei GLenum GLenum fft-any))

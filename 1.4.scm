@@ -1,7 +1,7 @@
 ; OpenGL 1.4 (24 Jul 2002)
 ;  + SGIS generate_mipmap
 ;  + NV blend_square
-;  + The subset of blending features
+;  + Changes to the Imaging Subset
 ;  + ARB depth_texture, ARB shadow
 ;  + EXT fog_coord
 ;  + EXT multi_draw_arrays
@@ -14,9 +14,11 @@
 ;  + ARB texture_mirrored_repeat
 ;  + ARB window_pos
 
-; ?? EXT_blend_color
-; ?? EXT_blend_subtract
-; ?? EXT_blend_minmax
+; 1.2 compatibility
+;    (promoted from ARB_imaging subset to core)
+;  + EXT blend_color
+;  + EXT blend_minmax
+;  + EXT blend_subtract
 
 (define-library (OpenGL 1.4)
 (export
@@ -24,17 +26,24 @@
 
    GL_VERSION_1_4
 
+   ; 1.2 EXT_blend_color
    GL_BLEND_COLOR
-   GL_BLEND_EQUATION
    GL_CONSTANT_COLOR
    GL_ONE_MINUS_CONSTANT_COLOR
    GL_CONSTANT_ALPHA
    GL_ONE_MINUS_CONSTANT_ALPHA
+   glBlendColor
+
+   ; 1.2 EXT_blend_minmax
+   GL_BLEND_EQUATION
    GL_FUNC_ADD
-   GL_FUNC_REVERSE_SUBTRACT
-   GL_FUNC_SUBTRACT
    GL_MIN
    GL_MAX
+   glBlendEquation
+
+   ; 1.2 EXT_blend_subtract
+   GL_FUNC_REVERSE_SUBTRACT
+   GL_FUNC_SUBTRACT
 
 ;; G.1 SGIS_generate_mipmap
    GL_GENERATE_MIPMAP
@@ -166,17 +175,22 @@
 
    (setq GL gl:GetProcAddress)
 
+   ; version 1.2 compatibility fix layer
    (define GL_BLEND_COLOR              #x8005)
-   (define GL_BLEND_EQUATION           #x8009)
    (define GL_CONSTANT_COLOR           #x8001)
    (define GL_ONE_MINUS_CONSTANT_COLOR #x8002)
    (define GL_CONSTANT_ALPHA           #x8003)
    (define GL_ONE_MINUS_CONSTANT_ALPHA #x8004)
+   (define glBlendColor (GL GLvoid "glBlendColor" GLclampf GLclampf GLclampf GLclampf))
+
+   (define GL_BLEND_EQUATION           #x8009)
    (define GL_FUNC_ADD                 #x8006)
-   (define GL_FUNC_REVERSE_SUBTRACT    #x800B)
-   (define GL_FUNC_SUBTRACT            #x800A)
    (define GL_MIN                      #x8007)
    (define GL_MAX                      #x8008)
+   (define glBlendEquation (GL GLvoid "glBlendEquation" GLenum))
+
+   (define GL_FUNC_REVERSE_SUBTRACT    #x800B)
+   (define GL_FUNC_SUBTRACT            #x800A)
 
  ; G.1 SGIS_generate_mipmap
    (define GL_GENERATE_MIPMAP          #x8191)
