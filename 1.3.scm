@@ -191,7 +191,7 @@
 (begin
    (define GL_VERSION_1_3 1)
 
-   (setq GL GL_LIBRARY)
+   (setq GL gl:GetProcAddress)
 
  ; F.1 ARB_texture_compression
    (define glCompressedTexImage3D (GL GLvoid "glCompressedTexImage3D" GLenum GLint GLenum GLsizei GLsizei GLsizei GLint GLsizei fft-any))

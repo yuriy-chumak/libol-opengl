@@ -95,7 +95,7 @@
    (define GL_VERSION_1_2 1)
    (define GL_VERSION_1_2_1 1)
 
-   (setq GL GL_LIBRARY)
+   (setq GL gl:GetProcAddress)
 
    (define GL_TEXTURE_BINDING_3D             #x806A)
 

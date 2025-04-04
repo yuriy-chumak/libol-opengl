@@ -164,7 +164,7 @@
 (begin
    (define GL_VERSION_1_4 1)
 
-   (setq GL GL_LIBRARY)
+   (setq GL gl:GetProcAddress)
 
    (define GL_BLEND_COLOR              #x8005)
    (define GL_BLEND_EQUATION           #x8009)
