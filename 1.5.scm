@@ -74,6 +74,7 @@
    glGetQueryObjectuiv
 
 ;; H.3 EXT_shadow_funcs
+   ; None
 
 ;; H.4 Changed Tokens
    GL_FOG_COORD_SRC

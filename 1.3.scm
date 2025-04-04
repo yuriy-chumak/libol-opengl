@@ -318,6 +318,8 @@
    (define GL_TEXTURE31                       #x84DF)
 
  ; F.5 ARB_texture_env_add
+   ; None
+
  ; F.6 ARB_texture_env_combine
    (define GL_COMBINE_RGB                     #x8571)
    (define GL_COMBINE_ALPHA                   #x8572)

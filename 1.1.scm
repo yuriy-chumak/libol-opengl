@@ -176,10 +176,10 @@
    glCopyTexImage2D ; ...
    glCopyTexSubImage1D
    glCopyTexSubImage2D
-;  glCopyTexSubImage3D ; excluded by 1.1 (btw, introduced back by 1.2)
+;  glCopyTexSubImage3D ; excluded by 1.1 (btw, introduced back in 1.2)
    glTexSubImage1D
    glTexSubImage2D
-;  glTexSubImage3D     ; excluded by 1.1 (btw, introduced back by 1.2)
+;  glTexSubImage3D     ; excluded by 1.1 (btw, introduced back in 1.2)
 
 
 ;; C.8 EXT_texture_object
