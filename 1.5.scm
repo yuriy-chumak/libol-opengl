@@ -24,7 +24,6 @@
    glGetBufferParameteriv
    glGetBufferPointerv
 
-   GLX_CONTEXT_ALLOW_BUFFER_BYTE_ORDER_MISMATCH
    GL_ARRAY_BUFFER
    GL_ELEMENT_ARRAY_BUFFER
    GL_ARRAY_BUFFER_BINDING
@@ -119,7 +118,6 @@
    (define glGetBufferParameteriv (GL GLvoid "glGetBufferParameteriv" GLenum GLenum GLint*))
    (define glGetBufferPointerv (GL GLvoid "glGetBufferPointerv" GLenum GLenum fft-any))
 
-   (define GLX_CONTEXT_ALLOW_BUFFER_BYTE_ORDER_MISMATCH #x2095)
    (define GL_ARRAY_BUFFER                              #x8892)
    (define GL_ELEMENT_ARRAY_BUFFER                      #x8893)
    (define GL_ARRAY_BUFFER_BINDING                      #x8894)
