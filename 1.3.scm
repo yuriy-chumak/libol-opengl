@@ -6,6 +6,7 @@
 ;  + ARB texture_env_add
 ;  + ARB texture_env_combine
 ;  + ARB texture_env_dot3
+;  + ARB texture_border_clamp
 ;  + ARB transpose_matrix
 
 (define-library (OpenGL 1.3)
@@ -165,11 +166,11 @@
    GL_PREVIOUS
 
 ;; F.7 ARB_texture_env_dot3
-   GL_DOT3_RGB_ARB
-   GL_DOT3_RGBA_ARB
+   GL_DOT3_RGB
+   GL_DOT3_RGBA
 
 ;; F.8 ARB_texture_border_clamp
-   GL_CLAMP_TO_BORDER_ARB
+   GL_CLAMP_TO_BORDER
 
 ;; F.9 ARB_transpose_matrix
    glLoadTransposeMatrixf
@@ -344,11 +345,11 @@
    (define GL_PREVIOUS                        #x8578)
 
  ; F.7 ARB_texture_env_dot3
-   (define GL_DOT3_RGB_ARB                    #x86AE)
-   (define GL_DOT3_RGBA_ARB                   #x86AF)
+   (define GL_DOT3_RGB                        #x86AE)
+   (define GL_DOT3_RGBA                       #x86AF)
 
  ; F.8 ARB_texture_border_clamp
-   (define GL_CLAMP_TO_BORDER_ARB             #x812D)
+   (define GL_CLAMP_TO_BORDER                 #x812D)
 
  ; F.9 ARB_transpose_matrix
    (define glLoadTransposeMatrixf (GL GLvoid "glLoadTransposeMatrixf" (fft* fft-float)))
