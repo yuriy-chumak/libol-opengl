@@ -40,7 +40,22 @@
       ;...
 )
 
-; ============================================================================
+   ;...
+)
+
+(cond-expand
+   (GL_VERSION_1_0_DEPRECATED (import (OpenGL 1.0 deprecated)))
+   ;; GL_VERSION_1_1_DEPRECATED
+   ;; GL_VERSION_1_2_DEPRECATED
+   ;; GL_VERSION_1_3_DEPRECATED
+   ;; GL_VERSION_1_4_DEPRECATED
+   ;; GL_VERSION_1_5_DEPRECATED
+   ;; GL_VERSION_2_0_DEPRECATED
+   ;; GL_VERSION_2_1_DEPRECATED
+   ;; GL_VERSION_3_0_DEPRECATED
+
+   ;; GL_ARB_imaging_DEPRECATED
+   ;; GL_ARB_framebuffer_object_DEP; ============================================================================
 ; == implementation ==========================================================
 (import (scheme core)
         (OpenGL config)
