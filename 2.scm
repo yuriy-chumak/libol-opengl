@@ -476,7 +476,7 @@
 (cond-expand
    (Android
       ; special case (todo: think, maybe remove it)
-      (include "lib/gl-2/GL2ES.scm"))
+      (include "lib/gl-2/gl2es.lisp"))
    (else
       (begin
          (define (preprocessor source)
