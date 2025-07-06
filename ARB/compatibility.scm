@@ -14,15 +14,16 @@
    (OpenGL platform))
 
 (export  ARB_compatibility
-   (exports (OpenGL 1.0 deprecated))
-   (exports (OpenGL 1.1 deprecated))
-   (exports (OpenGL 1.2 deprecated))
-   (exports (OpenGL 1.3 deprecated))
-   (exports (OpenGL 1.4 deprecated))
-   (exports (OpenGL 1.5 deprecated))
-   (exports (OpenGL 2.0 deprecated))
-   (exports (OpenGL 2.1 deprecated))
-   (exports (OpenGL 3.0 deprecated))
+
+   (exports (OpenGL ARB compatibility 1.0))
+   (exports (OpenGL ARB compatibility 1.1))
+   (exports (OpenGL ARB compatibility 1.2))
+   (exports (OpenGL ARB compatibility 1.3))
+   (exports (OpenGL ARB compatibility 1.4))
+   (exports (OpenGL ARB compatibility 1.5))
+   (exports (OpenGL ARB compatibility 2.0))
+   (exports (OpenGL ARB compatibility 2.1))
+   (exports (OpenGL ARB compatibility 3.0))
 
 ;   (exports (OpenGL ARB imaging deprecated)) ;?
 ;   (exports (OpenGL ARB framebuffer_object deprecated)) ;?
@@ -30,16 +31,16 @@
 
 ; ----------------------------------------------------------------------
 (begin
-   (define ARB_compatibility (gl:QueryExtension "GL_ARB_compatibility"))
+   (define ARB_compatibility #true)
 
-   (import (OpenGL 1.0 deprecated))
-   (import (OpenGL 1.1 deprecated))
-   (import (OpenGL 1.2 deprecated))
-   (import (OpenGL 1.3 deprecated))
-   (import (OpenGL 1.4 deprecated))
-   (import (OpenGL 1.5 deprecated))
-   (import (OpenGL 2.0 deprecated))
-   (import (OpenGL 2.1 deprecated))
-   (import (OpenGL 3.0 deprecated))
+   (import (OpenGL ARB compatibility 1.0))
+   (import (OpenGL ARB compatibility 1.1))
+   (import (OpenGL ARB compatibility 1.2))
+   (import (OpenGL ARB compatibility 1.3))
+   (import (OpenGL ARB compatibility 1.4))
+   (import (OpenGL ARB compatibility 1.5))
+   (import (OpenGL ARB compatibility 2.0))
+   (import (OpenGL ARB compatibility 2.1))
+   (import (OpenGL ARB compatibility 3.0))
 
 ))

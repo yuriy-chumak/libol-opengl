@@ -559,9 +559,9 @@
    (define glGetStringi (gl:GetProcAddress GLubyte* "glGetStringi" GLenum GLuint))
 
 ;; /* OpenGL 3.0 also reuses entry points from these extensions: */
+;; /* ARB_vertex_array_object */
 ;; /* ARB_framebuffer_object */
 ;; /* ARB_map_buffer_range */ ??? NOT IN REGISTRY
-;; /* ARB_vertex_array_object */
 
  ; ARB_vertex_array_object
    (define GL_ARB_vertex_array_object 1)

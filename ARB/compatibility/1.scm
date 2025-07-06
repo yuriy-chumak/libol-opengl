@@ -1,5 +1,4 @@
-(define-library (OpenGL 1.0 deprecated)
-
+(define-library (OpenGL ARB compatibility 1.0)
 (import (scheme core)
    (OpenGL platform))
 
