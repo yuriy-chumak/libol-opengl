@@ -1,14 +1,14 @@
-; OpenGL 3.1 (24 Mar 2009) GLSL 1.4
-;            Is not upward compatible with earlier versions!
+; OpenGL 3.1 (24 Mar 2009), GLSL 1.4
+; Is not upward compatible with earlier versions!
 ;  * GL_ARB_compatibility
-;GL_ARB_draw_instanced
-;GL_ARB_copy_buffer
-;GL_NV_primitive_restart
-; At least 16 texture image units
-;GL_ARB_texture_buffer_object
-;GL_ARB_texture_rectangle
-;GL_ARB_uniform_buffer_object
-; Signed normalized texture component formats.
+;  * GL_ARB_draw_instanced
+;  * GL_ARB_copy_buffer
+;  * GL_NV_primitive_restart
+;  * At least 16 texture image units
+;  * GL_ARB_texture_buffer_object
+;  * GL_ARB_texture_rectangle
+;  * GL_ARB_uniform_buffer_object
+;  * Signed normalized texture component formats.
 
 ;  * SNORM texture component formats
 ;  + ARB_uniform_buffer_object
@@ -590,7 +590,7 @@
    glUniformMatrix3fv
    glUniformMatrix4fv
    glValidateProgram
-   ;; glVertexAttrib1d
+   ;; glVertexAttrib1d ; TODO
    ;; glVertexAttrib1dv
    ;; glVertexAttrib1f
    ;; glVertexAttrib1fv
@@ -1036,36 +1036,99 @@
    GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER
    GL_INVALID_INDEX
 
-   ;; glDrawArraysInstanced
-   ;; glDrawElementsInstanced
-   ;; glTexBuffer
-   ;; glPrimitiveRestartIndex
-   ;; glCopyBufferSubData
-   ;; glGetUniformIndices
-   ;; glGetActiveUniformsiv
-   ;; glGetActiveUniformName
-   ;; glGetUniformBlockIndex
-   ;; glGetActiveUniformBlockiv
-   ;; glGetActiveUniformBlockName
-   ;; glUniformBlockBinding
+   ; GL_ARB_draw_instanced
+   glDrawArraysInstanced
+   glDrawElementsInstanced
 
-; ==========================================
-; others. to check =========================
-   ;; GL_RED_SNORM
-   ;; GL_RG_SNORM
-   ;; GL_RGB_SNORM
-   ;; GL_RGBA_SNORM
-   ;; GL_R8_SNORM
-   ;; GL_RG8_SNORM
-   ;; GL_RGB8_SNORM
-   ;; GL_RGBA8_SNORM
-   ;; GL_R16_SNORM
-   ;; GL_RG16_SNORM
-   ;; GL_RGB16_SNORM
-   ;; GL_RGBA16_SNORM
-   ;; GL_SIGNED_NORMALIZED
-   ;; GL_PRIMITIVE_RESTART
-   ;; GL_PRIMITIVE_RESTART_INDEX
+   ; GL_ARB_copy_buffer
+   GL_COPY_READ_BUFFER
+   GL_COPY_WRITE_BUFFER
+   glCopyBufferSubData
+
+   ; GL_NV_primitive_restart
+   GL_PRIMITIVE_RESTART
+   GL_PRIMITIVE_RESTART_INDEX
+   glPrimitiveRestart
+   glPrimitiveRestartIndex
+
+   ; GL_ARB_texture_buffer_object
+   GL_TEXTURE_BUFFER
+   GL_MAX_TEXTURE_BUFFER_SIZE
+   GL_TEXTURE_BINDING_BUFFER
+   GL_TEXTURE_BUFFER_DATA_STORE_BINDING
+   GL_TEXTURE_BUFFER_FORMAT
+   glTexBuffer
+
+   ; GL_ARB_texture_rectangle
+   GL_TEXTURE_RECTANGLE
+   GL_TEXTURE_BINDING_RECTANGLE
+   GL_PROXY_TEXTURE_RECTANGLE
+   GL_MAX_RECTANGLE_TEXTURE_SIZE
+   GL_SAMPLER_2D_RECT
+   GL_SAMPLER_2D_RECT_SHADOW
+
+   ; GL_ARB_uniform_buffer_object
+   GL_UNIFORM_BUFFER
+   GL_UNIFORM_BUFFER_BINDING
+   GL_UNIFORM_BUFFER_START
+   GL_UNIFORM_BUFFER_SIZE
+   GL_MAX_VERTEX_UNIFORM_BLOCKS
+   GL_MAX_GEOMETRY_UNIFORM_BLOCKS
+   GL_MAX_FRAGMENT_UNIFORM_BLOCKS
+   GL_MAX_COMBINED_UNIFORM_BLOCKS
+   GL_MAX_UNIFORM_BUFFER_BINDINGS
+   GL_MAX_UNIFORM_BLOCK_SIZE
+   GL_MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS
+   GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS
+   GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS
+   GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT
+   GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH
+   GL_ACTIVE_UNIFORM_BLOCKS
+   GL_UNIFORM_TYPE
+   GL_UNIFORM_SIZE
+   GL_UNIFORM_NAME_LENGTH
+   GL_UNIFORM_BLOCK_INDEX
+   GL_UNIFORM_OFFSET
+   GL_UNIFORM_ARRAY_STRIDE
+   GL_UNIFORM_MATRIX_STRIDE
+   GL_UNIFORM_IS_ROW_MAJOR
+   GL_UNIFORM_BLOCK_BINDING
+   GL_UNIFORM_BLOCK_DATA_SIZE
+   GL_UNIFORM_BLOCK_NAME_LENGTH
+   GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS
+   GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES
+   GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER
+   GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER
+   GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER
+   GL_INVALID_INDEX
+   glGetUniformIndices
+   glGetActiveUniformsiv
+   glGetActiveUniformName
+   glGetUniformBlockIndex
+   glGetActiveUniformBlockiv
+   glGetActiveUniformBlockName
+   glBindBufferRange
+   glBindBufferBase
+   glGetIntegeri_v
+   glUniformBlockBinding
+
+   ; Signed normalized texture component formats
+   GL_RED_SNORM
+   GL_RG_SNORM
+   GL_RGB_SNORM
+   GL_RGBA_SNORM
+   GL_R8_SNORM
+   GL_RG8_SNORM
+   GL_RGB8_SNORM
+   GL_RGBA8_SNORM
+   GL_R16_SNORM
+   GL_RG16_SNORM
+   GL_RGB16_SNORM
+   GL_RGBA16_SNORM
+   GL_SIGNED_NORMALIZED
+   GL_PRIMITIVE_RESTART
+   GL_PRIMITIVE_RESTART_INDEX
+
 )
 
 ; ============================================================================
@@ -1538,9 +1601,6 @@
    (define GL_DYNAMIC_COPY                   #x88EA)
    (define GL_SAMPLES_PASSED                 #x8914)
    (define GL_SRC1_ALPHA                     #x8589)
-
-   (define GLintptr fft-signed-long) ;ptrdiff_t
-   (define GLsizeiptr fft-unsigned-long) ;ptrdiff_t
 
    (define glGenQueries (GL GLvoid "GenQueries" GLsizei GLuint*))
    (define glDeleteQueries (GL GLvoid "DeleteQueries" GLsizei GLuint*))
@@ -2159,6 +2219,100 @@
    (define GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER #x8A46)
    (define GL_INVALID_INDEX                  #xFFFFFFFF)
 
+   ; GL_ARB_draw_instanced
+   (define glDrawArraysInstanced (GL GLvoid "glDrawArraysInstanced" GLenum GLint GLsizei GLsizei))
+   (define glDrawElementsInstanced (GL GLvoid "glDrawElementsInstanced" GLenum GLsizei GLenum GLvoid* GLsizei))
+
+   ; GL_ARB_copy_buffer
+   (define GL_COPY_READ_BUFFER                    #x8F36)
+   (define GL_COPY_WRITE_BUFFER                   #x8F37)
+   (define glCopyBufferSubData (GL GLvoid "glCopyBufferSubData" GLenum GLenum GLintptr GLintptr GLsizeiptr))
+
+   ; GL_NV_primitive_restart
+   (define GL_PRIMITIVE_RESTART                           #x8558)
+   (define GL_PRIMITIVE_RESTART_INDEX                     #x8559)
+   (define glPrimitiveRestart (GL GLvoid "glPrimitiveRestartNV"))
+   (define glPrimitiveRestartIndex (GL GLvoid "glPrimitiveRestartIndexNV" GLuint))
+
+   ; GL_ARB_texture_buffer_object
+   (define GL_TEXTURE_BUFFER                              #x8C2A)
+   (define GL_MAX_TEXTURE_BUFFER_SIZE                     #x8C2B)
+   (define GL_TEXTURE_BINDING_BUFFER                      #x8C2C)
+   (define GL_TEXTURE_BUFFER_DATA_STORE_BINDING           #x8C2D)
+   (define GL_TEXTURE_BUFFER_FORMAT                       #x8C2E)
+   (define glTexBuffer (GL GLvoid "glTexBufferARB" GLenum GLenum GLuint))
+
+   ; GL_ARB_texture_rectangle
+   (define GL_TEXTURE_RECTANGLE            #x84F5)
+   (define GL_TEXTURE_BINDING_RECTANGLE    #x84F6)
+   (define GL_PROXY_TEXTURE_RECTANGLE      #x84F7)
+   (define GL_MAX_RECTANGLE_TEXTURE_SIZE   #x84F8)
+   (define GL_SAMPLER_2D_RECT              #x8B63)
+   (define GL_SAMPLER_2D_RECT_SHADOW       #x8B64)
+
+   ; GL_ARB_uniform_buffer_object
+   (define glGetUniformIndices (GL GLvoid "GetUniformIndices" GLuint GLsizei (fft* GLchar*) GLuint&))
+   (define glGetActiveUniformsiv (GL GLvoid "GetActiveUniformsiv" GLuint GLsizei GLuint* GLenum GLint&))
+   (define glGetActiveUniformName (GL GLvoid "GetActiveUniformName" GLuint GLuint GLsizei GLsizei* GLchar*))
+   (define glGetUniformBlockIndex (GL GLuint "GetUniformBlockIndex" GLuint GLchar*))
+   (define glGetActiveUniformBlockiv (GL GLvoid "GetActiveUniformBlockiv" GLuint GLuint GLenum GLint*))
+   (define glGetActiveUniformBlockName (GL GLvoid "GetActiveUniformBlockName" GLuint GLuint GLsizei GLsizei* GLchar*))
+   (define glBindBufferRange (GL GLvoid "BindBufferRange" GLenum GLuint GLuint GLintptr GLsizeiptr))
+   (define glBindBufferBase (GL GLvoid "BindBufferBase" GLenum GLuint GLuint))
+   (define glGetIntegeri_v (GL GLvoid "GetIntegeri_v" GLenum GLuint GLint*))
+   (define glUniformBlockBinding (GL GLvoid "UniformBlockBinding" GLuint GLuint GLuint))
+
+   (define GL_UNIFORM_BUFFER                                  #x8A11)
+   (define GL_UNIFORM_BUFFER_BINDING                          #x8A28)
+   (define GL_UNIFORM_BUFFER_START                            #x8A29)
+   (define GL_UNIFORM_BUFFER_SIZE                             #x8A2A)
+   (define GL_MAX_VERTEX_UNIFORM_BLOCKS                       #x8A2B)
+   (define GL_MAX_GEOMETRY_UNIFORM_BLOCKS                     #x8A2C)
+   (define GL_MAX_FRAGMENT_UNIFORM_BLOCKS                     #x8A2D)
+   (define GL_MAX_COMBINED_UNIFORM_BLOCKS                     #x8A2E)
+   (define GL_MAX_UNIFORM_BUFFER_BINDINGS                     #x8A2F)
+   (define GL_MAX_UNIFORM_BLOCK_SIZE                          #x8A30)
+   (define GL_MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS          #x8A31)
+   (define GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS        #x8A32)
+   (define GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS        #x8A33)
+   (define GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT                 #x8A34)
+   (define GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH            #x8A35)
+   (define GL_ACTIVE_UNIFORM_BLOCKS                           #x8A36)
+   (define GL_UNIFORM_TYPE                                    #x8A37)
+   (define GL_UNIFORM_SIZE                                    #x8A38)
+   (define GL_UNIFORM_NAME_LENGTH                             #x8A39)
+   (define GL_UNIFORM_BLOCK_INDEX                             #x8A3A)
+   (define GL_UNIFORM_OFFSET                                  #x8A3B)
+   (define GL_UNIFORM_ARRAY_STRIDE                            #x8A3C)
+   (define GL_UNIFORM_MATRIX_STRIDE                           #x8A3D)
+   (define GL_UNIFORM_IS_ROW_MAJOR                            #x8A3E)
+   (define GL_UNIFORM_BLOCK_BINDING                           #x8A3F)
+   (define GL_UNIFORM_BLOCK_DATA_SIZE                         #x8A40)
+   (define GL_UNIFORM_BLOCK_NAME_LENGTH                       #x8A41)
+   (define GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS                   #x8A42)
+   (define GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES            #x8A43)
+   (define GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER       #x8A44)
+   (define GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER     #x8A45)
+   (define GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER     #x8A46)
+   (define GL_INVALID_INDEX                                   #xFFFFFFFF)
+
+   ; Signed normalized texture component formats
+   (define GL_RED_SNORM                      #x8F90)
+   (define GL_RG_SNORM                       #x8F91)
+   (define GL_RGB_SNORM                      #x8F92)
+   (define GL_RGBA_SNORM                     #x8F93)
+   (define GL_R8_SNORM                       #x8F94)
+   (define GL_RG8_SNORM                      #x8F95)
+   (define GL_RGB8_SNORM                     #x8F96)
+   (define GL_RGBA8_SNORM                    #x8F97)
+   (define GL_R16_SNORM                      #x8F98)
+   (define GL_RG16_SNORM                     #x8F99)
+   (define GL_RGB16_SNORM                    #x8F9A)
+   (define GL_RGBA16_SNORM                   #x8F9B)
+   (define GL_SIGNED_NORMALIZED              #x8F9C)
+   (define GL_PRIMITIVE_RESTART              #x8F9D)
+   (define GL_PRIMITIVE_RESTART_INDEX        #x8F9E)
+
    ;; GLAPI void APIENTRY glDrawArraysInstanced (GLenum mode, GLint first, GLsizei count, GLsizei instancecount);
    ;; GLAPI void APIENTRY glDrawElementsInstanced (GLenum mode, GLsizei count, GLenum type, const void *indices, GLsizei instancecount);
    ;; GLAPI void APIENTRY glTexBuffer (GLenum target, GLenum internalformat, GLuint buffer);
@@ -2172,21 +2326,5 @@
    ;; GLAPI void APIENTRY glGetActiveUniformBlockName (GLuint program, GLuint uniformBlockIndex, GLsizei bufSize, GLsizei *length, GLchar *uniformBlockName);
    ;; GLAPI void APIENTRY glUniformBlockBinding (GLuint program, GLuint uniformBlockIndex, GLuint uniformBlockBinding);
 
-   ;; ???
-   ;; (define GL_RED_SNORM                      #x8F90)
-   ;; (define GL_RG_SNORM                       #x8F91)
-   ;; (define GL_RGB_SNORM                      #x8F92)
-   ;; (define GL_RGBA_SNORM                     #x8F93)
-   ;; (define GL_R8_SNORM                       #x8F94)
-   ;; (define GL_RG8_SNORM                      #x8F95)
-   ;; (define GL_RGB8_SNORM                     #x8F96)
-   ;; (define GL_RGBA8_SNORM                    #x8F97)
-   ;; (define GL_R16_SNORM                      #x8F98)
-   ;; (define GL_RG16_SNORM                     #x8F99)
-   ;; (define GL_RGB16_SNORM                    #x8F9A)
-   ;; (define GL_RGBA16_SNORM                   #x8F9B)
-   ;; (define GL_SIGNED_NORMALIZED              #x8F9C)
-   ;; (define GL_PRIMITIVE_RESTART              #x8F9D)
-   ;; (define GL_PRIMITIVE_RESTART_INDEX        #x8F9E)
 
 ))
