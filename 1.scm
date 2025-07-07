@@ -14,397 +14,397 @@
 
    ;; 2.6 Begin/End Paradigm
    ;; 2.6.1 Begin and End Objects
-   glBegin ; void (GLenum mode)
-   glEnd   ; void ()
+   glBegin
+   glEnd
 
    ;; 2.6.2 Polygon Edges
-   glEdgeFlag  ; void (GLboolean flag)
-   glEdgeFlagv ; void (const GLboolean *flag)
+   glEdgeFlag
+   glEdgeFlagv
 
    ;; 2.7 Vertex Specification
-   glVertex2d  ; void (GLdouble x, GLdouble y)
-   glVertex2dv ; void (const GLdouble *v)
-   glVertex2f  ; void (GLfloat x, GLfloat y)
-   glVertex2fv ; void (const GLfloat *v)
-   glVertex2i  ; void (GLint x, GLint y)
-   glVertex2iv ; void (const GLint *v)
-   glVertex2s  ; void (GLshort x, GLshort y)
-   glVertex2sv ; void (const GLshort *v)
-   glVertex3d  ; void (GLdouble x, GLdouble y, GLdouble z)
-   glVertex3dv ; void (const GLdouble *v)
-   glVertex3f  ; void (GLfloat x, GLfloat y, GLfloat z)
-   glVertex3fv ; void (const GLfloat *v)
-   glVertex3i  ; void (GLint x, GLint y, GLint z)
-   glVertex3iv ; void (const GLint *v)
-   glVertex3s  ; void (GLshort x, GLshort y, GLshort z)
-   glVertex3sv ; void (const GLshort *v)
-   glVertex4d  ; void (GLdouble x, GLdouble y, GLdouble z, GLdouble w)
-   glVertex4dv ; void (const GLdouble *v)
-   glVertex4f  ; void (GLfloat x, GLfloat y, GLfloat z, GLfloat w)
-   glVertex4fv ; void (const GLfloat *v)
-   glVertex4i  ; void (GLint x, GLint y, GLint z, GLint w)
-   glVertex4iv ; void (const GLint *v)
-   glVertex4s  ; void (GLshort x, GLshort y, GLshort z, GLshort w)
-   glVertex4sv ; void (const GLshort *v)
+   glVertex2d
+   glVertex2dv
+   glVertex2f
+   glVertex2fv
+   glVertex2i
+   glVertex2iv
+   glVertex2s
+   glVertex2sv
+   glVertex3d
+   glVertex3dv
+   glVertex3f
+   glVertex3fv
+   glVertex3i
+   glVertex3iv
+   glVertex3s
+   glVertex3sv
+   glVertex4d
+   glVertex4dv
+   glVertex4f
+   glVertex4fv
+   glVertex4i
+   glVertex4iv
+   glVertex4s
+   glVertex4sv
 
-   glTexCoord1d  ; void (GLdouble s)
-   glTexCoord1dv ; void (const GLdouble *v)
-   glTexCoord1f  ; void (GLfloat s)
-   glTexCoord1fv ; void (const GLfloat *v)
-   glTexCoord1i  ; void (GLint s)
-   glTexCoord1iv ; void (const GLint *v)
-   glTexCoord1s  ; void (GLshort s)
-   glTexCoord1sv ; void (const GLshort *v)
-   glTexCoord2d  ; void (GLdouble s, GLdouble t)
-   glTexCoord2dv ; void (const GLdouble *v)
-   glTexCoord2f  ; void (GLfloat GLfloat)
-   glTexCoord2fv ; void (const GLfloat *v)
-   glTexCoord2i  ; void (GLint s, GLint t)
-   glTexCoord2iv ; void (const GLint *v)
-   glTexCoord2s  ; void (GLshort s, GLshort t)
-   glTexCoord2sv ; void (const GLshort *v)
-   glTexCoord3d  ; void (GLdouble s, GLdouble t, GLdouble r)
-   glTexCoord3dv ; void (const GLdouble *v)
-   glTexCoord3f  ; void (GLfloat s, GLfloat t, GLfloat r)
-   glTexCoord3fv ; void (const GLfloat *v)
-   glTexCoord3i  ; void (GLint s, GLint t, GLint r)
-   glTexCoord3iv ; void (const GLint *v)
-   glTexCoord3s  ; void (GLshort s, GLshort t, GLshort r)
-   glTexCoord3sv ; void (const GLshort *v)
-   glTexCoord4d  ; void (GLdouble s, GLdouble t, GLdouble r, GLdouble q)
-   glTexCoord4dv ; void (const GLdouble *v)
-   glTexCoord4f  ; void (GLfloat s, GLfloat t, GLfloat r, GLfloat q)
-   glTexCoord4fv ; void (const GLfloat *v)
-   glTexCoord4i  ; void (GLint s, GLint t, GLint r, GLint q)
-   glTexCoord4iv ; void (const GLint *v)
-   glTexCoord4s  ; void (GLshort s, GLshort t, GLshort r, GLshort q)
-   glTexCoord4sv ; void (const GLshort *v)
+   glTexCoord1d
+   glTexCoord1dv
+   glTexCoord1f
+   glTexCoord1fv
+   glTexCoord1i
+   glTexCoord1iv
+   glTexCoord1s
+   glTexCoord1sv
+   glTexCoord2d
+   glTexCoord2dv
+   glTexCoord2f
+   glTexCoord2fv
+   glTexCoord2i
+   glTexCoord2iv
+   glTexCoord2s
+   glTexCoord2sv
+   glTexCoord3d
+   glTexCoord3dv
+   glTexCoord3f
+   glTexCoord3fv
+   glTexCoord3i
+   glTexCoord3iv
+   glTexCoord3s
+   glTexCoord3sv
+   glTexCoord4d
+   glTexCoord4dv
+   glTexCoord4f
+   glTexCoord4fv
+   glTexCoord4i
+   glTexCoord4iv
+   glTexCoord4s
+   glTexCoord4sv
 
-   glNormal3b  ; void (GLbyte nx, GLbyte ny, GLbyte nz)
-   glNormal3bv ; void (const GLbyte *v)
-   glNormal3d  ; void (GLdouble nx, GLdouble ny, GLdouble nz)
-   glNormal3dv ; void (const GLdouble *v)
-   glNormal3f  ; void (GLfloat nx, GLfloat ny, GLfloat nz)
-   glNormal3fv ; void (const GLfloat *v)
-   glNormal3i  ; void (GLint nx, GLint ny, GLint nz)
-   glNormal3iv ; void (const GLint *v)
-   glNormal3s  ; void (GLshort nx, GLshort ny, GLshort nz)
-   glNormal3sv ; void (const GLshort *v)
+   glNormal3b
+   glNormal3bv
+   glNormal3d
+   glNormal3dv
+   glNormal3f
+   glNormal3fv
+   glNormal3i
+   glNormal3iv
+   glNormal3s
+   glNormal3sv
 
-   glColor3b   ; void (GLbyte red, GLbyte green, GLbyte blue)
-   glColor3bv  ; void (const GLbyte *v)
-   glColor3d   ; void (GLdouble red, GLdouble green, GLdouble blue)
-   glColor3dv  ; void (const GLdouble *v)
-   glColor3f   ; void (GLfloat red, GLfloat green, GLfloat blue)
-   glColor3fv  ; void (const GLfloat *v)
-   glColor3i   ; void (GLint red, GLint green, GLint blue)
-   glColor3iv  ; void (const GLint *v)
-   glColor3s   ; void (GLshort red, GLshort green, GLshort blue)
-   glColor3sv  ; void (const GLshort *v)
-   glColor3ub  ; void (GLubyte red, GLubyte green, GLubyte blue)
-   glColor3ubv ; void (const GLubyte *v)
-   glColor3ui  ; void (GLuint red, GLuint green, GLuint blue)
-   glColor3uiv ; void (const GLuint *v)
-   glColor3us  ; void (GLushort red, GLushort green, GLushort blue)
-   glColor3usv ; void (const GLushort *v)
-   glColor4b   ; void (GLbyte red, GLbyte green, GLbyte blue, GLbyte alpha)
-   glColor4bv  ; void (const GLbyte *v)
-   glColor4d   ; void (GLdouble red, GLdouble green, GLdouble blue, GLdouble alpha)
-   glColor4dv  ; void (const GLdouble *v)
-   glColor4f   ; void (GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha)
-   glColor4fv  ; void (const GLfloat *v)
-   glColor4i   ; void (GLint red, GLint green, GLint blue, GLint alpha)
-   glColor4iv  ; void (const GLint *v)
-   glColor4s   ; void (GLshort red, GLshort green, GLshort blue, GLshort alpha)
-   glColor4sv  ; void (const GLshort *v)
-   glColor4ub  ; void (GLubyte red, GLubyte green, GLubyte blue, GLubyte alpha)
-   glColor4ubv ; void (const GLubyte *v)
-   glColor4ui  ; void (GLuint red, GLuint green, GLuint blue, GLuint alpha)
-   glColor4uiv ; void (const GLuint *v)
-   glColor4us  ; void (GLushort red, GLushort green, GLushort blue, GLushort alpha)
-   glColor4usv ; void (const GLushort *v)
+   glColor3b
+   glColor3bv
+   glColor3d
+   glColor3dv
+   glColor3f
+   glColor3fv
+   glColor3i
+   glColor3iv
+   glColor3s
+   glColor3sv
+   glColor3ub
+   glColor3ubv
+   glColor3ui
+   glColor3uiv
+   glColor3us
+   glColor3usv
+   glColor4b
+   glColor4bv
+   glColor4d
+   glColor4dv
+   glColor4f
+   glColor4fv
+   glColor4i
+   glColor4iv
+   glColor4s
+   glColor4sv
+   glColor4ub
+   glColor4ubv
+   glColor4ui
+   glColor4uiv
+   glColor4us
+   glColor4usv
 
-   glIndexd  ; void (GLdouble c)
-   glIndexdv ; void (const GLdouble *c)
-   glIndexf  ; void (GLfloat c)
-   glIndexfv ; void (const GLfloat *c)
-   glIndexi  ; void (GLint c)
-   glIndexiv ; void (const GLint *c)
-   glIndexs  ; void (GLshort c)
-   glIndexsv ; void (const GLshort *c)
+   glIndexd
+   glIndexdv
+   glIndexf
+   glIndexfv
+   glIndexi
+   glIndexiv
+   glIndexs
+   glIndexsv
 
    ;; 2.8 Rectangles
-   glRectd  ; void (GLdouble x1, GLdouble y1, GLdouble x2, GLdouble y2)
-   glRectdv ; void (const GLdouble *v1, const GLdouble *v2)
-   glRectf  ; void (GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2)
-   glRectfv ; void (const GLfloat *v1, const GLfloat *v2)
-   glRecti  ; void (GLint x1, GLint y1, GLint x2, GLint y2)
-   glRectiv ; void (const GLint *v1, const GLint *v2)
-   glRects  ; void (GLshort x1, GLshort y1, GLshort x2, GLshort y2)
-   glRectsv ; void (const GLshort *v1, const GLshort *v2)
+   glRectd
+   glRectdv
+   glRectf
+   glRectfv
+   glRecti
+   glRectiv
+   glRects
+   glRectsv
 
    ;; 2.9 Coordinate Transformations
    ;; 2.9.1 Controlling the Viewport
-   glDepthRange ; void (GLclampd zNear, GLclampd zFar)
-   glViewport ; void (GLint x, GLint y, GLsizei width, GLsizei height)
+   glDepthRange
+   glViewport
 
    ;; 2.9.2 Matrices
-   glMatrixMode  ; void (GLenum mode)
-   glLoadMatrixd ; void (const GLdouble *m)
-   glLoadMatrixf ; void (const GLfloat *m)
-   glMultMatrixd ; void (const GLdouble *m)
-   glMultMatrixf ; void (const GLfloat *m)
-   glLoadIdentity; void (void)
+   glMatrixMode
+   glLoadMatrixd
+   glLoadMatrixf
+   glMultMatrixd
+   glMultMatrixf
+   glLoadIdentity
 
-   glRotated    ; void (GLdouble angle, GLdouble x, GLdouble y, GLdouble z)
-   glRotatef    ; void (GLfloat angle, GLfloat x, GLfloat y, GLfloat z)
-   glTranslated ; void (GLdouble x, GLdouble y, GLdouble z)
-   glTranslatef ; void (GLfloat x, GLfloat y, GLfloat z)
-   glScaled     ; void (GLdouble x, GLdouble y, GLdouble z)
-   glScalef     ; void (GLfloat x, GLfloat y, GLfloat z)
+   glRotated
+   glRotatef
+   glTranslated
+   glTranslatef
+   glScaled
+   glScalef
 
-   glFrustum    ; void (GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar)
-   glOrtho      ; void (GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar)
+   glFrustum
+   glOrtho
 
-   glPushMatrix ; void glPushMatrix (void)
-   glPopMatrix  ; void glPopMatrix (void)
+   glPushMatrix
+   glPopMatrix
 
    ;; 2.9.3 Normal Transformation
-   glEnable  ; void (GLenum cap)
-   glDisable ; void (GLenum cap)
+   glEnable
+   glDisable
 
    ;; 2.9.4 Generating texture coordinates
-   glTexGend  ; void glTexGend (GLenum coord, GLenum pname, GLdouble param)
-   glTexGendv ; void glTexGendv (GLenum coord, GLenum pname, const GLdouble *params)
-   glTexGenf  ; void glTexGenf (GLenum coord, GLenum pname, GLfloat param)
-   glTexGenfv ; void glTexGenfv (GLenum coord, GLenum pname, const GLfloat *params)
-   glTexGeni  ; void glTexGeni (GLenum coord, GLenum pname, GLint param)
-   glTexGeniv ; void glTexGeniv (GLenum coord, GLenum pname, const GLint *params)
+   glTexGend
+   glTexGendv
+   glTexGenf
+   glTexGenfv
+   glTexGeni
+   glTexGeniv
 
    ;; 2.10 Clipping
-   glClipPlane ; void (GLenum plane, const GLdouble *equation)
+   glClipPlane
 
    ;; 2.11 Current Ruster Position
-   glRasterPos2d  ; void (GLdouble x, GLdouble y)
-   glRasterPos2dv ; void (const GLdouble *v)
-   glRasterPos2f  ; void (GLfloat x, GLfloat y)
-   glRasterPos2fv ; void (const GLfloat *v)
-   glRasterPos2i  ; void (GLint x, GLint y)
-   glRasterPos2iv ; void (const GLint *v)
-   glRasterPos2s  ; void (GLshort x, GLshort y)
-   glRasterPos2sv ; void (const GLshort *v)
-   glRasterPos3d  ; void (GLdouble x, GLdouble y, GLdouble z)
-   glRasterPos3dv ; void (const GLdouble *v)
-   glRasterPos3f  ; void (GLfloat x, GLfloat y, GLfloat z)
-   glRasterPos3fv ; void (const GLfloat *v)
-   glRasterPos3i  ; void (GLint x, GLint y, GLint z)
-   glRasterPos3iv ; void (const GLint *v)
-   glRasterPos3s  ; void (GLshort x, GLshort y, GLshort z)
-   glRasterPos3sv ; void (const GLshort *v)
-   glRasterPos4d  ; void (GLdouble x, GLdouble y, GLdouble z, GLdouble w)
-   glRasterPos4dv ; void (const GLdouble *v)
-   glRasterPos4f  ; void (GLfloat x, GLfloat y, GLfloat z, GLfloat w)
-   glRasterPos4fv ; void (const GLfloat *v)
-   glRasterPos4i  ; void (GLint x, GLint y, GLint z, GLint w)
-   glRasterPos4iv ; void (const GLint *v)
-   glRasterPos4s  ; void (GLshort x, GLshort y, GLshort z, GLshort w)
-   glRasterPos4sv ; void (const GLshort *v)
+   glRasterPos2d
+   glRasterPos2dv
+   glRasterPos2f
+   glRasterPos2fv
+   glRasterPos2i
+   glRasterPos2iv
+   glRasterPos2s
+   glRasterPos2sv
+   glRasterPos3d
+   glRasterPos3dv
+   glRasterPos3f
+   glRasterPos3fv
+   glRasterPos3i
+   glRasterPos3iv
+   glRasterPos3s
+   glRasterPos3sv
+   glRasterPos4d
+   glRasterPos4dv
+   glRasterPos4f
+   glRasterPos4fv
+   glRasterPos4i
+   glRasterPos4iv
+   glRasterPos4s
+   glRasterPos4sv
 
    ;; 2.12 Colors and Coloring
    ;; 2.12.1 Lighting
-   glFrontFace  ; void (GLenum direction)
+   glFrontFace
 
    ;; 2.12.2 Lighting Parameter Specication
-   glMaterialf  ; void (GLenum face, GLenum pname, GLfloat param)
-   glMaterialfv ; void (GLenum face, GLenum pname, const GLfloat *params)
-   glMateriali  ; void (GLenum face, GLenum pname, GLint param)
-   glMaterialiv ; void (GLenum face, GLenum pname, const GLint *params)
+   glMaterialf
+   glMaterialfv
+   glMateriali
+   glMaterialiv
 
-   glLightf  ; void (GLenum light, GLenum pname, GLfloat param)
-   glLightfv ; void (GLenum light, GLenum pname, const GLfloat *params)
-   glLighti  ; void (GLenum light, GLenum pname, GLint param)
-   glLightiv ; void (GLenum light, GLenum pname, const GLint *params)
+   glLightf
+   glLightfv
+   glLighti
+   glLightiv
 
-   glLightModelf  ; void (GLenum pname, GLfloat param)
-   glLightModelfv ; void (GLenum pname, const GLfloat *params)
-   glLightModeli  ; void (GLenum pname, GLint param)
-   glLightModeliv ; void (GLenum pname, const GLint *params)
+   glLightModelf
+   glLightModelfv
+   glLightModeli
+   glLightModeliv
 
    ;; 2.12.3 ColorMaterial
-   glColorMaterial ; void (GLenum face, GLenum mode)
+   glColorMaterial
 
    ;; 2.12.7 Flatshading
-   glShadeModel ; void (GLenum model)
+   glShadeModel
 
    ;; 3.3 Points
-   glPointSize ; void (GLfloat size)
+   glPointSize
 
    ;; 3.4 Line Segments
-   glLineWidth ; void (GLfloat width)
-   glLineStipple ; void (GLint factor, GLushort pattern)
+   glLineWidth
+   glLineStipple
 
    ;; 3.5 Polygons
-   glCullFace ; void (GLenum mode)
-   glPolygonStipple ; void glPolygonStipple (const GLubyte *mask)
-   glPolygonMode ; void (GLenum face, GLenum mode)
+   glCullFace
+   glPolygonStipple
+   glPolygonMode
 
    ;; 3.6. Pixel Rectangles
-   glPixelStoref ; void (GLenum pname, GLfloat param)
-   glPixelStorei ; void (GLenum pname, GLint param)
-   glPixelTransferf ; void (GLenum pname, GLfloat param)
-   glPixelTransferi ; void (GLenum pname, GLint param)
+   glPixelStoref
+   glPixelStorei
+   glPixelTransferf
+   glPixelTransferi
 
-   glPixelMapfv  ; void (GLenum map, GLsizei mapsize, const GLfloat *values)
-   glPixelMapuiv ; void (GLenum map, GLsizei mapsize, const GLuint *values)
-   glPixelMapusv ; void (GLenum map, GLsizei mapsize, const GLushort *values)
+   glPixelMapfv
+   glPixelMapuiv
+   glPixelMapusv
 
    ;; 3.6.3 Rasterization of Pixel Rectangles
-   glDrawPixels ; void (GLsizei width, GLsizei height, GLenum format, GLenum type, const GLvoid *pixels)
-   glPixelZoom  ; void (GLfloat xfactor, GLfloat yfactor)
+   glDrawPixels
+   glPixelZoom
 
    ;; 3.7. Bitmaps
-   glBitmap ; void (GLsizei width, GLsizei height, GLfloat xorig, GLfloat yorig, GLfloat xmove, GLfloat ymove, const GLubyte *bitmap)
+   glBitmap
 
    ;; 3.8. Texturing
-   glTexImage1D ; void (GLenum target, GLint level, GLint internalformat, GLsizei width, GLint border, GLenum format, GLenum type, const GLvoid *pixels)
-   glTexImage2D ; void (GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum type, const GLvoid *pixels)
+   glTexImage1D
+   glTexImage2D
 
-   glTexParameterf  ; void (GLenum target, GLenum pname, GLfloat param)
-   glTexParameterfv ; void (GLenum target, GLenum pname, const GLfloat *params)
-   glTexParameteri  ; void (GLenum target, GLenum pname, GLint param)
-   glTexParameteriv ; void (GLenum target, GLenum pname, const GLint *params)
+   glTexParameterf
+   glTexParameterfv
+   glTexParameteri
+   glTexParameteriv
 
    ;; 3.8.3 Texture Environments and Texture Functions
-   glTexEnvf  ; void (GLenum target, GLenum pname, GLfloat param)
-   glTexEnvfv ; void (GLenum target, GLenum pname, const GLfloat *params)
-   glTexEnvi  ; void (GLenum target, GLenum pname, GLint param)
-   glTexEnviv ; void (GLenum target, GLenum pname, const GLint *params)
+   glTexEnvf
+   glTexEnvfv
+   glTexEnvi
+   glTexEnviv
 
    ;; 3.9. Fog
-   glFogf  ; void (GLenum pname, GLfloat param)
-   glFogfv ; void (GLenum pname, const GLfloat *params)
-   glFogi  ; void (GLenum pname, GLint param)
-   glFogiv ; void (GLenum pname, const GLint *params)
+   glFogf
+   glFogfv
+   glFogi
+   glFogiv
 
    ;; 4.1 Per-Fragment Operations
-   glScissor   ; void glScissor (GLint x, GLint y, GLsizei width, GLsizei height)
-   glAlphaFunc ; void (GLenum func, GLclampf ref)
-   glStencilFunc ;void (GLenum func, GLint ref, GLuint mask)
-   glStencilOp ; void (GLenum fail, GLenum zfail, GLenum zpass)
-   glDepthFunc ; void (GLenum func)
-   glBlendFunc ; void (GLenum sfactor, GLenum dfactor)
-   glLogicOp   ; void (GLenum opcode)
+   glScissor
+   glAlphaFunc
+   glStencilFunc
+   glStencilOp
+   glDepthFunc
+   glBlendFunc
+   glLogicOp
 
    ;; 4.2 Whole Framebuffer Operations
-   glDrawBuffer ; void (GLenum mode)
+   glDrawBuffer
 
    ;; 4.2.2 Fine Control of Buffer Updates
-   glIndexMask   ; void (GLuint mask)
-   glColorMask   ; void (GLboolean red, GLboolean green, GLboolean blue, GLboolean alpha)
-   glDepthMask   ; void (GLboolean flag)
-   glStencilMask ; void (GLuint mask)
+   glIndexMask
+   glColorMask
+   glDepthMask
+   glStencilMask
 
    ;; 4.2.3 Clearing the Buffers
-   glClear ; void (GLbitfield mask)
-   glClearColor ; void (GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha)
-   glClearIndex ; void (GLfloat c)
-   glClearDepth ; void (GLclampd depth)
-   glClearStencil ; void (GLint s)
-   glClearAccum ; void (GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha)
+   glClear
+   glClearColor
+   glClearIndex
+   glClearDepth
+   glClearStencil
+   glClearAccum
 
    ;; 4.2.4 The Accumulation Buffer
-   glAccum ; void (GLenum op, GLfloat value)
+   glAccum
 
    ;; 4.3 Drawing, Reading, and Copying Pixels
-   glReadPixels ; void (GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum type, GLvoid *pixels)
-   glReadBuffer ; void (GLenum mode)
-   glCopyPixels ; void (GLint x, GLint y, GLsizei width, GLsizei height, GLenum type)
+   glReadPixels
+   glReadBuffer
+   glCopyPixels
 
    ;; 5.1 Evaluators
-   glMap1d ; void (GLenum target, GLdouble u1, GLdouble u2, GLint stride, GLint order, const GLdouble *points)
-   glMap1f ; void (GLenum target, GLfloat u1, GLfloat u2, GLint stride, GLint order, const GLfloat *points)
-   glMap2d ; void (GLenum target, GLdouble u1, GLdouble u2, GLint ustride, GLint uorder, GLdouble v1, GLdouble v2, GLint vstride, GLint vorder, const GLdouble *points)
-   glMap2f ; void (GLenum target, GLfloat u1, GLfloat u2, GLint ustride, GLint uorder, GLfloat v1, GLfloat v2, GLint vstride, GLint vorder, const GLfloat *points)
-   glEvalCoord1d  ; void (GLdouble u)
-   glEvalCoord1dv ; void (const GLdouble *u)
-   glEvalCoord1f  ; void (GLfloat u)
-   glEvalCoord1fv ; void (const GLfloat *u)
-   glEvalCoord2d  ; void (GLdouble u, GLdouble v)
-   glEvalCoord2dv ; void (const GLdouble *u)
-   glEvalCoord2f  ; void (GLfloat u, GLfloat v)
-   glEvalCoord2fv ; void (const GLfloat *u)
-   glMapGrid1d ; void (GLint un, GLdouble u1, GLdouble u2)
-   glMapGrid1f ; void (GLint un, GLfloat u1, GLfloat u2)
-   glMapGrid2d ; void (GLint un, GLdouble u1, GLdouble u2, GLint vn, GLdouble v1, GLdouble v2)
-   glMapGrid2f ; void (GLint un, GLfloat u1, GLfloat u2, GLint vn, GLfloat v1, GLfloat v2)
-   glEvalMesh1 ; void (GLenum mode, GLint i1, GLint i2)
-   glEvalMesh2 ; void (GLenum mode, GLint i1, GLint i2, GLint j1, GLint j2)
-   glEvalPoint1 ; void (GLint i)
-   glEvalPoint2 ; void (GLint i, GLint j)
+   glMap1d
+   glMap1f
+   glMap2d
+   glMap2f
+   glEvalCoord1d
+   glEvalCoord1dv
+   glEvalCoord1f
+   glEvalCoord1fv
+   glEvalCoord2d
+   glEvalCoord2dv
+   glEvalCoord2f
+   glEvalCoord2fv
+   glMapGrid1d
+   glMapGrid1f
+   glMapGrid2d
+   glMapGrid2f
+   glEvalMesh1
+   glEvalMesh2
+   glEvalPoint1
+   glEvalPoint2
 
    ;; 5.2. Selection
-   glInitNames    ; void glInitNames (void)
-   glPopName      ; void glPopName (void)
-   glPushName     ; void glPushName (GLuint name)
-   glLoadName     ; void glLoadName (GLuint name)
-   glRenderMode   ; GLint glRenderMode (GLenum mode)
-   glSelectBuffer ; void glSelectBuffer (GLsizei size, GLuint *buffer)
+   glInitNames
+   glPopName
+   glPushName
+   glLoadName
+   glRenderMode
+   glSelectBuffer
 
    ;; 5.3. Feedback
-   glFeedbackBuffer ; void (GLsizei size, GLenum type, GLfloat *buffer)
-   glPassThrough ; void (GLfloat token)
+   glFeedbackBuffer
+   glPassThrough
 
    ;; 5.4 Display Lists
-   glNewList   ; void (GLuint list, GLenum mode)
-   glEndList   ; void glEndList (void)
-   glCallList  ; void (GLuint list)
-   glCallLists ; void (GLsizei n, GLenum type, const GLvoid *lists)
-   glListBase  ; void (GLuint base)
-   glGenLists  ; GLuint (GLsizei range)
-   glIsList    ; GLboolean (GLuint list)
-   glDeleteLists ; void (GLuint list, GLsizei range)
+   glNewList
+   glEndList
+   glCallList
+   glCallLists
+   glListBase
+   glGenLists
+   glIsList
+   glDeleteLists
 
    ;; 5.5 Flush and Finish
-   glFlush  ; void (void)
-   glFinish ; void (void)
+   glFlush
+   glFinish
 
    ;; 5.6 Hints
-   glHint ; void (GLenum target, GLenum mode)
+   glHint
 
    ;; 6 State and State Requests
-   glGetBooleanv ; void (GLenum pname, GLboolean *params)
-   glGetIntegerv ; void (GLenum pname, GLint *params)
-   glGetFloatv   ; void (GLenum pname, GLfloat *params)
-   glGetDoublev  ; void (GLenum pname, GLdouble *params)
+   glGetBooleanv
+   glGetIntegerv
+   glGetFloatv
+   glGetDoublev
 
-   glIsEnabled ; GLboolean (GLenum cap)
+   glIsEnabled
 
-   glGetClipPlane ; void (GLenum plane, GLdouble *equation)
-   glGetLightfv ; void (GLenum light, GLenum pname, GLfloat *params)
-   glGetLightiv ; void (GLenum light, GLenum pname, GLint *params)
-   glGetMaterialfv ; void (GLenum face, GLenum pname, GLfloat *params)
-   glGetMaterialiv ; void (GLenum face, GLenum pname, GLint *params)
-   glGetTexEnvfv ; void (GLenum target, GLenum pname, GLfloat *params)
-   glGetTexEnviv ; void (GLenum target, GLenum pname, GLint *params)
-   glGetTexGenfv ; void (GLenum coord, GLenum pname, GLfloat *params)
-   glGetTexGeniv ; void (GLenum coord, GLenum pname, GLint *params)
-   glGetTexParameterfv ; void (GLenum target, GLenum pname, GLfloat *params)
-   glGetTexParameteriv ; void (GLenum target, GLenum pname, GLint *params)
-   glGetTexLevelParameterfv ; void (GLenum target, GLint level, GLenum pname, GLfloat *params)
-   glGetTexLevelParameteriv ; void (GLenum target, GLint level, GLenum pname, GLint *params)
-   glGetPixelMapfv  ; void (GLenum map, GLfloat *values)
-   glGetPixelMapuiv ; void (GLenum map, GLuint *values)
-   glGetPixelMapusv ; void (GLenum map, GLushort *values)
-   glGetMapdv ; void (GLenum target, GLenum query, GLdouble *v)
-   glGetMapfv ; void (GLenum target, GLenum query, GLfloat *v)
-   glGetMapiv ; void (GLenum target, GLenum query, GLint *v)
-   glGetTexImage ; void (GLenum target, GLint level, GLenum format, GLenum type, GLvoid *pixels)
-   glGetPolygonStipple ; void (GLubyte *mask)
+   glGetClipPlane
+   glGetLightfv
+   glGetLightiv
+   glGetMaterialfv
+   glGetMaterialiv
+   glGetTexEnvfv
+   glGetTexEnviv
+   glGetTexGenfv
+   glGetTexGeniv
+   glGetTexParameterfv
+   glGetTexParameteriv
+   glGetTexLevelParameterfv
+   glGetTexLevelParameteriv
+   glGetPixelMapfv
+   glGetPixelMapuiv
+   glGetPixelMapusv
+   glGetMapdv
+   glGetMapfv
+   glGetMapiv
+   glGetTexImage
+   glGetPolygonStipple
 
-   glGetString  ; GLubyte* (GLenum name)
+   glGetString
 
-   glPushAttrib ; void (GLbitfield mask)
-   glPopAttrib  ; void (void)
+   glPushAttrib
+   glPopAttrib
 
    ; -------------------------------------------------------------------------
    ; AccumOp
@@ -2254,7 +2254,7 @@
    (define glRectiv      (GL GLvoid "glRectiv" GLint* GLint*))
    (define glRects       (GL GLvoid "glRects"  GLshort GLshort GLshort GLshort))
    (define glRectsv      (GL GLvoid "glRectsv" GLshort* GLshort*))
-   (define glRenderMode  (GL GLint "glRenderMode" GLenum))
+   (define glRenderMode  (GL GLint  "glRenderMode" GLenum))
    (define glRotated     (GL GLvoid "glRotated" GLdouble GLdouble GLdouble GLdouble))
    (define glRotatef     (GL GLvoid "glRotatef" GLfloat GLfloat GLfloat GLfloat))
    (define glScaled      (GL GLvoid "glScaled" GLdouble GLdouble GLdouble))
@@ -2343,4 +2343,5 @@
    (define glVertex4sv   (GL GLvoid "glVertex4sv" GLshort*))
 
    (define glViewport    (GL GLvoid "glViewport" GLint GLint GLsizei GLsizei))
+
 ))

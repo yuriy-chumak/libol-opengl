@@ -10,8 +10,6 @@
    GL_VERSION_1_5
 
 ;; H.1 ARB_vertex_buffer_object
-   GLintptr GLsizeiptr
-
    glBindBuffer
    glDeleteBuffers
    glGenBuffers
@@ -103,9 +101,6 @@
    (setq GL gl:GetProcAddress)
 
  ; ARB_vertex_buffer_object
-   (define GLintptr fft-signed-long) ;ptrdiff_t
-   (define GLsizeiptr fft-unsigned-long) ;ptrdiff_t
-
    (define glBindBuffer (GL GLvoid "glBindBuffer" GLenum GLuint))
    (define glDeleteBuffers (GL GLvoid "glDeleteBuffers" GLsizei GLuint*))
    (define glGenBuffers (GL GLvoid "glGenBuffers" GLsizei GLuint&))

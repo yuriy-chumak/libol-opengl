@@ -16,11 +16,11 @@
    GL_INDEX_LOGIC_OP          ; renamed from GL_LOGIC_OP by 1.1
    GL_TEXTURE_INTERNAL_FORMAT ; renamed from GL_TEXTURE_COMPONENTS by 1.1
 
-   glIndexub ; GLvoid (GLubyte c)
-   glIndexubv; GLvoid (const GLubyte *c)
+   glIndexub
+   glIndexubv
 
-   glEnableClientState ; void (GLenum array)
-   glDisableClientState ; void (GLenum array)
+   glEnableClientState
+   glDisableClientState
 
    GL_V2F
    GL_V3F
@@ -37,8 +37,8 @@
    GL_T2F_C4F_N3F_V3F
    GL_T4F_C4F_N3F_V4F
 
-   glPushClientAttrib ; void glPushClientAttrib (GLbitfield mask)
-   glPopClientAttrib ; void glPopClientAttrib (void)
+   glPushClientAttrib
+   glPopClientAttrib
 
    GL_CLIENT_PIXEL_STORE_BIT
    GL_CLIENT_VERTEX_ARRAY_BIT
@@ -48,8 +48,8 @@
    GL_MAX_CLIENT_ATTRIB_STACK_DEPTH
 
    ; DrawArrays
-   glDrawElements ; void (GLenum mode, GLsizei count, GLenum type, const GLvoid *indices);
-   glInterleavedArrays ; void (GLenum format, GLsizei stride, const GLvoid *pointer)
+   glDrawElements
+   glInterleavedArrays
 
 
 ;; C.1 EXT_vertex_array, except that static array data
@@ -94,15 +94,15 @@
    GL_TEXTURE_COORD_ARRAY_POINTER
    GL_EDGE_FLAG_ARRAY_POINTER
 
-   glArrayElement  ; void (GLint i)
-   glVertexPointer ; void (GLint size, GLenum type, GLsizei stride, const GLvoid *pointer)
-   glNormalPointer ; void (GLenum type, GLsizei stride, const GLvoid *pointer)
-   glColorPointer  ; void (GLint size, GLenum type, GLsizei stride, const GLvoid *pointer)
-   glIndexPointer  ; void (GLenum type, GLsizei stride, const GLvoid *pointer)
-   glTexCoordPointer ; void (GLint size, GLenum type, GLsizei stride, const GLvoid *pointer)
-   glEdgeFlagPointer ; void (GLsizei stride, const GLvoid *pointer)
-   glGetPointerv ; void (GLenum pname, GLvoid **params)
-   glDrawArrays ; void (GLenum mode, GLint first, GLsizei count)
+   glArrayElement
+   glVertexPointer
+   glNormalPointer
+   glColorPointer
+   glIndexPointer
+   glTexCoordPointer
+   glEdgeFlagPointer
+   glGetPointerv
+   glDrawArrays
 
 
 ;; C.2 EXT_polygon_offset
@@ -183,9 +183,9 @@
 
 
 ;; C.8 EXT_texture_object
-   glGenTextures ; void ( GLsizei n, GLuint *textures )
-   glDeleteTextures ; void (GLsizei n, const GLuint *textures)
-   glBindTexture ; void (GLenum target, GLuint texture)
+   glGenTextures
+   glDeleteTextures
+   glBindTexture
    glPrioritizeTextures
    glAreTexturesResident
    glIsTexture
@@ -284,8 +284,8 @@
    (define glArrayElement (GL GLvoid "glArrayElement" GLint))
    (define glVertexPointer (GL GLvoid "glVertexPointer" GLint GLenum GLsizei fft-any))
    (define glNormalPointer (GL GLvoid "glNormalPointer" GLenum GLsizei fft-any))
-   (define glColorPointer  (GL GLvoid "glColorPointer" GLint GLenum GLsizei fft-any))
-   (define glIndexPointer  (GL GLvoid "glIndexPointer" GLenum GLsizei fft-any))
+   (define glColorPointer (GL GLvoid "glColorPointer" GLint GLenum GLsizei fft-any))
+   (define glIndexPointer (GL GLvoid "glIndexPointer" GLenum GLsizei fft-any))
    (define glTexCoordPointer (GL GLvoid "glTexCoordPointer" GLint GLenum GLsizei fft-any))
    (define glEdgeFlagPointer (GL GLvoid "glEdgeFlagPointer" GLsizei fft-any))
    (define glGetPointerv (GL GLvoid "glGetPointerv" GLenum (fft& type-vptr))) ;GLvoid**

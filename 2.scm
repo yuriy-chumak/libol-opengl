@@ -15,110 +15,110 @@
 
    GL_VERSION_2_0
 
-;; I.1.1 ARB_shader_objects
-   glCreateShader ;GLuint (GLenum type);
-   glDeleteShader ;void (GLuint shader);
-   glAttachShader ;void (GLuint program, GLuint shader);
-   glDetachShader ;void (GLuint program, GLuint shader);
+;; I.1.1 ARB_shader_objects (heavily modified)
+   glCreateShader
+   glDeleteShader
+   glAttachShader
+   glDetachShader
 
-   glShaderSource ;void (GLuint shader, GLsizei count, const GLchar *const*string, const GLint *length);
-   glCompileShader ;void (GLuint shader);
-   glGetShaderiv ;void (GLuint shader, GLenum pname, GLint *params);
-   glIsShader ;GLboolean (GLuint shader);
+   glShaderSource
+   glCompileShader
+   glGetShaderiv
+   glIsShader
 
-   glCreateProgram ;GLuint (void);
-   glDeleteProgram ;void (GLuint program);
-   glLinkProgram ;void (GLuint program);
-   glUseProgram ;void (GLuint program);
-   glValidateProgram ;void (GLuint program);
+   glCreateProgram
+   glDeleteProgram
+   glLinkProgram
+   glUseProgram
+   glValidateProgram
 
-   glGetProgramiv ;void (GLuint program, GLenum pname, GLint *params);
-   glGetProgramInfoLog ;void (GLuint program, GLsizei bufSize, GLsizei *length, GLchar *infoLog);
-   glIsProgram ;GLboolean (GLuint program);
+   glGetProgramiv
+   glGetProgramInfoLog
+   glIsProgram
 
-   glUniform1f ;void (GLint location, GLfloat v0);
-   glUniform2f ;void (GLint location, GLfloat v0, GLfloat v1);
-   glUniform3f ;void (GLint location, GLfloat v0, GLfloat v1, GLfloat v2);
-   glUniform4f ;void (GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);
-   glUniform1i ;void (GLint location, GLint v0);
-   glUniform2i ;void (GLint location, GLint v0, GLint v1);
-   glUniform3i ;void (GLint location, GLint v0, GLint v1, GLint v2);
-   glUniform4i ;void (GLint location, GLint v0, GLint v1, GLint v2, GLint v3);
-   glUniform1fv ;void (GLint location, GLsizei count, const GLfloat *value);
-   glUniform2fv ;void (GLint location, GLsizei count, const GLfloat *value);
-   glUniform3fv ;void (GLint location, GLsizei count, const GLfloat *value);
-   glUniform4fv ;void (GLint location, GLsizei count, const GLfloat *value);
-   glUniform1iv ;void (GLint location, GLsizei count, const GLint *value);
-   glUniform2iv ;void (GLint location, GLsizei count, const GLint *value);
-   glUniform3iv ;void (GLint location, GLsizei count, const GLint *value);
-   glUniform4iv ;void (GLint location, GLsizei count, const GLint *value);
-   glUniformMatrix2fv ;void (GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
-   glUniformMatrix3fv ;void (GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
-   glUniformMatrix4fv ;void (GLint location, GLsizei count, GLboolean transpose, const GLfloat *value);
+   glUniform1f
+   glUniform2f
+   glUniform3f
+   glUniform4f
+   glUniform1i
+   glUniform2i
+   glUniform3i
+   glUniform4i
+   glUniform1fv
+   glUniform2fv
+   glUniform3fv
+   glUniform4fv
+   glUniform1iv
+   glUniform2iv
+   glUniform3iv
+   glUniform4iv
+   glUniformMatrix2fv
+   glUniformMatrix3fv
+   glUniformMatrix4fv
 
-   glGetShaderInfoLog ;void (GLuint shader, GLsizei bufSize, GLsizei *length, GLchar *infoLog);
-   glGetAttachedShaders ;void (GLuint program, GLsizei maxCount, GLsizei *count, GLuint *shaders);
-   glGetUniformLocation ;GLint (GLuint program, const GLchar *name);
-   glGetActiveUniform ;void (GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLint *size, GLenum *type, GLchar *name);
-   glGetUniformfv ;void (GLuint program, GLint location, GLfloat *params);
-   glGetUniformiv ;void (GLuint program, GLint location, GLint *params);
-   glGetShaderSource ;void (GLuint shader, GLsizei bufSize, GLsizei *length, GLchar *source);
+   glGetShaderInfoLog
+   glGetAttachedShaders
+   glGetUniformLocation
+   glGetActiveUniform
+   glGetUniformfv
+   glGetUniformiv
+   glGetShaderSource
 
-;; I.1.2 ARB_vertex_shader and ARB_fragment_shader
-   ;; glVertexAttrib1d ;void (GLuint index, GLdouble x);
-   ;; glVertexAttrib1dv ;void (GLuint index, const GLdouble *v);
-   ;; glVertexAttrib1f ;void (GLuint index, GLfloat x);
-   ;; glVertexAttrib1fv ;void (GLuint index, const GLfloat *v);
-   ;; glVertexAttrib1s ;void (GLuint index, GLshort x);
-   ;; glVertexAttrib1sv ;void (GLuint index, const GLshort *v);
-   ;; glVertexAttrib2d ;void (GLuint index, GLdouble x, GLdouble y);
-   ;; glVertexAttrib2dv ;void (GLuint index, const GLdouble *v);
-   ;; glVertexAttrib2f ;void (GLuint index, GLfloat x, GLfloat y);
-   ;; glVertexAttrib2fv ;void (GLuint index, const GLfloat *v);
-   ;; glVertexAttrib2s ;void (GLuint index, GLshort x, GLshort y);
-   ;; glVertexAttrib2sv ;void (GLuint index, const GLshort *v);
-   ;; glVertexAttrib3d ;void (GLuint index, GLdouble x, GLdouble y, GLdouble z);
-   ;; glVertexAttrib3dv ;void (GLuint index, const GLdouble *v);
-   ;; glVertexAttrib3f ;void (GLuint index, GLfloat x, GLfloat y, GLfloat z);
-   ;; glVertexAttrib3fv ;void (GLuint index, const GLfloat *v);
-   ;; glVertexAttrib3s ;void (GLuint index, GLshort x, GLshort y, GLshort z);
-   ;; glVertexAttrib3sv ;void (GLuint index, const GLshort *v);
-   ;; glVertexAttrib4Nbv ;void (GLuint index, const GLbyte *v);
-   ;; glVertexAttrib4Niv ;void (GLuint index, const GLint *v);
-   ;; glVertexAttrib4Nsv ;void (GLuint index, const GLshort *v);
-   ;; glVertexAttrib4Nub ;void (GLuint index, GLubyte x, GLubyte y, GLubyte z, GLubyte w);
-   ;; glVertexAttrib4Nubv ;void (GLuint index, const GLubyte *v);
-   ;; glVertexAttrib4Nuiv ;void (GLuint index, const GLuint *v);
-   ;; glVertexAttrib4Nusv ;void (GLuint index, const GLushort *v);
-   ;; glVertexAttrib4bv ;void (GLuint index, const GLbyte *v);
-   ;; glVertexAttrib4d ;void (GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);
-   ;; glVertexAttrib4dv ;void (GLuint index, const GLdouble *v);
-   ;; glVertexAttrib4f ;void (GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
-   ;; glVertexAttrib4fv ;void (GLuint index, const GLfloat *v);
-   ;; glVertexAttrib4iv ;void (GLuint index, const GLint *v);
-   ;; glVertexAttrib4s ;void (GLuint index, GLshort x, GLshort y, GLshort z, GLshort w);
-   ;; glVertexAttrib4sv ;void (GLuint index, const GLshort *v);
-   ;; glVertexAttrib4ubv ;void (GLuint index, const GLubyte *v);
-   ;; glVertexAttrib4uiv ;void (GLuint index, const GLuint *v);
-   ;; glVertexAttrib4usv ;void (GLuint index, const GLushort *v);
-   glVertexAttribPointer ;void (GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const void *pointer);
+;; I.1.2 ARB_vertex_shader and ARB_fragment_shader (heavily modified both)
+   glVertexAttrib1d
+   glVertexAttrib1dv
+   glVertexAttrib1f
+   glVertexAttrib1fv
+   glVertexAttrib1s
+   glVertexAttrib1sv
+   glVertexAttrib2d
+   glVertexAttrib2dv
+   glVertexAttrib2f
+   glVertexAttrib2fv
+   glVertexAttrib2s
+   glVertexAttrib2sv
+   glVertexAttrib3d
+   glVertexAttrib3dv
+   glVertexAttrib3f
+   glVertexAttrib3fv
+   glVertexAttrib3s
+   glVertexAttrib3sv
+   glVertexAttrib4Nbv
+   glVertexAttrib4Niv
+   glVertexAttrib4Nsv
+   glVertexAttrib4Nub
+   glVertexAttrib4Nubv
+   glVertexAttrib4Nuiv
+   glVertexAttrib4Nusv
+   glVertexAttrib4bv
+   glVertexAttrib4d
+   glVertexAttrib4dv
+   glVertexAttrib4f
+   glVertexAttrib4fv
+   glVertexAttrib4iv
+   glVertexAttrib4s
+   glVertexAttrib4sv
+   glVertexAttrib4ubv
+   glVertexAttrib4uiv
+   glVertexAttrib4usv
+   glVertexAttribPointer
 
-   glEnableVertexAttribArray ;void (GLuint index);
-   glDisableVertexAttribArray ;void (GLuint index);
-   glBindAttribLocation ;void (GLuint program, GLuint index, const GLchar *name);
-   glGetActiveAttrib ;void (GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLint *size, GLenum *type, GLchar *name);
-   glGetAttribLocation ;GLint (GLuint program, const GLchar *name);
+   glEnableVertexAttribArray
+   glDisableVertexAttribArray
+   glBindAttribLocation
+   glGetActiveAttrib
+   glGetAttribLocation
 
-   glGetVertexAttribdv ;void (GLuint index, GLenum pname, GLdouble *params);
-   glGetVertexAttribfv ;void (GLuint index, GLenum pname, GLfloat *params);
-   glGetVertexAttribiv ;void (GLuint index, GLenum pname, GLint *params);
-   glGetVertexAttribPointerv ;void (GLuint index, GLenum pname, void **pointer);
+   glGetVertexAttribdv
+   glGetVertexAttribfv
+   glGetVertexAttribiv
+   glGetVertexAttribPointerv
 
-;; I.1.3 ARB_shading_language_100
+;; I.1.3 ARB_shading_language_100 (heavily modified)
    GL_SHADING_LANGUAGE_VERSION
 
 ;; I.2 ARB_draw_buffers
-   glDrawBuffers ;void (GLsizei n, const GLenum *bufs);
+   glDrawBuffers
 
 ;; I.3 ARB_texture_non_power_of_two
    ; none
@@ -128,8 +128,8 @@
    GL_COORD_REPLACE
 
 ;; I.5 ATI_separate_stencil and EXT_stencil_two_side
-   glStencilOpSeparate ;void (GLenum face, GLenum sfail, GLenum dpfail, GLenum dppass);
-   glStencilFuncSeparate ;void (GLenum face, GLenum func, GLint ref, GLuint mask);
+   glStencilOpSeparate
+   glStencilFuncSeparate
 
    GL_STENCIL_BACK_FUNC
    GL_STENCIL_BACK_FAIL
@@ -140,8 +140,8 @@
    GL_FOG_COORD_ARRAY_BUFFER_BINDING
 
 ;; 2.0 Features
-   glBlendEquationSeparate ;void (GLenum modeRGB, GLenum modeAlpha);
-   glStencilMaskSeparate ;void (GLenum face, GLuint mask);
+   glBlendEquationSeparate
+   glStencilMaskSeparate
 
 ;; NEW CONSTANTS
    GL_BLEND_EQUATION_RGB
@@ -306,46 +306,46 @@
    (define glGetShaderSource (GL GLvoid "glGetShaderSource" GLuint GLsizei GLsizei& type-bytevector))
 
  ; I.1.2 ARB_vertex_shader and ARB_fragment_shader
-   ;; glVertexAttrib1d ;void (GLuint index, GLdouble x);
-   ;; glVertexAttrib1f ;void (GLuint index, GLfloat x);
-   ;; glVertexAttrib1s ;void (GLuint index, GLshort x);
-   ;; glVertexAttrib1dv ;void (GLuint index, const GLdouble *v);
-   ;; glVertexAttrib1fv ;void (GLuint index, const GLfloat *v);
-   ;; glVertexAttrib1sv ;void (GLuint index, const GLshort *v);
+   (define glVertexAttrib1d  (GL GLvoid "glVertexAttrib1d" GLuint GLdouble))
+   (define glVertexAttrib1f  (GL GLvoid "glVertexAttrib1f" GLuint GLfloat))
+   (define glVertexAttrib1s  (GL GLvoid "glVertexAttrib1s" GLuint GLshort))
+   (define glVertexAttrib1dv (GL GLvoid "glVertexAttrib1dv" GLuint GLdouble*))
+   (define glVertexAttrib1fv (GL GLvoid "glVertexAttrib1fv" GLuint GLfloat*))
+   (define glVertexAttrib1sv (GL GLvoid "glVertexAttrib1sv" GLuint GLshort*))
 
-   ;; glVertexAttrib2d ;void (GLuint index, GLdouble x, GLdouble y);
-   ;; glVertexAttrib2dv ;void (GLuint index, const GLdouble *v);
-   ;; glVertexAttrib2f ;void (GLuint index, GLfloat x, GLfloat y);
-   ;; glVertexAttrib2fv ;void (GLuint index, const GLfloat *v);
-   ;; glVertexAttrib2s ;void (GLuint index, GLshort x, GLshort y);
-   ;; glVertexAttrib2sv ;void (GLuint index, const GLshort *v);
+   (define glVertexAttrib2d  (GL GLvoid "glVertexAttrib2d" GLuint GLdouble GLdouble))
+   (define glVertexAttrib2dv (GL GLvoid "glVertexAttrib2dv" GLuint GLdouble*))
+   (define glVertexAttrib2f  (GL GLvoid "glVertexAttrib2f" GLuint GLfloat GLfloat))
+   (define glVertexAttrib2fv (GL GLvoid "glVertexAttrib2fv" GLuint GLfloat*))
+   (define glVertexAttrib2s  (GL GLvoid "glVertexAttrib2s" GLuint GLshort GLshort))
+   (define glVertexAttrib2sv (GL GLvoid "glVertexAttrib2sv" GLuint GLshort*))
 
-   ;; glVertexAttrib3d ;void (GLuint index, GLdouble x, GLdouble y, GLdouble z);
-   ;; glVertexAttrib3dv ;void (GLuint index, const GLdouble *v);
-   ;; glVertexAttrib3f ;void (GLuint index, GLfloat x, GLfloat y, GLfloat z);
-   ;; glVertexAttrib3fv ;void (GLuint index, const GLfloat *v);
-   ;; glVertexAttrib3s ;void (GLuint index, GLshort x, GLshort y, GLshort z);
-   ;; glVertexAttrib3sv ;void (GLuint index, const GLshort *v);
+   (define glVertexAttrib3d (GL GLvoid "glVertexAttrib3d" GLuint GLdouble GLdouble GLdouble))
+   (define glVertexAttrib3dv (GL GLvoid "glVertexAttrib3dv" GLuint GLdouble*))
+   (define glVertexAttrib3f (GL GLvoid "glVertexAttrib3f" GLuint GLfloat GLfloat GLfloat))
+   (define glVertexAttrib3fv (GL GLvoid "glVertexAttrib3fv" GLuint GLfloat*))
+   (define glVertexAttrib3s (GL GLvoid "glVertexAttrib3s" GLuint GLshort GLshort GLshort))
+   (define glVertexAttrib3sv (GL GLvoid "glVertexAttrib3sv" GLuint GLshort*))
 
-   ;; glVertexAttrib4Nbv ;void (GLuint index, const GLbyte *v);
-   ;; glVertexAttrib4Niv ;void (GLuint index, const GLint *v);
-   ;; glVertexAttrib4Nsv ;void (GLuint index, const GLshort *v);
-   ;; glVertexAttrib4Nub ;void (GLuint index, GLubyte x, GLubyte y, GLubyte z, GLubyte w);
-   ;; glVertexAttrib4Nubv ;void (GLuint index, const GLubyte *v);
-   ;; glVertexAttrib4Nuiv ;void (GLuint index, const GLuint *v);
-   ;; glVertexAttrib4Nusv ;void (GLuint index, const GLushort *v);
-   ;; glVertexAttrib4bv ;void (GLuint index, const GLbyte *v);
-   ;; glVertexAttrib4d ;void (GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);
-   ;; glVertexAttrib4dv ;void (GLuint index, const GLdouble *v);
-   ;; glVertexAttrib4f ;void (GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
-   ;; glVertexAttrib4fv ;void (GLuint index, const GLfloat *v);
-   ;; glVertexAttrib4iv ;void (GLuint index, const GLint *v);
-   ;; glVertexAttrib4s ;void (GLuint index, GLshort x, GLshort y, GLshort z, GLshort w);
-   ;; glVertexAttrib4sv ;void (GLuint index, const GLshort *v);
+   (define glVertexAttrib4Nbv (GL GLvoid "glVertexAttrib4Nbv" GLuint GLbyte*))
+   (define glVertexAttrib4Niv (GL GLvoid "glVertexAttrib4Niv" GLuint GLint*))
+   (define glVertexAttrib4Nsv (GL GLvoid "glVertexAttrib4Nsv" GLuint GLshort*))
+   (define glVertexAttrib4Nub (GL GLvoid "glVertexAttrib4Nub" GLuint GLubyte GLubyte GLubyte GLubyte))
+   (define glVertexAttrib4Nubv (GL GLvoid "glVertexAttrib4Nubv" GLuint GLubyte*))
+   (define glVertexAttrib4Nuiv (GL GLvoid "glVertexAttrib4Nuiv" GLuint GLuint*))
+   (define glVertexAttrib4Nusv (GL GLvoid "glVertexAttrib4Nusv" GLuint GLushort*))
+   (define glVertexAttrib4bv (GL GLvoid "glVertexAttrib4bv" GLuint GLbyte*))
+   (define glVertexAttrib4d (GL GLvoid "glVertexAttrib4d" GLuint GLdouble GLdouble GLdouble GLdouble))
+   (define glVertexAttrib4dv (GL GLvoid "glVertexAttrib4dv" GLuint GLdouble*))
+   (define glVertexAttrib4f (GL GLvoid "glVertexAttrib4f" GLuint GLfloat GLfloat GLfloat GLfloat))
+   (define glVertexAttrib4fv (GL GLvoid "glVertexAttrib4fv" GLuint GLfloat*))
+   (define glVertexAttrib4iv (GL GLvoid "glVertexAttrib4iv" GLuint GLint*))
+   (define glVertexAttrib4s (GL GLvoid "glVertexAttrib4s" GLuint GLshort GLshort GLshort GLshort))
+   (define glVertexAttrib4sv (GL GLvoid "glVertexAttrib4sv" GLuint GLshort*))
 
-   ;; glVertexAttrib4ubv ;void (GLuint index, const GLubyte *v);
-   ;; glVertexAttrib4uiv ;void (GLuint index, const GLuint *v);
-   ;; glVertexAttrib4usv ;void (GLuint index, const GLushort *v);
+   (define glVertexAttrib4ubv (GL GLvoid "glVertexAttrib4ubv" GLuint GLubyte*))
+   (define glVertexAttrib4uiv (GL GLvoid "glVertexAttrib4uiv" GLuint GLuint*))
+   (define glVertexAttrib4usv (GL GLvoid "glVertexAttrib4usv" GLuint GLushort*))
 
    (define glVertexAttribPointer (GL GLvoid "glVertexAttribPointer" GLuint GLint GLenum GLboolean GLsizei fft-any))
 
@@ -475,17 +475,19 @@
 ;  no GL_VERTEX_PROGRAM_TWO_SIDE
 (cond-expand
    (Android
-      ; special case (todo: think, maybe remove it)
-      (include "lib/gl-2/gl2es.lisp"))
+      (include "lib/gl/gl2es.lisp"))
    (else
+      ; nothing special for PC
       (begin
          (define (preprocessor source)
             (if (list? source) source (list source)))
          (define vertex-preprocessor preprocessor)
          (define geometry-preprocessor preprocessor)
          (define fragment-preprocessor preprocessor))
-      ))
+))
 
+; TODO: move to ol lib folder, like
+; (include "lib/gl/shading.lisp")
 (begin
    ; * internal
    (define (compile shader sources)

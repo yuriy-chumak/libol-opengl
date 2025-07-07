@@ -27,6 +27,8 @@
 
    GLvoid   GLvoid*       ; void, void*
 
+   GLintptr GLsizeiptr ; 1.5 types
+
    ; minimal required GL functions set
    glGetString
       GL_VENDOR
@@ -150,6 +152,10 @@
    (define GLclampd fft-double)
 
    (define GLubyte* type-string)
+
+   ; -- 1.5 types
+   (define GLintptr fft-signed-long) ;ptrdiff_t
+   (define GLsizeiptr fft-unsigned-long) ;ptrdiff_t
 
    ; -- pointers
    (define GLboolean* (fft* GLboolean))

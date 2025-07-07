@@ -16,6 +16,7 @@
 ;  * EXT blend_color
 ;  * EXT blend_minmax
 ;  * EXT blend_subtract
+
 ; OpenGL 1.2.1 (14 Oct 1998)
 ;  + SGIS multitexture
 
