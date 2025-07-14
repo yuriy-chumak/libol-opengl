@@ -1036,6 +1036,56 @@
    GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER
    GL_INVALID_INDEX
 
+   glCullFace
+   glFrontFace
+   glHint
+   glLineWidth
+   glPointSize
+   glPolygonMode
+   glScissor
+   glTexParameterf
+   glTexParameterfv
+   glTexParameteri
+   glTexParameteriv
+   glTexImage1D
+   glTexImage2D
+   glDrawBuffer
+   glClear
+   glClearColor
+   glClearStencil
+   glClearDepth
+   glStencilMask
+   glColorMask
+   glDepthMask
+   glDisable
+   glEnable
+   glFinish
+   glFlush
+   glBlendFunc
+   glLogicOp
+   glStencilFunc
+   glStencilOp
+   glDepthFunc
+   glPixelStoref
+   glPixelStorei
+   glReadBuffer
+   glReadPixels
+   glGetBooleanv
+   glGetDoublev
+   glGetError
+   glGetFloatv
+   glGetIntegerv
+   glGetString
+   glGetTexImage
+   glGetTexParameteriv
+   glGetTexParameterfv
+   glGetTexLevelParameterfv
+   glGetTexLevelParameteriv
+   glIsEnabled
+   glDepthRange
+   glViewport
+
+
    ; GL_ARB_draw_instanced
    glDrawArraysInstanced
    glDrawElementsInstanced
