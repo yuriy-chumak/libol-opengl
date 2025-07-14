@@ -241,10 +241,7 @@
 
    (setq GL gl:GetProcAddress)
 
-   (define GLchar* type-string)
    (define GLchar** (fft* GLchar*))
-   (define GLint* (fft* GLint))
-   (define GLsizei* (fft* GLsizei))
    (define void* fft-void*)
    (define GLsizei& (fft& GLsizei))
    (define GLenum& (fft& GLenum))
@@ -473,18 +470,13 @@
 ; todo: move "#version" from the source to the top
 ; note:
 ;  no GL_VERTEX_PROGRAM_TWO_SIDE
-(cond-expand
-   (Android
-      (include "lib/gl/gl2es.lisp"))
-   (else
-      ; nothing special for PC
-      (begin
-         (define (preprocessor source)
-            (if (list? source) source (list source)))
-         (define vertex-preprocessor preprocessor)
-         (define geometry-preprocessor preprocessor)
-         (define fragment-preprocessor preprocessor))
-))
+(begin
+   (define (preprocessor source)
+      (if (pair? source) source (list source)))
+   (define vertex-preprocessor preprocessor)
+   (define geometry-preprocessor preprocessor)
+   (define fragment-preprocessor preprocessor)
+)
 
 ; TODO: move to ol lib folder, like
 ; (include "lib/gl/shading.lisp")

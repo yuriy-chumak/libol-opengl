@@ -26,6 +26,7 @@
    GLclampd           ; floating 64-bit (clamped to the range [0,1])
 
    GLvoid   GLvoid*       ; void, void*
+   GLchar*
 
    GLintptr GLsizeiptr ; 1.5 types
 
@@ -133,6 +134,7 @@
    ; -- types
    (define GLvoid   fft-void)
    (define GLvoid*  fft-void*)
+   (define GLchar* type-string)
 
    (define GLenum     fft-unsigned-int)
    (define GLboolean  fft-unsigned-char) ;?

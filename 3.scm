@@ -171,31 +171,31 @@
    GL_QUERY_BY_REGION_WAIT
    GL_QUERY_BY_REGION_NO_WAIT
 
-   glColorMaski; GLAPI void APIENTRY  (GLuint, GLboolean, GLboolean, GLboolean, GLboolean)
-   glGetBooleani_v; GLAPI void APIENTRY  (GLenum, GLuint, GLboolean *)
-   glGetIntegeri_v; GLAPI void APIENTRY  (GLenum, GLuint, GLint *)
-   glEnablei; GLAPI void APIENTRY  (GLenum, GLuint)
-   glDisablei; GLAPI void APIENTRY  (GLenum, GLuint)
-   glIsEnabledi; GLAPI GLboolean APIENTRY  (GLenum, GLuint)
-   glBeginTransformFeedback; GLAPI void APIENTRY  (GLenum)
-   glEndTransformFeedback; GLAPI void APIENTRY  (void)
-   glBindBufferRange; GLAPI void APIENTRY  (GLenum, GLuint, GLuint, GLintptr, GLsizeiptr)
-   glBindBufferBase; GLAPI void APIENTRY  (GLenum, GLuint, GLuint)
-   glTransformFeedbackVaryings; GLAPI void APIENTRY  (GLuint, GLsizei, const GLchar* *, GLenum)
-   glGetTransformFeedbackVarying; GLAPI void APIENTRY  (GLuint, GLuint, GLsizei, GLsizei *, GLsizei *, GLenum *, GLchar *)
-   glClampColor; GLAPI void APIENTRY  (GLenum, GLenum)
-   glBeginConditionalRender; GLAPI void APIENTRY  (GLuint, GLenum)
-   glEndConditionalRender; GLAPI void APIENTRY  (void)
+   glColorMaski
+   glGetBooleani_v
+   glGetIntegeri_v
+   glEnablei
+   glDisablei
+   glIsEnabledi
+   glBeginTransformFeedback
+   glEndTransformFeedback
+   glBindBufferRange
+   glBindBufferBase
+   glTransformFeedbackVaryings
+   glGetTransformFeedbackVarying
+   glClampColor
+   glBeginConditionalRender
+   glEndConditionalRender
 
-   glTexParameterIiv; GLAPI void APIENTRY  (GLenum, GLenum, const GLint *)
-   glTexParameterIuiv; GLAPI void APIENTRY  (GLenum, GLenum, const GLuint *)
-   glGetTexParameterIiv; GLAPI void APIENTRY  (GLenum, GLenum, GLint *)
-   glGetTexParameterIuiv; GLAPI void APIENTRY  (GLenum, GLenum, GLuint *)
-   glClearBufferiv; GLAPI void APIENTRY  (GLenum, GLint, const GLint *)
-   glClearBufferuiv; GLAPI void APIENTRY  (GLenum, GLint, const GLuint *)
-   glClearBufferfv; GLAPI void APIENTRY  (GLenum, GLint, const GLfloat *)
-   glClearBufferfi; GLAPI void APIENTRY  (GLenum, GLint, GLfloat, GLint)
-   glGetStringi; GLAPI const GLubyte * APIENTRY (GLenum, GLuint)
+   glTexParameterIiv
+   glTexParameterIuiv
+   glGetTexParameterIiv
+   glGetTexParameterIuiv
+   glClearBufferiv
+   glClearBufferuiv
+   glClearBufferfv
+   glClearBufferfi
+   glGetStringi
 
  ; ARB_vertex_array_object
    GL_ARB_vertex_array_object
