@@ -20,6 +20,8 @@
 
 (define-library (OpenGL 3.0)
 (export
+      (exports (OpenGL 2.1))
+
    gl:CreateContextAttribs ; os independent context creation function; todo: move to lib/gl/3/something.lisp 
 
    GL_VERSION_3_0
@@ -301,8 +303,7 @@
    glBlitFramebuffer; GLAPI void (GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLint, GLbitfield, GLenum)
    glRenderbufferStorageMultisample; GLAPI void (GLenum, GLsizei, GLenum, GLsizei, GLsizei)
    glFramebufferTextureLayer; GLAPI void (GLenum, GLenum, GLuint, GLint, GLint)
-
-   (exports (OpenGL 2.1)))
+)
 
 (import (scheme core)
         (OpenGL 2.1))

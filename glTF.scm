@@ -110,8 +110,8 @@
             (put (if alphaMode
                     (put material 'alphaMode (string->symbol alphaMode))
                     material) 'id id))
-         (glTF 'materials)
-         (make-vector (iota (size (glTF 'materials))))))
+         (glTF 'materials [])
+         (make-vector (iota (size (glTF 'materials []))))))
 
       ; meshes (vertex array objects for every primitive)
       (define meshes (vector-map (lambda (mesh)
