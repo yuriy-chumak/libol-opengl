@@ -1,6 +1,4 @@
 ; OpenGL 3.2 (3 Aug 2009)  GLSL 1.5
-; Introduced "deprecation" model
-
 (define-library (OpenGL 3.2)
 (export
       (exports (OpenGL 3.1))
@@ -17,5 +15,6 @@
 
 (begin
    (define GL_VERSION_3_2 1)
+
 
 ))

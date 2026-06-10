@@ -466,6 +466,7 @@
    (define GL_VERTEX_PROGRAM_TWO_SIDE        #x8643)
    (define GL_MAX_TEXTURE_COORDS             #x8871)
 )
+
 ; -=( * ol functions )=-------------------------------------
 ; todo: move "#version" from the source to the top
 ; note:
