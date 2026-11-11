@@ -13,8 +13,6 @@
 
    GL_VERSION_1_1
 
-   GL_COLOR_LOGIC_OP
-   GL_INDEX_LOGIC_OP          ; renamed from GL_LOGIC_OP by 1.1
    GL_TEXTURE_INTERNAL_FORMAT ; renamed from GL_TEXTURE_COMPONENTS by 1.1
 
    glIndexub
@@ -118,7 +116,8 @@
 
 
 ;; C.3 EXT_blend_logic_op
-   ; none
+   GL_COLOR_LOGIC_OP
+   GL_INDEX_LOGIC_OP          ; renamed from GL_LOGIC_OP by 1.1
 
 
 ;; C.4, C.5, C.6 EXT_texture
@@ -208,8 +207,6 @@
 
    (setq GL GL_LIBRARY)
 
-   (define GL_COLOR_LOGIC_OP #x0BF2)
-   (define GL_INDEX_LOGIC_OP GL_LOGIC_OP)
    (define GL_TEXTURE_INTERNAL_FORMAT GL_TEXTURE_COMPONENTS)
 
 
@@ -303,7 +300,8 @@
    (define GL_POLYGON_OFFSET_LINE            #x2A02)
 
  ; C.3 EXT_blend_logic_op
-   ; none
+   (define GL_COLOR_LOGIC_OP #x0BF2)
+   (define GL_INDEX_LOGIC_OP GL_LOGIC_OP)
 
  ; C.4, C.5, C.6 EXT_texture
    (define GL_ALPHA4                         #x803B)
