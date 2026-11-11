@@ -14,11 +14,13 @@
    GLbitfield                 ; unsigned 32-bit
    GLbyte   GLbyte*           ;   signed  8-bit
    GLshort  GLshort*          ;   signed 16-bit
+   GLint64  ; OpenGL 3.2
    GLint    GLint*   GLint&   ;   signed 32-bit
    GLsizei  GLsizei*          ;   signed 32-bit
    GLubyte  GLubyte*          ; unsigned  8-bit
    GLushort GLushort*         ; unsigned 16-bit
    GLuint   GLuint*  GLuint&  ; unsigned 32-bit
+   GLuint64 ; OpenGL 3.2
 
    GLfloat  GLfloat*  ; floating 32-bit
    GLclampf           ; floating 32-bit (clamped to the range [0,1])
@@ -95,14 +97,7 @@
 
 
          (setq GL2 GL_LIBRARY)
-         (setq GetProcAddress (GL2 type-vptr "gl2GetProcAddress" type-string))
-         (print "GetProcAddress: " GetProcAddress)
-         
-;;          ; unsupported
-;;          (define (gl:CreateContext . args) #false)
-;;          (define (gl:MakeCurrent . args) #false)
-;;          (define (gl:SwapBuffers . args) #false)
-   ))
+         (setq GetProcAddress (GL2 type-vptr "gl2GetProcAddress" type-string)) ))
 
 ;;    ; -=( macOS )=--------------------------------------
 ;;    (Darwin
@@ -143,10 +138,12 @@
    (define GLbyte   fft-signed-char)
    (define GLshort  fft-short)
    (define GLint    fft-int)
+   (define GLint64  fft-int64)
    (define GLsizei  fft-int)
    (define GLubyte  fft-unsigned-char)
    (define GLushort fft-unsigned-short)
    (define GLuint   fft-unsigned-int)
+   (define GLuint64 fft-uint64)
 
    (define GLfloat  fft-float)
    (define GLclampf fft-float)
@@ -194,12 +191,11 @@
 (cond-expand
    (Linux
       (begin
-         (setq X11 (or (load-dynamic-library "libX11.so")
-                       (load-dynamic-library "libX11.so.6")))
+         (setq X11 (load-dynamic-library "libX11.so.6"))
          (setq XOpenDisplay   (X11 type-vptr "XOpenDisplay" type-string))
-         (setq XDefaultScreen (X11 fft-int "XDefaultScreen" type-vptr))
+         (setq XDefaultScreen (X11 type-vptr "XDefaultScreen" type-vptr))
          (define glXQueryExtensionsString
-            (let*((glXQueryExtensionsString (GLX type-string "glXQueryExtensionsString" type-vptr fft-int))
+            (let*((glXQueryExtensionsString (GLX type-string "glXQueryExtensionsString" type-vptr type-vptr))
                   (display (XOpenDisplay #false))
                   ; WSL workaround: XDefaultScreen can be core dumped if no display
                   (screen  (if display (XDefaultScreen display))))
@@ -233,10 +229,11 @@
       (let ((extensions (c/ / (or ; split by space character
                (cond
                   ; GLX, Linux
-                  ((and (>= (size extension) 4) (string-eq? (substring extension 0 4) "GLX_"))
+                  ((string-eq? (substring extension 0 4) "GLX_")
                      (glXQueryExtensionsString))
-                  ; all others
+                  ; all others (todo: handle )
                   (else
+                     ; todo: handle 3.0+ context and glGetStringi
                      (glGetString GL_EXTENSIONS)))
                ; if no extensions - use empty string:
                ""))))

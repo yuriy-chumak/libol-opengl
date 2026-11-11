@@ -87,6 +87,7 @@
 )
 
 (import (OpenGL 2.0))
+(import (lib gl 2. shading))
 ; ---------------------------------------------------------------------------
 (begin
    (define EXT_geometry_shader4 (gl:QueryExtension "GL_EXT_geometry_shader4"))

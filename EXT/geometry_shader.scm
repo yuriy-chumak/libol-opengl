@@ -17,7 +17,10 @@
 (define-library (OpenGL EXT geometry_shader)
 
 (import (scheme core)
-        (OpenGL platform))
+        (scheme exceptions)
+        (OpenGL platform)
+        (OpenGL 2.0)
+        (lib gl shading))
 
 (export  EXT_geometry_shader
 
@@ -68,6 +71,9 @@
    GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS
    GL_FRAMEBUFFER_ATTACHMENT_LAYERED
    GL_REFERENCED_BY_GEOMETRY_SHADER
+
+   gl:create-program
+   gl:geometry-preprocessor
 )
 
 ; ---------------------------------------------------------------------------
@@ -116,5 +122,35 @@
    (define GL_FRAMEBUFFER_INCOMPLETE_LAYER_TARGETS        #x8DA8)
    (define GL_FRAMEBUFFER_ATTACHMENT_LAYERED              #x8DA7)
    (define GL_REFERENCED_BY_GEOMETRY_SHADER               #x9309)
+
+   ; * ol internal
+   (define (preprocessor source)
+      (if (pair? source) source (list source)))
+   (define geometry-preprocessor preprocessor)
+
+   (define gl:create-program
+   (case-lambda
+      ; vertex and fragment shaders
+      ((vstext fstext)
+            (gl:create-program vstext fstext))
+      ; vertex, geometry, and fragment shaders
+      ; todo: add automatic extraction of inputType outputType outputCount from gstext
+      ((vstext
+        gstext
+        fstext)
+            (let ((program (glCreateProgram))
+                  (vs (glCreateShader GL_VERTEX_SHADER))
+                  (gs (glCreateShader GL_GEOMETRY_SHADER))
+                  (fs (glCreateShader GL_FRAGMENT_SHADER)))
+               (if (eq? program 0)
+                  (raise "Can't create shader program."))
+
+               (gl:compile-shader vs (gl:vertex-preprocessor vstext))
+               (gl:compile-shader gs (gl:geometry-preprocessor gstext))
+               (gl:compile-shader fs (gl:fragment-preprocessor fstext))
+
+               (gl:link-shaders program vs gs fs)
+               program))
+      ))
 
 ))

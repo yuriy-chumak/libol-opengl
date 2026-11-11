@@ -22,8 +22,6 @@
 (export
       (exports (OpenGL 2.1))
 
-   gl:CreateContextAttribs ; os independent context creation function; todo: move to lib/gl/3/something.lisp 
-
    GL_VERSION_3_0
 
 ;; EXT gpu_shader4
@@ -307,17 +305,6 @@
 
 (import (scheme core)
         (OpenGL 2.1))
-
-; os independent context creation function:
-(cond-expand
-   (Windows
-      (import (OpenGL WGL ARB create_context))
-      (begin
-         (define gl:CreateContextAttribs wglCreateContextAttribs)))
-   (else
-      (import (OpenGL GLX ARB create_context))
-      (begin
-         (define gl:CreateContextAttribs glXCreateContextAttribs))))
 
 (begin
    (define GL_VERSION_3_0 1)
@@ -635,13 +622,13 @@
    (define glIsRenderbuffer (gl:GetProcAddress GLboolean "glIsRenderbuffer" GLuint))
    (define glBindRenderbuffer (gl:GetProcAddress GLvoid "glBindRenderbuffer" GLenum GLuint))
    (define glDeleteRenderbuffers (gl:GetProcAddress GLvoid "glDeleteRenderbuffers" GLsizei GLuint*))
-   (define glGenRenderbuffers (gl:GetProcAddress GLvoid "glGenRenderbuffers" GLsizei GLuint*))
+   (define glGenRenderbuffers (gl:GetProcAddress GLvoid "glGenRenderbuffers" GLsizei GLuint&))
    (define glRenderbufferStorage (gl:GetProcAddress GLvoid "glRenderbufferStorage" GLenum GLenum GLsizei GLsizei))
    (define glGetRenderbufferParameteriv (gl:GetProcAddress GLvoid "glGetRenderbufferParameteriv" GLenum GLenum GLint*))
    (define glIsFramebuffer (gl:GetProcAddress GLboolean "glIsFramebuffer" GLuint))
    (define glBindFramebuffer (gl:GetProcAddress GLvoid "glBindFramebuffer" GLenum GLuint))
    (define glDeleteFramebuffers (gl:GetProcAddress GLvoid "glDeleteFramebuffers" GLsizei GLuint*))
-   (define glGenFramebuffers (gl:GetProcAddress GLvoid "glGenFramebuffers" GLsizei GLuint*))
+   (define glGenFramebuffers (gl:GetProcAddress GLvoid "glGenFramebuffers" GLsizei GLuint&))
    (define glCheckFramebufferStatus (gl:GetProcAddress GLenum "glCheckFramebufferStatus" GLenum))
    (define glFramebufferTexture1D (gl:GetProcAddress GLvoid "glFramebufferTexture1D" GLenum GLenum GLenum GLuint GLint))
    (define glFramebufferTexture2D (gl:GetProcAddress GLvoid "glFramebufferTexture2D" GLenum GLenum GLenum GLuint GLint))
