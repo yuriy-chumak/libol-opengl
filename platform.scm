@@ -40,6 +40,7 @@
       GL_EXTENSIONS
    glHint
    glViewport
+   glGetIntegerv
 
    ; WGL/GLX/CGL/EGL/... platform functions
    gl:GetProcAddress ; * ol internal
@@ -183,7 +184,9 @@
    ; Minimal required GL function set
    (define glGetString (GL type-string "glGetString" fft-unsigned-int))
    (define glHint (GL fft-void "glHint" GLenum GLenum))
-   (define glViewport (GL GLvoid "glViewport" GLint GLint GLsizei GLsizei))
+   (define glViewport (GL fft-void "glViewport" GLint GLint GLsizei GLsizei))
+   (define glGetIntegerv (GL fft-void "glGetIntegerv" GLenum (fft& GLint)))
+
 )
 
 ; ----------------------------------
@@ -226,19 +229,26 @@
                (ffi function rtti args)))))
 
    (define (gl:QueryExtension extension)
-      (let ((extensions (c/ / (or ; split by space character
-               (cond
-                  ; GLX, Linux
-                  ((string-eq? (substring extension 0 4) "GLX_")
-                     (glXQueryExtensionsString))
-                  ; all others (todo: handle )
-                  (else
-                     ; todo: handle 3.0+ context and glGetStringi
-                     (glGetString GL_EXTENSIONS)))
-               ; if no extensions - use empty string:
-               ""))))
-         (if (member extension extensions)
-            (begin (print-to stderr "Checking " extension " support... " green "ok." end) #true)
-            (begin (print-to stderr "Checking " extension " support... " red "not found." end) #false))))
+      (if (call/cc (lambda (return)
+            (let ((extensions (c/ / ; split by a space character
+                     (cond
+                        ; GLX, Linux
+                        ((string-eq? (substring extension 0 4) "GLX_")
+                           (or (glXQueryExtensionsString) ""))
+                        ; TODO: handle others (line WGL_, etc.)
+                        (else
+                           (or
+                              (glGetString GL_EXTENSIONS)
+                              (begin ; looks like we'r in core profile?
+                                 (define num_extensions (box 0))
+                                 (define glGetStringi (gl:GetProcAddress GLubyte* "glGetStringi" GLenum GLuint))
+                                 (glGetIntegerv #x821D num_extensions) ; GL_NUM_EXTENSIONS
+                                 (do ((i 0 (+ i 1)))
+                                     ((= i (unbox num_extensions)) "")
+                                    (when (string-eq? (glGetStringi GL_EXTENSIONS i) extension)
+                                       (return #true))) )))) )))
+               (member extension extensions))))
+         (begin (print-to stderr "Checking " extension " support... " green "ok." end) #true)
+         (begin (print-to stderr "Checking " extension " support... " red "not found." end) #false)))
 
 ))
