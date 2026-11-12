@@ -19,7 +19,7 @@
 
    GL_VERSION_3_1
 
-   ; -- 1.0 ------------------------------
+;; 1.0 core ------------------------------
    GL_VERSION_1_0
    GL_DEPTH_BUFFER_BIT
    GL_STENCIL_BUFFER_BIT
@@ -195,7 +195,7 @@
    GL_TEXTURE_WRAP_T
    GL_REPEAT
 
-   ; -- 1.1 ------------------------------
+;; 1.1 core ------------------------------
    GL_VERSION_1_1
    GL_COLOR_LOGIC_OP
    GL_POLYGON_OFFSET_UNITS
@@ -244,7 +244,7 @@
    glGenTextures
    glIsTexture
 
-   ; -- 1.2 ------------------------------
+;; 1.2 core ------------------------------
    GL_VERSION_1_2
    GL_UNSIGNED_BYTE_3_3_2
    GL_UNSIGNED_SHORT_4_4_4_4
@@ -288,7 +288,7 @@
    glTexSubImage3D
    glCopyTexSubImage3D
 
-   ; -- 1.3 ------------------------------
+;; 1.3 core ------------------------------
    GL_VERSION_1_3
    GL_TEXTURE0
    GL_TEXTURE1
@@ -360,7 +360,7 @@
    glCompressedTexSubImage1D
    glGetCompressedTexImage
 
-   ; -- 1.4 ------------------------------
+;; 1.4 core ------------------------------
    GL_VERSION_1_4
    GL_BLEND_DST_RGB
    GL_BLEND_SRC_RGB
@@ -400,7 +400,7 @@
    glBlendColor
    glBlendEquation
 
-   ; -- 1.5 ------------------------------
+;; 1.5 core ------------------------------
    GL_VERSION_1_5
    GL_BUFFER_SIZE
    GL_BUFFER_USAGE
@@ -451,7 +451,7 @@
    glGetBufferParameteriv
    glGetBufferPointerv
 
-   ; -- 2.0 ------------------------------
+;; 2.0 core ------------------------------
    GL_VERSION_2_0
    GL_BLEND_EQUATION_RGB
    GL_VERTEX_ATTRIB_ARRAY_ENABLED
@@ -628,7 +628,7 @@
    ;; glVertexAttrib4usv
    glVertexAttribPointer
 
-   ; -- 2.1 ------------------------------
+;; 2.1 core ------------------------------
    GL_VERSION_2_1
    GL_PIXEL_PACK_BUFFER
    GL_PIXEL_UNPACK_BUFFER
@@ -654,7 +654,7 @@
    glUniformMatrix3x4fv
    glUniformMatrix4x3fv
 
-   ; -- 3.0 ------------------------------
+;; 3.0 core ------------------------------
    GL_VERSION_3_0
    GL_COMPARE_REF_TO_TEXTURE
    GL_CLIP_DISTANCE0
@@ -973,7 +973,7 @@
    glGenVertexArrays
    glIsVertexArray
 
-   ; -- 3.1 ------------------------------
+;; 3.1 core ------------------------------
    GL_SAMPLER_2D_RECT
    GL_SAMPLER_2D_RECT_SHADOW
    GL_SAMPLER_BUFFER
@@ -1086,22 +1086,22 @@
    glViewport
 
 
-   ; GL_ARB_draw_instanced
+;; GL_ARB_draw_instanced
    glDrawArraysInstanced
    glDrawElementsInstanced
 
-   ; GL_ARB_copy_buffer
+;; GL_ARB_copy_buffer
    GL_COPY_READ_BUFFER
    GL_COPY_WRITE_BUFFER
    glCopyBufferSubData
 
-   ; GL_NV_primitive_restart
+;; GL_NV_primitive_restart
    GL_PRIMITIVE_RESTART
    GL_PRIMITIVE_RESTART_INDEX
    glPrimitiveRestart
    glPrimitiveRestartIndex
 
-   ; GL_ARB_texture_buffer_object
+;; GL_ARB_texture_buffer_object
    GL_TEXTURE_BUFFER
    GL_MAX_TEXTURE_BUFFER_SIZE
    GL_TEXTURE_BINDING_BUFFER
@@ -1109,7 +1109,7 @@
    GL_TEXTURE_BUFFER_FORMAT
    glTexBuffer
 
-   ; GL_ARB_texture_rectangle
+;; GL_ARB_texture_rectangle
    GL_TEXTURE_RECTANGLE
    GL_TEXTURE_BINDING_RECTANGLE
    GL_PROXY_TEXTURE_RECTANGLE
@@ -1117,7 +1117,7 @@
    GL_SAMPLER_2D_RECT
    GL_SAMPLER_2D_RECT_SHADOW
 
-   ; GL_ARB_uniform_buffer_object
+;; GL_ARB_uniform_buffer_object
    GL_UNIFORM_BUFFER
    GL_UNIFORM_BUFFER_BINDING
    GL_UNIFORM_BUFFER_START
@@ -1162,7 +1162,7 @@
    glGetIntegeri_v
    glUniformBlockBinding
 
-   ; Signed normalized texture component formats
+;; Signed normalized texture component formats
    GL_RED_SNORM
    GL_RG_SNORM
    GL_RGB_SNORM
@@ -1191,7 +1191,7 @@
 
    (setq GL gl:GetProcAddress)
 
-   ; -- 1.0 ------------------------------
+ ; 1.0 core ------------------------------
    (define GL_VERSION_1_0 1)
    (define GL_DEPTH_BUFFER_BIT               #x00000100)
    (define GL_STENCIL_BUFFER_BIT             #x00000400)
@@ -1416,7 +1416,7 @@
    (define glDepthRange  (GL GLvoid "glDepthRange" GLclampd GLclampd))
    (define glViewport    (GL GLvoid "glViewport" GLint GLint GLsizei GLsizei))
 
-   ; -- 1.1 ------------------------------
+ ; 1.1 core ------------------------------
    (define GL_VERSION_1_1 1)
    (define GL_COLOR_LOGIC_OP                 #x0BF2)
    (define GL_POLYGON_OFFSET_UNITS           #x2A00)
@@ -1465,7 +1465,7 @@
    (define glGenTextures (GL GLvoid "glGenTextures" GLsizei GLuint&))
    (define glIsTexture (GL GLboolean "glIsTexture" GLuint))
 
-   ; -- 1.2 ------------------------------
+ ; 1.2 core ------------------------------
    (define GL_VERSION_1_2 1)
    (define GL_UNSIGNED_BYTE_3_3_2            #x8032)
    (define GL_UNSIGNED_SHORT_4_4_4_4         #x8033)
@@ -1509,7 +1509,7 @@
    (define glTexSubImage3D (GL GLvoid "glTexSubImage3D" GLenum GLint GLint GLint GLint GLsizei GLsizei GLsizei GLenum GLenum fft-any))
    (define glCopyTexSubImage3D (GL GLvoid "glCopyTexSubImage3D" GLenum GLint GLint GLint GLint GLint GLint GLsizei GLsizei))
 
-   ; -- 1.3 ------------------------------
+ ; 1.3 core ------------------------------
    (define GL_VERSION_1_3 1)
    (define GL_TEXTURE0                       #x84C0)
    (define GL_TEXTURE1                       #x84C1)
@@ -1581,7 +1581,7 @@
    (define glCompressedTexSubImage1D (GL GLvoid "glCompressedTexSubImage1D" GLenum GLint GLint GLsizei GLenum GLsizei fft-any))
    (define glGetCompressedTexImage (GL GLvoid "glGetCompressedTexImage" GLenum GLint fft-any))
 
-   ; -- 1.4 ------------------------------
+ ; 1.4 core ------------------------------
    (define GL_VERSION_1_4 1)
    (define GL_BLEND_DST_RGB                  #x80C8)
    (define GL_BLEND_SRC_RGB                  #x80C9)
@@ -1621,7 +1621,7 @@
    (define glBlendColor (GL GLvoid "glBlendColor" GLclampf GLclampf GLclampf GLclampf))
    (define glBlendEquation (GL GLvoid "glBlendEquation" GLenum))
 
-   ; -- 1.5 ------------------------------
+ ; 1.5 core ------------------------------
    (define GL_VERSION_1_5 1)
    (define GL_BUFFER_SIZE                    #x8764)
    (define GL_BUFFER_USAGE                   #x8765)
@@ -1672,7 +1672,7 @@
    (define glGetBufferParameteriv (GL GLvoid "glGetBufferParameteriv" GLenum GLenum GLint*))
    (define glGetBufferPointerv (GL GLvoid "glGetBufferPointerv" GLenum GLenum fft-any))
 
-   ; -- 2.0 ------------------------------
+ ; 2.0 core ------------------------------
    (define GL_VERSION_2_0 1)
    (define GL_BLEND_EQUATION_RGB             #x8009)
    (define GL_VERTEX_ATTRIB_ARRAY_ENABLED    #x8622)
@@ -1857,7 +1857,7 @@
 ;; GLAPI void APIENTRY glVertexAttrib4usv (GLuint index, const GLushort *v);
    (define glVertexAttribPointer (GL GLvoid "glVertexAttribPointer" GLuint GLint GLenum GLboolean GLsizei fft-any))
 
-   ; -- 2.1 ------------------------------
+ ; 2.1 core ------------------------------
    (define GL_VERSION_2_1 1)
    (define GL_PIXEL_PACK_BUFFER              #x88EB)
    (define GL_PIXEL_UNPACK_BUFFER            #x88EC)
@@ -1883,7 +1883,7 @@
    (define glUniformMatrix3x4fv (GL GLvoid "glUniformMatrix3x4fv" GLint GLsizei GLboolean GLfloat*))
    (define glUniformMatrix4x3fv (GL GLvoid "glUniformMatrix4x3fv" GLint GLsizei GLboolean GLfloat*))
 
-   ; -- 3.0 ------------------------------
+ ; 3.0 core ------------------------------
    (define GL_VERSION_3_0 1)
    (define GL_COMPARE_REF_TO_TEXTURE         #x884E)
    (define GL_CLIP_DISTANCE0                 #x3000)
@@ -2206,7 +2206,7 @@
    (define glGenVertexArrays (GL GLvoid "glGenVertexArrays" GLsizei GLuint&))
    (define glIsVertexArray (GL GLboolean "glIsVertexArray" GLuint))
 
-   ; -- 3.1 ------------------------------
+ ; 3.1 core ------------------------------
    (define GL_SAMPLER_2D_RECT                #x8B63)
    (define GL_SAMPLER_2D_RECT_SHADOW         #x8B64)
    (define GL_SAMPLER_BUFFER                 #x8DC2)

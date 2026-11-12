@@ -309,7 +309,7 @@
 (begin
    (define GL_VERSION_3_0 1)
 
-;; EXT gpu_shader4
+ ; EXT gpu_shader4
    (define glVertexAttribI1i (gl:GetProcAddress GLvoid "glVertexAttribI1i" GLuint GLint))
    (define glVertexAttribI2i (gl:GetProcAddress GLvoid "glVertexAttribI2i" GLuint GLint GLint))
    (define glVertexAttribI3i (gl:GetProcAddress GLvoid "glVertexAttribI3i" GLuint GLint GLint GLint))
