@@ -1,17 +1,14 @@
 ; OpenGL 3.1 (24 Mar 2009), GLSL 1.4
 ; Is not upward compatible with earlier versions!
+;  + GL_ARB_draw_instanced (core subset)
+;  + GL_ARB_copy_buffer
+;  + GL_NV_primitive_restart (core subset)
+;  + At least 16 texture image units
+;  + GL_ARB_texture_buffer_object (core subset)
+;  + GL_ARB_texture_rectangle (core subset)
+;  + GL_ARB_uniform_buffer_object
+;  + GL_EXT_texture_snorm (core subset)
 ;  * GL_ARB_compatibility
-;  * GL_ARB_draw_instanced
-;  * GL_ARB_copy_buffer
-;  * GL_NV_primitive_restart
-;  * At least 16 texture image units
-;  * GL_ARB_texture_buffer_object
-;  * GL_ARB_texture_rectangle
-;  * GL_ARB_uniform_buffer_object
-;  * Signed normalized texture component formats.
-
-;  * SNORM texture component formats
-;  + ARB_uniform_buffer_object
 (define-library (OpenGL 3.1)
 (export
    (exports (OpenGL platform))
@@ -33,7 +30,6 @@
    GL_TRIANGLES
    GL_TRIANGLE_STRIP
    GL_TRIANGLE_FAN
-   GL_QUADS
    GL_NEVER
    GL_LESS
    GL_EQUAL
@@ -142,8 +138,6 @@
    GL_INT
    GL_UNSIGNED_INT
    GL_FLOAT
-   GL_STACK_OVERFLOW
-   GL_STACK_UNDERFLOW
    GL_CLEAR
    GL_AND
    GL_AND_REVERSE
@@ -194,6 +188,55 @@
    GL_TEXTURE_WRAP_S
    GL_TEXTURE_WRAP_T
    GL_REPEAT
+
+   glCullFace
+   glFrontFace
+   glHint
+   glLineWidth
+   glPointSize
+   glPolygonMode
+   glScissor
+   glTexParameterf
+   glTexParameterfv
+   glTexParameteri
+   glTexParameteriv
+   glTexImage1D
+   glTexImage2D
+   glDrawBuffer
+   glClear
+   glClearColor
+   glClearStencil
+   glClearDepth
+   glStencilMask
+   glColorMask
+   glDepthMask
+   glDisable
+   glEnable
+   glFinish
+   glFlush
+   glBlendFunc
+   glLogicOp
+   glStencilFunc
+   glStencilOp
+   glDepthFunc
+   glPixelStoref
+   glPixelStorei
+   glReadBuffer
+   glReadPixels
+   glGetBooleanv
+   glGetDoublev
+   glGetError
+   glGetFloatv
+   glGetIntegerv
+   glGetString
+   glGetTexImage
+   glGetTexParameteriv
+   glGetTexParameterfv
+   glGetTexLevelParameterfv
+   glGetTexLevelParameteriv
+   glIsEnabled
+   glDepthRange
+   glViewport
 
 ;; 1.1 core ------------------------------
    GL_VERSION_1_1
@@ -590,42 +633,42 @@
    glUniformMatrix3fv
    glUniformMatrix4fv
    glValidateProgram
-   ;; glVertexAttrib1d ; TODO
-   ;; glVertexAttrib1dv
-   ;; glVertexAttrib1f
-   ;; glVertexAttrib1fv
-   ;; glVertexAttrib1s
-   ;; glVertexAttrib1sv
-   ;; glVertexAttrib2d
-   ;; glVertexAttrib2dv
-   ;; glVertexAttrib2f
-   ;; glVertexAttrib2fv
-   ;; glVertexAttrib2s
-   ;; glVertexAttrib2sv
-   ;; glVertexAttrib3d
-   ;; glVertexAttrib3dv
-   ;; glVertexAttrib3f
-   ;; glVertexAttrib3fv
-   ;; glVertexAttrib3s
-   ;; glVertexAttrib3sv
-   ;; glVertexAttrib4Nbv
-   ;; glVertexAttrib4Niv
-   ;; glVertexAttrib4Nsv
-   ;; glVertexAttrib4Nub
-   ;; glVertexAttrib4Nubv
-   ;; glVertexAttrib4Nuiv
-   ;; glVertexAttrib4Nusv
-   ;; glVertexAttrib4bv
-   ;; glVertexAttrib4d
-   ;; glVertexAttrib4dv
-   ;; glVertexAttrib4f
-   ;; glVertexAttrib4fv
-   ;; glVertexAttrib4iv
-   ;; glVertexAttrib4s
-   ;; glVertexAttrib4sv
-   ;; glVertexAttrib4ubv
-   ;; glVertexAttrib4uiv
-   ;; glVertexAttrib4usv
+   glVertexAttrib1d
+   glVertexAttrib1dv
+   glVertexAttrib1f
+   glVertexAttrib1fv
+   glVertexAttrib1s
+   glVertexAttrib1sv
+   glVertexAttrib2d
+   glVertexAttrib2dv
+   glVertexAttrib2f
+   glVertexAttrib2fv
+   glVertexAttrib2s
+   glVertexAttrib2sv
+   glVertexAttrib3d
+   glVertexAttrib3dv
+   glVertexAttrib3f
+   glVertexAttrib3fv
+   glVertexAttrib3s
+   glVertexAttrib3sv
+   glVertexAttrib4Nbv
+   glVertexAttrib4Niv
+   glVertexAttrib4Nsv
+   glVertexAttrib4Nub
+   glVertexAttrib4Nubv
+   glVertexAttrib4Nuiv
+   glVertexAttrib4Nusv
+   glVertexAttrib4bv
+   glVertexAttrib4d
+   glVertexAttrib4dv
+   glVertexAttrib4f
+   glVertexAttrib4fv
+   glVertexAttrib4iv
+   glVertexAttrib4s
+   glVertexAttrib4sv
+   glVertexAttrib4ubv
+   glVertexAttrib4uiv
+   glVertexAttrib4usv
    glVertexAttribPointer
 
 ;; 2.1 core ------------------------------
@@ -1000,124 +1043,20 @@
    GL_SIGNED_NORMALIZED
    GL_PRIMITIVE_RESTART
    GL_PRIMITIVE_RESTART_INDEX
-   GL_COPY_READ_BUFFER
-   GL_COPY_WRITE_BUFFER
-   GL_UNIFORM_BUFFER
-   GL_UNIFORM_BUFFER_BINDING
-   GL_UNIFORM_BUFFER_START
-   GL_UNIFORM_BUFFER_SIZE
-   GL_MAX_VERTEX_UNIFORM_BLOCKS
-   GL_MAX_GEOMETRY_UNIFORM_BLOCKS
-   GL_MAX_FRAGMENT_UNIFORM_BLOCKS
-   GL_MAX_COMBINED_UNIFORM_BLOCKS
-   GL_MAX_UNIFORM_BUFFER_BINDINGS
-   GL_MAX_UNIFORM_BLOCK_SIZE
-   GL_MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS
-   GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS
-   GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS
-   GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT
-   GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH
-   GL_ACTIVE_UNIFORM_BLOCKS
-   GL_UNIFORM_TYPE
-   GL_UNIFORM_SIZE
-   GL_UNIFORM_NAME_LENGTH
-   GL_UNIFORM_BLOCK_INDEX
-   GL_UNIFORM_OFFSET
-   GL_UNIFORM_ARRAY_STRIDE
-   GL_UNIFORM_MATRIX_STRIDE
-   GL_UNIFORM_IS_ROW_MAJOR
-   GL_UNIFORM_BLOCK_BINDING
-   GL_UNIFORM_BLOCK_DATA_SIZE
-   GL_UNIFORM_BLOCK_NAME_LENGTH
-   GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS
-   GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES
-   GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER
-   GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER
-   GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER
-   GL_INVALID_INDEX
 
-   glCullFace
-   glFrontFace
-   glHint
-   glLineWidth
-   glPointSize
-   glPolygonMode
-   glScissor
-   glTexParameterf
-   glTexParameterfv
-   glTexParameteri
-   glTexParameteriv
-   glTexImage1D
-   glTexImage2D
-   glDrawBuffer
-   glClear
-   glClearColor
-   glClearStencil
-   glClearDepth
-   glStencilMask
-   glColorMask
-   glDepthMask
-   glDisable
-   glEnable
-   glFinish
-   glFlush
-   glBlendFunc
-   glLogicOp
-   glStencilFunc
-   glStencilOp
-   glDepthFunc
-   glPixelStoref
-   glPixelStorei
-   glReadBuffer
-   glReadPixels
-   glGetBooleanv
-   glGetDoublev
-   glGetError
-   glGetFloatv
-   glGetIntegerv
-   glGetString
-   glGetTexImage
-   glGetTexParameteriv
-   glGetTexParameterfv
-   glGetTexLevelParameterfv
-   glGetTexLevelParameteriv
-   glIsEnabled
-   glDepthRange
-   glViewport
-
-
-;; GL_ARB_draw_instanced
    glDrawArraysInstanced
    glDrawElementsInstanced
+   glTexBuffer
+   glPrimitiveRestartIndex
 
-;; GL_ARB_copy_buffer
+;; ARB_copy_buffer
+   GL_ARB_copy_buffer
    GL_COPY_READ_BUFFER
    GL_COPY_WRITE_BUFFER
    glCopyBufferSubData
 
-;; GL_NV_primitive_restart
-   GL_PRIMITIVE_RESTART
-   GL_PRIMITIVE_RESTART_INDEX
-   glPrimitiveRestart
-   glPrimitiveRestartIndex
-
-;; GL_ARB_texture_buffer_object
-   GL_TEXTURE_BUFFER
-   GL_MAX_TEXTURE_BUFFER_SIZE
-   GL_TEXTURE_BINDING_BUFFER
-   GL_TEXTURE_BUFFER_DATA_STORE_BINDING
-   GL_TEXTURE_BUFFER_FORMAT
-   glTexBuffer
-
-;; GL_ARB_texture_rectangle
-   GL_TEXTURE_RECTANGLE
-   GL_TEXTURE_BINDING_RECTANGLE
-   GL_PROXY_TEXTURE_RECTANGLE
-   GL_MAX_RECTANGLE_TEXTURE_SIZE
-   GL_SAMPLER_2D_RECT
-   GL_SAMPLER_2D_RECT_SHADOW
-
-;; GL_ARB_uniform_buffer_object
+;; ARB_uniform_buffer_object
+   GL_ARB_uniform_buffer_object
    GL_UNIFORM_BUFFER
    GL_UNIFORM_BUFFER_BINDING
    GL_UNIFORM_BUFFER_START
@@ -1162,23 +1101,6 @@
    glGetIntegeri_v
    glUniformBlockBinding
 
-;; Signed normalized texture component formats
-   GL_RED_SNORM
-   GL_RG_SNORM
-   GL_RGB_SNORM
-   GL_RGBA_SNORM
-   GL_R8_SNORM
-   GL_RG8_SNORM
-   GL_RGB8_SNORM
-   GL_RGBA8_SNORM
-   GL_R16_SNORM
-   GL_RG16_SNORM
-   GL_RGB16_SNORM
-   GL_RGBA16_SNORM
-   GL_SIGNED_NORMALIZED
-   GL_PRIMITIVE_RESTART
-   GL_PRIMITIVE_RESTART_INDEX
-
 )
 
 ; ============================================================================
@@ -1193,6 +1115,7 @@
 
  ; 1.0 core ------------------------------
    (define GL_VERSION_1_0 1)
+
    (define GL_DEPTH_BUFFER_BIT               #x00000100)
    (define GL_STENCIL_BUFFER_BIT             #x00000400)
    (define GL_COLOR_BUFFER_BIT               #x00004000)
@@ -1205,7 +1128,6 @@
    (define GL_TRIANGLES                      #x0004)
    (define GL_TRIANGLE_STRIP                 #x0005)
    (define GL_TRIANGLE_FAN                   #x0006)
-   (define GL_QUADS                          #x0007)
    (define GL_NEVER                          #x0200)
    (define GL_LESS                           #x0201)
    (define GL_EQUAL                          #x0202)
@@ -1314,8 +1236,6 @@
    (define GL_INT                            #x1404)
    (define GL_UNSIGNED_INT                   #x1405)
    (define GL_FLOAT                          #x1406)
-   (define GL_STACK_OVERFLOW                 #x0503)
-   (define GL_STACK_UNDERFLOW                #x0504)
    (define GL_CLEAR                          #x1500)
    (define GL_AND                            #x1501)
    (define GL_AND_REVERSE                    #x1502)
@@ -1367,57 +1287,58 @@
    (define GL_TEXTURE_WRAP_T                 #x2803)
    (define GL_REPEAT                         #x2901)
 
-   (define glCullFace    (GL GLvoid "glCullFace" GLenum))
-   (define glFrontFace   (GL GLvoid "glFrontFace" GLenum))
-   (define glHint        (GL GLvoid "glHint" GLenum GLenum))
-   (define glLineWidth   (GL GLvoid "glLineWidth" GLfloat))
-   (define glPointSize   (GL GLvoid "glPointSize" GLfloat))
-   (define glPolygonMode (GL GLvoid "glPolygonMode" GLenum GLenum))
-   (define glScissor     (GL GLvoid "glScissor" GLint GLint GLsizei GLsizei))
-   (define glTexParameterf (GL GLvoid "glTexParameterf" GLenum GLenum GLfloat))
-   (define glTexParameterfv (GL GLvoid "glTexParameterfv" GLenum GLenum GLfloat*))
-   (define glTexParameteri (GL GLvoid "glTexParameteri" GLenum GLenum GLint))
-   (define glTexParameteriv (GL GLvoid "glTexParameteriv" GLenum GLenum GLint*))
-   (define glTexImage1D  (GL GLvoid "glTexImage1D" GLenum GLint GLint GLsizei GLint GLenum GLenum fft-any))
-   (define glTexImage2D  (GL GLvoid "glTexImage2D" GLenum GLint GLint GLsizei GLsizei GLint GLenum GLenum fft-any))
-   (define glDrawBuffer  (GL GLvoid "glDrawBuffer" GLenum))
-   (define glClear       (GL GLvoid "glClear"      GLbitfield))
-   (define glClearColor  (GL GLvoid "glClearColor" GLfloat GLfloat GLfloat GLfloat))
-   (define glClearStencil(GL GLvoid "glClearStencil" GLint))
-   (define glClearDepth  (GL GLvoid "glClearDepth" GLclampd))
-   (define glStencilMask (GL GLvoid "glStencilMask" GLuint))
-   (define glColorMask   (GL GLvoid "glColorMask"  GLboolean GLboolean GLboolean GLboolean))
-   (define glDepthMask   (GL GLvoid "glDepthMask"  GLboolean))
-   (define glDisable     (GL GLvoid "glDisable"    GLenum))
-   (define glEnable      (GL GLvoid "glEnable"     GLenum))
-   (define glFinish      (GL GLvoid "glFinish"))
-   (define glFlush       (GL GLvoid "glFlush"))
-   (define glBlendFunc   (GL GLvoid "glBlendFunc"  GLenum GLenum))
-   (define glLogicOp     (GL GLvoid "glLogicOp" GLenum))
-   (define glStencilFunc (GL GLvoid "glStencilFunc" GLenum GLint GLuint))
-   (define glStencilOp   (GL GLvoid "glStencilOp" GLenum GLenum GLenum))
-   (define glDepthFunc   (GL GLvoid "glDepthFunc"  GLenum))
-   (define glPixelStoref (GL GLvoid "glPixelStoref" GLenum GLfloat))
-   (define glPixelStorei (GL GLvoid "glPixelStorei" GLenum GLint))
-   (define glReadBuffer  (GL GLvoid "glReadBuffer" GLenum))
-   (define glReadPixels  (GL GLvoid "glReadPixels" GLint GLint GLsizei GLsizei GLenum GLenum GLvoid*))
-   (define glGetBooleanv (GL GLvoid "glGetBooleanv" GLenum (fft& GLboolean)))
-   (define glGetDoublev  (GL GLvoid "glGetDoublev"  GLenum (fft& GLdouble)))
-   (define glGetError    (GL GLenum "glGetError"))
-   (define glGetFloatv   (GL GLvoid "glGetFloatv"   GLenum (fft& GLfloat)))
-   (define glGetIntegerv (GL GLvoid "glGetIntegerv" GLenum GLint&))
-   (define glGetString   (GL GLubyte* "glGetString" GLenum))
-   (define glGetTexImage (GL GLvoid "glGetTexImage" GLenum GLint GLenum GLenum GLvoid*))
-   (define glGetTexParameteriv (GL GLvoid "glGetTexParameteriv" GLenum GLenum GLint*))
-   (define glGetTexParameterfv (GL GLvoid "glGetTexParameteriv" GLenum GLenum GLfloat*))
-   (define glGetTexLevelParameterfv (GL GLvoid "glGetTexLevelParameterfv" GLenum GLint GLenum GLfloat*))
-   (define glGetTexLevelParameteriv (GL GLvoid "glGetTexLevelParameteriv" GLenum GLint GLenum GLint*))
-   (define glIsEnabled   (GL GLboolean "glIsEnabled" GLenum))
-   (define glDepthRange  (GL GLvoid "glDepthRange" GLclampd GLclampd))
-   (define glViewport    (GL GLvoid "glViewport" GLint GLint GLsizei GLsizei))
+   (define glCullFace                        (GL GLvoid "glCullFace" GLenum))
+   (define glFrontFace                       (GL GLvoid "glFrontFace" GLenum))
+   (define glHint                            (GL GLvoid "glHint" GLenum GLenum))
+   (define glLineWidth                       (GL GLvoid "glLineWidth" GLfloat))
+   (define glPointSize                       (GL GLvoid "glPointSize" GLfloat))
+   (define glPolygonMode                     (GL GLvoid "glPolygonMode" GLenum GLenum))
+   (define glScissor                         (GL GLvoid "glScissor" GLint GLint GLsizei GLsizei))
+   (define glTexParameterf                   (GL GLvoid "glTexParameterf" GLenum GLenum GLfloat))
+   (define glTexParameterfv                  (GL GLvoid "glTexParameterfv" GLenum GLenum GLfloat*))
+   (define glTexParameteri                   (GL GLvoid "glTexParameteri" GLenum GLenum GLint))
+   (define glTexParameteriv                  (GL GLvoid "glTexParameteriv" GLenum GLenum GLint*))
+   (define glTexImage1D                      (GL GLvoid "glTexImage1D" GLenum GLint GLint GLsizei GLint GLenum GLenum fft-any))
+   (define glTexImage2D                      (GL GLvoid "glTexImage2D" GLenum GLint GLint GLsizei GLsizei GLint GLenum GLenum fft-any))
+   (define glDrawBuffer                      (GL GLvoid "glDrawBuffer" GLenum))
+   (define glClear                           (GL GLvoid "glClear" GLbitfield))
+   (define glClearColor                      (GL GLvoid "glClearColor" GLfloat GLfloat GLfloat GLfloat))
+   (define glClearStencil                    (GL GLvoid "glClearStencil" GLint))
+   (define glClearDepth                      (GL GLvoid "glClearDepth" GLclampd))
+   (define glStencilMask                     (GL GLvoid "glStencilMask" GLuint))
+   (define glColorMask                       (GL GLvoid "glColorMask" GLboolean GLboolean GLboolean GLboolean))
+   (define glDepthMask                       (GL GLvoid "glDepthMask" GLboolean))
+   (define glDisable                         (GL GLvoid "glDisable" GLenum))
+   (define glEnable                          (GL GLvoid "glEnable" GLenum))
+   (define glFinish                          (GL GLvoid "glFinish"))
+   (define glFlush                           (GL GLvoid "glFlush"))
+   (define glBlendFunc                       (GL GLvoid "glBlendFunc" GLenum GLenum))
+   (define glLogicOp                         (GL GLvoid "glLogicOp" GLenum))
+   (define glStencilFunc                     (GL GLvoid "glStencilFunc" GLenum GLint GLuint))
+   (define glStencilOp                       (GL GLvoid "glStencilOp" GLenum GLenum GLenum))
+   (define glDepthFunc                       (GL GLvoid "glDepthFunc" GLenum))
+   (define glPixelStoref                     (GL GLvoid "glPixelStoref" GLenum GLfloat))
+   (define glPixelStorei                     (GL GLvoid "glPixelStorei" GLenum GLint))
+   (define glReadBuffer                      (GL GLvoid "glReadBuffer" GLenum))
+   (define glReadPixels                      (GL GLvoid "glReadPixels" GLint GLint GLsizei GLsizei GLenum GLenum GLvoid*))
+   (define glGetBooleanv                     (GL GLvoid "glGetBooleanv" GLenum (fft& GLboolean)))
+   (define glGetDoublev                      (GL GLvoid "glGetDoublev" GLenum GLdouble&))
+   (define glGetError                        (GL GLenum "glGetError"))
+   (define glGetFloatv                       (GL GLvoid "glGetFloatv" GLenum GLfloat&))
+   (define glGetIntegerv                     (GL GLvoid "glGetIntegerv" GLenum GLint&))
+   (define glGetString                       (GL GLubyte* "glGetString" GLenum))
+   (define glGetTexImage                     (GL GLvoid "glGetTexImage" GLenum GLint GLenum GLenum GLvoid*))
+   (define glGetTexParameteriv               (GL GLvoid "glGetTexParameteriv" GLenum GLenum GLint*))
+   (define glGetTexParameterfv               (GL GLvoid "glGetTexParameterfv" GLenum GLenum GLfloat*))
+   (define glGetTexLevelParameterfv          (GL GLvoid "glGetTexLevelParameterfv" GLenum GLint GLenum GLfloat*))
+   (define glGetTexLevelParameteriv          (GL GLvoid "glGetTexLevelParameteriv" GLenum GLint GLenum GLint*))
+   (define glIsEnabled                       (GL GLboolean "glIsEnabled" GLenum))
+   (define glDepthRange                      (GL GLvoid "glDepthRange" GLclampd GLclampd))
+   (define glViewport                        (GL GLvoid "glViewport" GLint GLint GLsizei GLsizei))
 
  ; 1.1 core ------------------------------
    (define GL_VERSION_1_1 1)
+
    (define GL_COLOR_LOGIC_OP                 #x0BF2)
    (define GL_POLYGON_OFFSET_UNITS           #x2A00)
    (define GL_POLYGON_OFFSET_POINT           #x2A01)
@@ -1450,23 +1371,24 @@
    (define GL_RGBA16                         #x805B)
    (define GL_VERTEX_ARRAY                   #x8074)
 
-   (define glDrawArrays (GL GLvoid "glDrawArrays" GLenum GLint GLsizei))
-   (define glDrawElements (GL GLvoid "glDrawElements" GLenum GLsizei GLenum fft-any))
-   (define glGetPointerv (GL GLvoid "glGetPointerv" GLenum (fft& type-vptr))) ;GLvoid**
-   (define glPolygonOffset (GL GLvoid "glPolygonOffset" GLfloat GLfloat))
-   (define glCopyTexImage1D (GL GLvoid "glCopyTexImage1D" GLenum GLint GLenum GLint GLint GLsizei GLint))
-   (define glCopyTexImage2D (GL GLvoid "glCopyTexImage2D" GLenum GLint GLenum GLint GLint GLsizei GLsizei GLint))
-   (define glCopyTexSubImage1D (GL GLvoid "glCopyTexSubImage1D" GLenum GLint GLint GLint GLint GLsizei))
-   (define glCopyTexSubImage2D (GL GLvoid "glCopyTexSubImage2D" GLenum GLint GLint GLint GLint GLint GLsizei GLsizei))
-   (define glTexSubImage1D (GL GLvoid "glTexSubImage1D" GLenum GLint GLint GLsizei GLenum GLenum fft-any))
-   (define glTexSubImage2D (GL GLvoid "glTexSubImage2D" GLenum GLint GLint GLint GLsizei GLsizei GLenum GLenum fft-any))
-   (define glBindTexture (GL GLvoid "glBindTexture" GLenum GLuint))
-   (define glDeleteTextures (GL GLvoid "glDeleteTextures" GLsizei GLuint*))
-   (define glGenTextures (GL GLvoid "glGenTextures" GLsizei GLuint&))
-   (define glIsTexture (GL GLboolean "glIsTexture" GLuint))
+   (define glDrawArrays                      (GL GLvoid "glDrawArrays" GLenum GLint GLsizei))
+   (define glDrawElements                    (GL GLvoid "glDrawElements" GLenum GLsizei GLenum fft-any))
+   (define glGetPointerv                     (GL GLvoid "glGetPointerv" GLenum (fft& type-vptr))) ; GLvoid**
+   (define glPolygonOffset                   (GL GLvoid "glPolygonOffset" GLfloat GLfloat))
+   (define glCopyTexImage1D                  (GL GLvoid "glCopyTexImage1D" GLenum GLint GLenum GLint GLint GLsizei GLint))
+   (define glCopyTexImage2D                  (GL GLvoid "glCopyTexImage2D" GLenum GLint GLenum GLint GLint GLsizei GLsizei GLint))
+   (define glCopyTexSubImage1D               (GL GLvoid "glCopyTexSubImage1D" GLenum GLint GLint GLint GLint GLsizei))
+   (define glCopyTexSubImage2D               (GL GLvoid "glCopyTexSubImage2D" GLenum GLint GLint GLint GLint GLint GLsizei GLsizei))
+   (define glTexSubImage1D                   (GL GLvoid "glTexSubImage1D" GLenum GLint GLint GLsizei GLenum GLenum fft-any))
+   (define glTexSubImage2D                   (GL GLvoid "glTexSubImage2D" GLenum GLint GLint GLint GLsizei GLsizei GLenum GLenum fft-any))
+   (define glBindTexture                     (GL GLvoid "glBindTexture" GLenum GLuint))
+   (define glDeleteTextures                  (GL GLvoid "glDeleteTextures" GLsizei GLuint*))
+   (define glGenTextures                     (GL GLvoid "glGenTextures" GLsizei GLuint&))
+   (define glIsTexture                       (GL GLboolean "glIsTexture" GLuint))
 
  ; 1.2 core ------------------------------
    (define GL_VERSION_1_2 1)
+
    (define GL_UNSIGNED_BYTE_3_3_2            #x8032)
    (define GL_UNSIGNED_SHORT_4_4_4_4         #x8033)
    (define GL_UNSIGNED_SHORT_5_5_5_1         #x8034)
@@ -1504,13 +1426,14 @@
    (define GL_SMOOTH_LINE_WIDTH_GRANULARITY  #x0B23)
    (define GL_ALIASED_LINE_WIDTH_RANGE       #x846E)
 
-   (define glDrawRangeElements (GL GLvoid "glDrawRangeElements" GLenum GLuint GLuint GLsizei GLenum fft-any))
-   (define glTexImage3D (GL GLvoid "glTexImage3D" GLenum GLint GLint GLsizei GLsizei GLsizei GLint GLenum GLenum fft-any))
-   (define glTexSubImage3D (GL GLvoid "glTexSubImage3D" GLenum GLint GLint GLint GLint GLsizei GLsizei GLsizei GLenum GLenum fft-any))
-   (define glCopyTexSubImage3D (GL GLvoid "glCopyTexSubImage3D" GLenum GLint GLint GLint GLint GLint GLint GLsizei GLsizei))
+   (define glDrawRangeElements               (GL GLvoid "glDrawRangeElements" GLenum GLuint GLuint GLsizei GLenum fft-any))
+   (define glTexImage3D                      (GL GLvoid "glTexImage3D" GLenum GLint GLint GLsizei GLsizei GLsizei GLint GLenum GLenum fft-any))
+   (define glTexSubImage3D                   (GL GLvoid "glTexSubImage3D" GLenum GLint GLint GLint GLint GLsizei GLsizei GLsizei GLenum GLenum fft-any))
+   (define glCopyTexSubImage3D               (GL GLvoid "glCopyTexSubImage3D" GLenum GLint GLint GLint GLint GLint GLint GLsizei GLsizei))
 
  ; 1.3 core ------------------------------
    (define GL_VERSION_1_3 1)
+
    (define GL_TEXTURE0                       #x84C0)
    (define GL_TEXTURE1                       #x84C1)
    (define GL_TEXTURE2                       #x84C2)
@@ -1571,18 +1494,19 @@
    (define GL_COMPRESSED_TEXTURE_FORMATS     #x86A3)
    (define GL_CLAMP_TO_BORDER                #x812D)
 
-   (define glActiveTexture (GL GLvoid "glActiveTexture" GLenum))
-   (define glSampleCoverage (GL GLvoid "SampleCoverage" GLclampf GLboolean))
-   (define glCompressedTexImage3D (GL GLvoid "glCompressedTexImage3D" GLenum GLint GLenum GLsizei GLsizei GLsizei GLint GLsizei fft-any))
-   (define glCompressedTexImage2D (GL GLvoid "glCompressedTexImage2D" GLenum GLint GLenum GLsizei GLsizei GLint GLsizei fft-any))
-   (define glCompressedTexImage1D (GL GLvoid "glCompressedTexImage1D" GLenum GLint GLenum GLsizei GLint GLsizei fft-any))
-   (define glCompressedTexSubImage3D (GL GLvoid "glCompressedTexSubImage3D" GLenum GLint GLint GLint GLint GLsizei GLsizei GLsizei GLenum GLsizei fft-any))
-   (define glCompressedTexSubImage2D (GL GLvoid "glCompressedTexSubImage2D" GLenum GLint GLint GLint GLsizei GLsizei GLenum GLsizei fft-any))
-   (define glCompressedTexSubImage1D (GL GLvoid "glCompressedTexSubImage1D" GLenum GLint GLint GLsizei GLenum GLsizei fft-any))
-   (define glGetCompressedTexImage (GL GLvoid "glGetCompressedTexImage" GLenum GLint fft-any))
+   (define glActiveTexture                   (GL GLvoid "glActiveTexture" GLenum))
+   (define glSampleCoverage                  (GL GLvoid "glSampleCoverage" GLclampf GLboolean))
+   (define glCompressedTexImage3D            (GL GLvoid "glCompressedTexImage3D" GLenum GLint GLenum GLsizei GLsizei GLsizei GLint GLsizei fft-any))
+   (define glCompressedTexImage2D            (GL GLvoid "glCompressedTexImage2D" GLenum GLint GLenum GLsizei GLsizei GLint GLsizei fft-any))
+   (define glCompressedTexImage1D            (GL GLvoid "glCompressedTexImage1D" GLenum GLint GLenum GLsizei GLint GLsizei fft-any))
+   (define glCompressedTexSubImage3D         (GL GLvoid "glCompressedTexSubImage3D" GLenum GLint GLint GLint GLint GLsizei GLsizei GLsizei GLenum GLsizei fft-any))
+   (define glCompressedTexSubImage2D         (GL GLvoid "glCompressedTexSubImage2D" GLenum GLint GLint GLint GLsizei GLsizei GLenum GLsizei fft-any))
+   (define glCompressedTexSubImage1D         (GL GLvoid "glCompressedTexSubImage1D" GLenum GLint GLint GLsizei GLenum GLsizei fft-any))
+   (define glGetCompressedTexImage           (GL GLvoid "glGetCompressedTexImage" GLenum GLint fft-any))
 
  ; 1.4 core ------------------------------
    (define GL_VERSION_1_4 1)
+
    (define GL_BLEND_DST_RGB                  #x80C8)
    (define GL_BLEND_SRC_RGB                  #x80C9)
    (define GL_BLEND_DST_ALPHA                #x80CA)
@@ -1611,18 +1535,19 @@
    (define GL_MIN                            #x8007)
    (define GL_MAX                            #x8008)
 
-   (define glBlendFuncSeparate (GL GLvoid "BlendFuncSeparate" GLenum GLenum GLenum GLenum))
-   (define glMultiDrawArrays (GL GLvoid "glMultiDrawArrays" GLenum GLint* (fft* GLsizei) GLsizei))
-   (define glMultiDrawElements (GL GLvoid "glMultiDrawElements" GLenum (fft* GLsizei) GLenum fft-any GLsizei))
-   (define glPointParameterf (GL GLvoid "glPointParameterf" GLenum GLfloat))
-   (define glPointParameterfv (GL GLvoid "glPointParameterfv" GLenum GLfloat*))
-   (define glPointParameteri (GL GLvoid "glPointParameteri" GLenum GLint))
-   (define glPointParameteriv (GL GLvoid "glPointParameteifv" GLenum GLint*))
-   (define glBlendColor (GL GLvoid "glBlendColor" GLclampf GLclampf GLclampf GLclampf))
-   (define glBlendEquation (GL GLvoid "glBlendEquation" GLenum))
+   (define glBlendFuncSeparate               (GL GLvoid "glBlendFuncSeparate" GLenum GLenum GLenum GLenum))
+   (define glMultiDrawArrays                 (GL GLvoid "glMultiDrawArrays" GLenum GLint* (fft* GLsizei) GLsizei))
+   (define glMultiDrawElements               (GL GLvoid "glMultiDrawElements" GLenum (fft* GLsizei) GLenum fft-any GLsizei))
+   (define glPointParameterf                 (GL GLvoid "glPointParameterf" GLenum GLfloat))
+   (define glPointParameterfv                (GL GLvoid "glPointParameterfv" GLenum GLfloat*))
+   (define glPointParameteri                 (GL GLvoid "glPointParameteri" GLenum GLint))
+   (define glPointParameteriv                (GL GLvoid "glPointParameteriv" GLenum GLint*))
+   (define glBlendColor                      (GL GLvoid "glBlendColor" GLclampf GLclampf GLclampf GLclampf))
+   (define glBlendEquation                   (GL GLvoid "glBlendEquation" GLenum))
 
  ; 1.5 core ------------------------------
    (define GL_VERSION_1_5 1)
+
    (define GL_BUFFER_SIZE                    #x8764)
    (define GL_BUFFER_USAGE                   #x8765)
    (define GL_QUERY_COUNTER_BITS             #x8864)
@@ -1652,28 +1577,29 @@
    (define GL_SAMPLES_PASSED                 #x8914)
    (define GL_SRC1_ALPHA                     #x8589)
 
-   (define glGenQueries (GL GLvoid "GenQueries" GLsizei GLuint&))
-   (define glDeleteQueries (GL GLvoid "DeleteQueries" GLsizei GLuint*))
-   (define glIsQuery (GL GLboolean "IsQuery" GLuint))
-   (define glBeginQuery (GL GLvoid "BeginQuery" GLenum GLuint))
-   (define glEndQuery (GL GLvoid "EndQuery" GLenum))
-   (define glGetQueryiv (GL GLvoid "GetQueryiv" GLenum GLenum GLint*))
-   (define glGetQueryObjectiv (GL GLvoid "GetQueryObjectiv" GLuint GLenum GLint*))
-   (define glGetQueryObjectuiv (GL GLvoid "GetQueryObjectuiv" GLuint GLenum GLuint*))
-   (define glBindBuffer (GL GLvoid "glBindBuffer" GLenum GLuint))
-   (define glDeleteBuffers (GL GLvoid "glDeleteBuffers" GLsizei GLuint*))
-   (define glGenBuffers (GL GLvoid "glGenBuffers" GLsizei GLuint&))
-   (define glIsBuffer (GL GLboolean "glIsBuffer" GLuint))
-   (define glBufferData (GL GLvoid "glBufferData" GLenum GLsizeiptr fft-any GLenum))
-   (define glBufferSubData (GL GLvoid "glBufferSubData" GLenum GLintptr GLsizeiptr fft-any))
-   (define glGetBufferSubData (GL GLvoid "glGetBufferSubData" GLenum GLintptr GLsizeiptr fft-any))
-   (define glMapBuffer (GL type-vptr "glMapBufferARB" GLenum GLenum))
-   (define glUnmapBuffer (GL GLboolean "glUnmapBuffer" GLenum))
-   (define glGetBufferParameteriv (GL GLvoid "glGetBufferParameteriv" GLenum GLenum GLint*))
-   (define glGetBufferPointerv (GL GLvoid "glGetBufferPointerv" GLenum GLenum fft-any))
+   (define glGenQueries                      (GL GLvoid "glGenQueries" GLsizei GLuint&))
+   (define glDeleteQueries                   (GL GLvoid "glDeleteQueries" GLsizei GLuint*))
+   (define glIsQuery                         (GL GLboolean "glIsQuery" GLuint))
+   (define glBeginQuery                      (GL GLvoid "glBeginQuery" GLenum GLuint))
+   (define glEndQuery                        (GL GLvoid "glEndQuery" GLenum))
+   (define glGetQueryiv                      (GL GLvoid "glGetQueryiv" GLenum GLenum GLint*))
+   (define glGetQueryObjectiv                (GL GLvoid "glGetQueryObjectiv" GLuint GLenum GLint*))
+   (define glGetQueryObjectuiv               (GL GLvoid "glGetQueryObjectuiv" GLuint GLenum GLuint*))
+   (define glBindBuffer                      (GL GLvoid "glBindBuffer" GLenum GLuint))
+   (define glDeleteBuffers                   (GL GLvoid "glDeleteBuffers" GLsizei GLuint*))
+   (define glGenBuffers                      (GL GLvoid "glGenBuffers" GLsizei GLuint&))
+   (define glIsBuffer                        (GL GLboolean "glIsBuffer" GLuint))
+   (define glBufferData                      (GL GLvoid "glBufferData" GLenum GLsizeiptr fft-any GLenum))
+   (define glBufferSubData                   (GL GLvoid "glBufferSubData" GLenum GLintptr GLsizeiptr fft-any))
+   (define glGetBufferSubData                (GL GLvoid "glGetBufferSubData" GLenum GLintptr GLsizeiptr fft-any))
+   (define glMapBuffer                       (GL type-vptr "glMapBuffer" GLenum GLenum))
+   (define glUnmapBuffer                     (GL GLboolean "glUnmapBuffer" GLenum))
+   (define glGetBufferParameteriv            (GL GLvoid "glGetBufferParameteriv" GLenum GLenum GLint*))
+   (define glGetBufferPointerv               (GL GLvoid "glGetBufferPointerv" GLenum GLenum fft-any))
 
  ; 2.0 core ------------------------------
    (define GL_VERSION_2_0 1)
+
    (define GL_BLEND_EQUATION_RGB             #x8009)
    (define GL_VERTEX_ATTRIB_ARRAY_ENABLED    #x8622)
    (define GL_VERTEX_ATTRIB_ARRAY_SIZE       #x8623)
@@ -1755,110 +1681,107 @@
    (define GL_STENCIL_BACK_VALUE_MASK        #x8CA4)
    (define GL_STENCIL_BACK_WRITEMASK         #x8CA5)
 
-   (define GLchar* type-string)
-   (define GLchar** (fft* GLchar*))
-   (define GLint* (fft* GLint))
-   (define GLsizei* (fft* GLsizei))
-   (define void* fft-void*)
-   (define GLsizei& (fft& GLsizei))
    (define GLenum& (fft& GLenum))
+   (define GLchar** (fft* GLchar*))
+   (define GLsizei& (fft& GLsizei))
 
-   (define glBlendEquationSeparate (GL GLvoid "glBlendEquationSeparate" GLenum GLenum))
-   (define glDrawBuffers     (GL GLvoid "glDrawBuffers" GLsizei GLenum*))
-   (define glStencilOpSeparate (GL GLvoid "glStencilOpSeparate" GLenum GLenum GLenum GLenum))
-   (define glStencilFuncSeparate (GL GLvoid "glStencilFuncSeparate" GLenum GLenum GLint GLuint))
-   (define glStencilMaskSeparate (GL GLvoid "glStencilMaskSeparate" GLenum GLuint))
-   (define glAttachShader    (GL GLvoid "glAttachShader" GLuint GLuint))
-   (define glBindAttribLocation (GL GLvoid "glBindAttribLocation" GLuint GLuint GLchar*))
-   (define glCompileShader   (GL GLvoid "glCompileShader" GLuint))
-   (define glCreateProgram   (GL GLuint "glCreateProgram"))
-   (define glCreateShader    (GL GLuint "glCreateShader" GLenum))
-   (define glDeleteProgram   (GL GLvoid "glDeleteProgram" GLuint))
-   (define glDeleteShader    (GL GLvoid "glDeleteShader" GLuint))
-   (define glDetachShader    (GL GLvoid "glDetachShader" GLuint GLuint))
-   (define glDisableVertexAttribArray (GL GLvoid "glDisableVertexAttribArray" GLuint))
-   (define glEnableVertexAttribArray (GL GLvoid "glEnableVertexAttribArray" GLuint))
-   (define glGetActiveAttrib (GL GLvoid "glGetActiveAttrib" GLuint GLuint GLsizei GLsizei& GLint& GLenum& type-bytevector))
-   (define glGetActiveUniform (GL GLvoid "glGetActiveUniform" GLuint GLuint GLsizei GLsizei& GLint& GLenum& type-bytevector))
-   (define glGetAttachedShaders (GL GLvoid "glGetAttachedShaders" GLuint GLsizei GLsizei& GLuint&))
-   (define glGetAttribLocation (GL GLint "glGetAttribLocation" GLuint GLchar*))
-   (define glGetProgramiv    (GL GLvoid "glGetProgramiv" GLuint GLenum GLint&))
-   (define glGetProgramInfoLog (GL GLvoid "glGetProgramInfoLog" GLuint GLsizei GLsizei& type-bytevector))
-   (define glGetShaderiv     (GL GLvoid "glGetShaderiv" GLuint GLenum GLint&))
-   (define glGetShaderInfoLog (GL GLvoid "glGetShaderInfoLog" GLuint GLsizei GLsizei& type-bytevector))
-   (define glGetShaderSource (GL GLvoid "glGetShaderSource" GLuint GLsizei GLsizei& type-bytevector))
-   (define glGetUniformLocation (GL GLint "glGetUniformLocation" GLuint GLchar*))
-   (define glGetUniformfv    (GL GLvoid "glGetUniformfv" GLuint GLint (fft& GLfloat)))
-   (define glGetUniformiv    (GL GLvoid "glGetUniformiv" GLuint GLint (fft& GLint)))
-   (define glGetVertexAttribdv (GL GLvoid "glGetVertexAttribdv" GLuint GLenum (fft& GLdouble)))
-   (define glGetVertexAttribfv (GL GLvoid "glGetVertexAttribfv" GLuint GLenum (fft& GLfloat)))
-   (define glGetVertexAttribiv (GL GLvoid "glGetVertexAttribiv" GLuint GLenum (fft& GLint)))
-   (define glGetVertexAttribPointerv (GL GLvoid "glGetVertexAttribPointerv" GLuint GLenum (fft& type-vptr)))
-   (define glIsProgram       (GL GLboolean "glIsProgram" GLuint))
-   (define glIsShader        (GL GLboolean "glIsShader" GLuint))
-   (define glLinkProgram     (GL GLvoid "glLinkProgram" GLuint))
-   (define glShaderSource    (GL GLvoid "glShaderSource" GLuint GLsizei GLchar** GLint*))
-   (define glUseProgram      (GL GLvoid "glUseProgram" GLuint))
-   (define glUniform1f       (GL GLvoid "glUniform1f" GLint GLfloat))
-   (define glUniform2f       (GL GLvoid "glUniform2f" GLint GLfloat GLfloat))
-   (define glUniform3f       (GL GLvoid "glUniform3f" GLint GLfloat GLfloat GLfloat))
-   (define glUniform4f       (GL GLvoid "glUniform4f" GLint GLfloat GLfloat GLfloat GLfloat))
-   (define glUniform1i       (GL GLvoid "glUniform1i" GLint GLint))
-   (define glUniform2i       (GL GLvoid "glUniform2i" GLint GLint GLint))
-   (define glUniform3i       (GL GLvoid "glUniform3i" GLint GLint GLint GLint))
-   (define glUniform4i       (GL GLvoid "glUniform4i" GLint GLint GLint GLint GLint))
-   (define glUniform1fv      (GL GLvoid "glUniform1fv" GLint GLsizei GLfloat*))
-   (define glUniform2fv      (GL GLvoid "glUniform2fv" GLint GLsizei GLfloat*))
-   (define glUniform3fv      (GL GLvoid "glUniform3fv" GLint GLsizei GLfloat*))
-   (define glUniform4fv      (GL GLvoid "glUniform4fv" GLint GLsizei GLfloat*))
-   (define glUniform1iv      (GL GLvoid "glUniform1iv" GLint GLsizei GLint*))
-   (define glUniform2iv      (GL GLvoid "glUniform2iv" GLint GLsizei GLint*))
-   (define glUniform3iv      (GL GLvoid "glUniform3iv" GLint GLsizei GLint*))
-   (define glUniform4iv      (GL GLvoid "glUniform4iv" GLint GLsizei GLint*))
-   (define glUniformMatrix2fv (GL GLvoid "glUniformMatrix2fv" GLint GLsizei GLboolean GLfloat*))
-   (define glUniformMatrix3fv (GL GLvoid "glUniformMatrix3fv" GLint GLsizei GLboolean GLfloat*))
-   (define glUniformMatrix4fv (GL GLvoid "glUniformMatrix4fv" GLint GLsizei GLboolean GLfloat*))
-   (define glValidateProgram (GL GLvoid "glValidateProgram" GLuint))
-;; GLAPI void APIENTRY glVertexAttrib1d (GLuint index, GLdouble x);
-;; GLAPI void APIENTRY glVertexAttrib1dv (GLuint index, const GLdouble *v);
-;; GLAPI void APIENTRY glVertexAttrib1f (GLuint index, GLfloat x);
-;; GLAPI void APIENTRY glVertexAttrib1fv (GLuint index, const GLfloat *v);
-;; GLAPI void APIENTRY glVertexAttrib1s (GLuint index, GLshort x);
-;; GLAPI void APIENTRY glVertexAttrib1sv (GLuint index, const GLshort *v);
-;; GLAPI void APIENTRY glVertexAttrib2d (GLuint index, GLdouble x, GLdouble y);
-;; GLAPI void APIENTRY glVertexAttrib2dv (GLuint index, const GLdouble *v);
-;; GLAPI void APIENTRY glVertexAttrib2f (GLuint index, GLfloat x, GLfloat y);
-;; GLAPI void APIENTRY glVertexAttrib2fv (GLuint index, const GLfloat *v);
-;; GLAPI void APIENTRY glVertexAttrib2s (GLuint index, GLshort x, GLshort y);
-;; GLAPI void APIENTRY glVertexAttrib2sv (GLuint index, const GLshort *v);
-;; GLAPI void APIENTRY glVertexAttrib3d (GLuint index, GLdouble x, GLdouble y, GLdouble z);
-;; GLAPI void APIENTRY glVertexAttrib3dv (GLuint index, const GLdouble *v);
-;; GLAPI void APIENTRY glVertexAttrib3f (GLuint index, GLfloat x, GLfloat y, GLfloat z);
-;; GLAPI void APIENTRY glVertexAttrib3fv (GLuint index, const GLfloat *v);
-;; GLAPI void APIENTRY glVertexAttrib3s (GLuint index, GLshort x, GLshort y, GLshort z);
-;; GLAPI void APIENTRY glVertexAttrib3sv (GLuint index, const GLshort *v);
-;; GLAPI void APIENTRY glVertexAttrib4Nbv (GLuint index, const GLbyte *v);
-;; GLAPI void APIENTRY glVertexAttrib4Niv (GLuint index, const GLint *v);
-;; GLAPI void APIENTRY glVertexAttrib4Nsv (GLuint index, const GLshort *v);
-;; GLAPI void APIENTRY glVertexAttrib4Nub (GLuint index, GLubyte x, GLubyte y, GLubyte z, GLubyte w);
-;; GLAPI void APIENTRY glVertexAttrib4Nubv (GLuint index, const GLubyte *v);
-;; GLAPI void APIENTRY glVertexAttrib4Nuiv (GLuint index, const GLuint *v);
-;; GLAPI void APIENTRY glVertexAttrib4Nusv (GLuint index, const GLushort *v);
-;; GLAPI void APIENTRY glVertexAttrib4bv (GLuint index, const GLbyte *v);
-;; GLAPI void APIENTRY glVertexAttrib4d (GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);
-;; GLAPI void APIENTRY glVertexAttrib4dv (GLuint index, const GLdouble *v);
-;; GLAPI void APIENTRY glVertexAttrib4f (GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
-;; GLAPI void APIENTRY glVertexAttrib4fv (GLuint index, const GLfloat *v);
-;; GLAPI void APIENTRY glVertexAttrib4iv (GLuint index, const GLint *v);
-;; GLAPI void APIENTRY glVertexAttrib4s (GLuint index, GLshort x, GLshort y, GLshort z, GLshort w);
-;; GLAPI void APIENTRY glVertexAttrib4sv (GLuint index, const GLshort *v);
-;; GLAPI void APIENTRY glVertexAttrib4ubv (GLuint index, const GLubyte *v);
-;; GLAPI void APIENTRY glVertexAttrib4uiv (GLuint index, const GLuint *v);
-;; GLAPI void APIENTRY glVertexAttrib4usv (GLuint index, const GLushort *v);
-   (define glVertexAttribPointer (GL GLvoid "glVertexAttribPointer" GLuint GLint GLenum GLboolean GLsizei fft-any))
+   (define glBlendEquationSeparate           (GL GLvoid "glBlendEquationSeparate" GLenum GLenum))
+   (define glDrawBuffers                     (GL GLvoid "glDrawBuffers" GLsizei GLenum*))
+   (define glStencilOpSeparate               (GL GLvoid "glStencilOpSeparate" GLenum GLenum GLenum GLenum))
+   (define glStencilFuncSeparate             (GL GLvoid "glStencilFuncSeparate" GLenum GLenum GLint GLuint))
+   (define glStencilMaskSeparate             (GL GLvoid "glStencilMaskSeparate" GLenum GLuint))
+   (define glAttachShader                    (GL GLvoid "glAttachShader" GLuint GLuint))
+   (define glBindAttribLocation              (GL GLvoid "glBindAttribLocation" GLuint GLuint GLchar*))
+   (define glCompileShader                   (GL GLvoid "glCompileShader" GLuint))
+   (define glCreateProgram                   (GL GLuint "glCreateProgram"))
+   (define glCreateShader                    (GL GLuint "glCreateShader" GLenum))
+   (define glDeleteProgram                   (GL GLvoid "glDeleteProgram" GLuint))
+   (define glDeleteShader                    (GL GLvoid "glDeleteShader" GLuint))
+   (define glDetachShader                    (GL GLvoid "glDetachShader" GLuint GLuint))
+   (define glDisableVertexAttribArray        (GL GLvoid "glDisableVertexAttribArray" GLuint))
+   (define glEnableVertexAttribArray         (GL GLvoid "glEnableVertexAttribArray" GLuint))
+   (define glGetActiveAttrib                 (GL GLvoid "glGetActiveAttrib" GLuint GLuint GLsizei GLsizei& GLint& GLenum& type-bytevector))
+   (define glGetActiveUniform                (GL GLvoid "glGetActiveUniform" GLuint GLuint GLsizei GLsizei& GLint& GLenum& type-bytevector))
+   (define glGetAttachedShaders              (GL GLvoid "glGetAttachedShaders" GLuint GLsizei GLsizei& GLuint&))
+   (define glGetAttribLocation               (GL GLint "glGetAttribLocation" GLuint GLchar*))
+   (define glGetProgramiv                    (GL GLvoid "glGetProgramiv" GLuint GLenum GLint&))
+   (define glGetProgramInfoLog               (GL GLvoid "glGetProgramInfoLog" GLuint GLsizei GLsizei& type-bytevector))
+   (define glGetShaderiv                     (GL GLvoid "glGetShaderiv" GLuint GLenum GLint&))
+   (define glGetShaderInfoLog                (GL GLvoid "glGetShaderInfoLog" GLuint GLsizei GLsizei& type-bytevector))
+   (define glGetShaderSource                 (GL GLvoid "glGetShaderSource" GLuint GLsizei GLsizei& type-bytevector))
+   (define glGetUniformLocation              (GL GLint "glGetUniformLocation" GLuint GLchar*))
+   (define glGetUniformfv                    (GL GLvoid "glGetUniformfv" GLuint GLint GLfloat&))
+   (define glGetUniformiv                    (GL GLvoid "glGetUniformiv" GLuint GLint GLint&))
+   (define glGetVertexAttribdv               (GL GLvoid "glGetVertexAttribdv" GLuint GLenum GLdouble&))
+   (define glGetVertexAttribfv               (GL GLvoid "glGetVertexAttribfv" GLuint GLenum GLfloat&))
+   (define glGetVertexAttribiv               (GL GLvoid "glGetVertexAttribiv" GLuint GLenum GLint&))
+   (define glGetVertexAttribPointerv         (GL GLvoid "glGetVertexAttribPointerv" GLuint GLenum (fft& type-vptr)))
+   (define glIsProgram                       (GL GLboolean "glIsProgram" GLuint))
+   (define glIsShader                        (GL GLboolean "glIsShader" GLuint))
+   (define glLinkProgram                     (GL GLvoid "glLinkProgram" GLuint))
+   (define glShaderSource                    (GL GLvoid "glShaderSource" GLuint GLsizei GLchar** GLint*))
+   (define glUseProgram                      (GL GLvoid "glUseProgram" GLuint))
+   (define glUniform1f                       (GL GLvoid "glUniform1f" GLint GLfloat))
+   (define glUniform2f                       (GL GLvoid "glUniform2f" GLint GLfloat GLfloat))
+   (define glUniform3f                       (GL GLvoid "glUniform3f" GLint GLfloat GLfloat GLfloat))
+   (define glUniform4f                       (GL GLvoid "glUniform4f" GLint GLfloat GLfloat GLfloat GLfloat))
+   (define glUniform1i                       (GL GLvoid "glUniform1i" GLint GLint))
+   (define glUniform2i                       (GL GLvoid "glUniform2i" GLint GLint GLint))
+   (define glUniform3i                       (GL GLvoid "glUniform3i" GLint GLint GLint GLint))
+   (define glUniform4i                       (GL GLvoid "glUniform4i" GLint GLint GLint GLint GLint))
+   (define glUniform1fv                      (GL GLvoid "glUniform1fv" GLint GLsizei GLfloat*))
+   (define glUniform2fv                      (GL GLvoid "glUniform2fv" GLint GLsizei GLfloat*))
+   (define glUniform3fv                      (GL GLvoid "glUniform3fv" GLint GLsizei GLfloat*))
+   (define glUniform4fv                      (GL GLvoid "glUniform4fv" GLint GLsizei GLfloat*))
+   (define glUniform1iv                      (GL GLvoid "glUniform1iv" GLint GLsizei GLint*))
+   (define glUniform2iv                      (GL GLvoid "glUniform2iv" GLint GLsizei GLint*))
+   (define glUniform3iv                      (GL GLvoid "glUniform3iv" GLint GLsizei GLint*))
+   (define glUniform4iv                      (GL GLvoid "glUniform4iv" GLint GLsizei GLint*))
+   (define glUniformMatrix2fv                (GL GLvoid "glUniformMatrix2fv" GLint GLsizei GLboolean GLfloat*))
+   (define glUniformMatrix3fv                (GL GLvoid "glUniformMatrix3fv" GLint GLsizei GLboolean GLfloat*))
+   (define glUniformMatrix4fv                (GL GLvoid "glUniformMatrix4fv" GLint GLsizei GLboolean GLfloat*))
+   (define glValidateProgram                 (GL GLvoid "glValidateProgram" GLuint))
+   (define glVertexAttrib1d                  (GL GLvoid "glVertexAttrib1d" GLuint GLdouble))
+   (define glVertexAttrib1dv                 (GL GLvoid "glVertexAttrib1dv" GLuint GLdouble*))
+   (define glVertexAttrib1f                  (GL GLvoid "glVertexAttrib1f" GLuint GLfloat))
+   (define glVertexAttrib1fv                 (GL GLvoid "glVertexAttrib1fv" GLuint GLfloat*))
+   (define glVertexAttrib1s                  (GL GLvoid "glVertexAttrib1s" GLuint GLshort))
+   (define glVertexAttrib1sv                 (GL GLvoid "glVertexAttrib1sv" GLuint GLshort*))
+   (define glVertexAttrib2d                  (GL GLvoid "glVertexAttrib2d" GLuint GLdouble GLdouble))
+   (define glVertexAttrib2dv                 (GL GLvoid "glVertexAttrib2dv" GLuint GLdouble*))
+   (define glVertexAttrib2f                  (GL GLvoid "glVertexAttrib2f" GLuint GLfloat GLfloat))
+   (define glVertexAttrib2fv                 (GL GLvoid "glVertexAttrib2fv" GLuint GLfloat*))
+   (define glVertexAttrib2s                  (GL GLvoid "glVertexAttrib2s" GLuint GLshort GLshort))
+   (define glVertexAttrib2sv                 (GL GLvoid "glVertexAttrib2sv" GLuint GLshort*))
+   (define glVertexAttrib3d                  (GL GLvoid "glVertexAttrib3d" GLuint GLdouble GLdouble GLdouble))
+   (define glVertexAttrib3dv                 (GL GLvoid "glVertexAttrib3dv" GLuint GLdouble*))
+   (define glVertexAttrib3f                  (GL GLvoid "glVertexAttrib3f" GLuint GLfloat GLfloat GLfloat))
+   (define glVertexAttrib3fv                 (GL GLvoid "glVertexAttrib3fv" GLuint GLfloat*))
+   (define glVertexAttrib3s                  (GL GLvoid "glVertexAttrib3s" GLuint GLshort GLshort GLshort))
+   (define glVertexAttrib3sv                 (GL GLvoid "glVertexAttrib3sv" GLuint GLshort*))
+   (define glVertexAttrib4Nbv                (GL GLvoid "glVertexAttrib4Nbv" GLuint GLbyte*))
+   (define glVertexAttrib4Niv                (GL GLvoid "glVertexAttrib4Niv" GLuint GLint*))
+   (define glVertexAttrib4Nsv                (GL GLvoid "glVertexAttrib4Nsv" GLuint GLshort*))
+   (define glVertexAttrib4Nub                (GL GLvoid "glVertexAttrib4Nub" GLuint GLubyte GLubyte GLubyte GLubyte))
+   (define glVertexAttrib4Nubv               (GL GLvoid "glVertexAttrib4Nubv" GLuint GLubyte*))
+   (define glVertexAttrib4Nuiv               (GL GLvoid "glVertexAttrib4Nuiv" GLuint GLuint*))
+   (define glVertexAttrib4Nusv               (GL GLvoid "glVertexAttrib4Nusv" GLuint GLushort*))
+   (define glVertexAttrib4bv                 (GL GLvoid "glVertexAttrib4bv" GLuint GLbyte*))
+   (define glVertexAttrib4d                  (GL GLvoid "glVertexAttrib4d" GLuint GLdouble GLdouble GLdouble GLdouble))
+   (define glVertexAttrib4dv                 (GL GLvoid "glVertexAttrib4dv" GLuint GLdouble*))
+   (define glVertexAttrib4f                  (GL GLvoid "glVertexAttrib4f" GLuint GLfloat GLfloat GLfloat GLfloat))
+   (define glVertexAttrib4fv                 (GL GLvoid "glVertexAttrib4fv" GLuint GLfloat*))
+   (define glVertexAttrib4iv                 (GL GLvoid "glVertexAttrib4iv" GLuint GLint*))
+   (define glVertexAttrib4s                  (GL GLvoid "glVertexAttrib4s" GLuint GLshort GLshort GLshort GLshort))
+   (define glVertexAttrib4sv                 (GL GLvoid "glVertexAttrib4sv" GLuint GLshort*))
+   (define glVertexAttrib4ubv                (GL GLvoid "glVertexAttrib4ubv" GLuint GLubyte*))
+   (define glVertexAttrib4uiv                (GL GLvoid "glVertexAttrib4uiv" GLuint GLuint*))
+   (define glVertexAttrib4usv                (GL GLvoid "glVertexAttrib4usv" GLuint GLushort*))
+   (define glVertexAttribPointer             (GL GLvoid "glVertexAttribPointer" GLuint GLint GLenum GLboolean GLsizei fft-any))
 
  ; 2.1 core ------------------------------
    (define GL_VERSION_2_1 1)
+
    (define GL_PIXEL_PACK_BUFFER              #x88EB)
    (define GL_PIXEL_UNPACK_BUFFER            #x88EC)
    (define GL_PIXEL_PACK_BUFFER_BINDING      #x88ED)
@@ -1876,15 +1799,16 @@
    (define GL_COMPRESSED_SRGB                #x8C48)
    (define GL_COMPRESSED_SRGB_ALPHA          #x8C49)
 
-   (define glUniformMatrix2x3fv (GL GLvoid "glUniformMatrix2x3fv" GLint GLsizei GLboolean GLfloat*))
-   (define glUniformMatrix3x2fv (GL GLvoid "glUniformMatrix3x2fv" GLint GLsizei GLboolean GLfloat*))
-   (define glUniformMatrix2x4fv (GL GLvoid "glUniformMatrix2x4fv" GLint GLsizei GLboolean GLfloat*))
-   (define glUniformMatrix4x2fv (GL GLvoid "glUniformMatrix4x2fv" GLint GLsizei GLboolean GLfloat*))
-   (define glUniformMatrix3x4fv (GL GLvoid "glUniformMatrix3x4fv" GLint GLsizei GLboolean GLfloat*))
-   (define glUniformMatrix4x3fv (GL GLvoid "glUniformMatrix4x3fv" GLint GLsizei GLboolean GLfloat*))
+   (define glUniformMatrix2x3fv              (GL GLvoid "glUniformMatrix2x3fv" GLint GLsizei GLboolean GLfloat*))
+   (define glUniformMatrix3x2fv              (GL GLvoid "glUniformMatrix3x2fv" GLint GLsizei GLboolean GLfloat*))
+   (define glUniformMatrix2x4fv              (GL GLvoid "glUniformMatrix2x4fv" GLint GLsizei GLboolean GLfloat*))
+   (define glUniformMatrix4x2fv              (GL GLvoid "glUniformMatrix4x2fv" GLint GLsizei GLboolean GLfloat*))
+   (define glUniformMatrix3x4fv              (GL GLvoid "glUniformMatrix3x4fv" GLint GLsizei GLboolean GLfloat*))
+   (define glUniformMatrix4x3fv              (GL GLvoid "glUniformMatrix4x3fv" GLint GLsizei GLboolean GLfloat*))
 
  ; 3.0 core ------------------------------
    (define GL_VERSION_3_0 1)
+
    (define GL_COMPARE_REF_TO_TEXTURE         #x884E)
    (define GL_CLIP_DISTANCE0                 #x3000)
    (define GL_CLIP_DISTANCE1                 #x3001)
@@ -2117,94 +2041,90 @@
    (define GL_RG32UI                         #x823C)
    (define GL_VERTEX_ARRAY_BINDING           #x85B5)
 
-   (define GLbyte* (fft* GLbyte))
-   (define GLushort* (fft* GLushort))
-   (define GLchar* type-string)
-
-   (define glColorMaski (GL GLvoid "glColorMaski" GLuint GLboolean GLboolean GLboolean GLboolean))
-   (define glGetBooleani_v (GL GLvoid "glGetBooleani_v" GLenum GLuint GLboolean*))
-   (define glGetIntegeri_v (GL GLvoid "glGetIntegeri_v" GLenum GLuint GLint*))
-   (define glEnablei (GL GLvoid "glEnablei" GLenum GLuint))
-   (define glDisablei (GL GLvoid "glDisablei" GLenum GLuint))
-   (define glIsEnabledi (GL GLboolean "glIsEnabledi" GLenum GLuint))
-   (define glBeginTransformFeedback (GL GLvoid "glBeginTransformFeedback" GLenum))
-   (define glEndTransformFeedback (GL GLvoid "glEndTransformFeedback"))
-   (define glBindBufferRange (GL GLvoid "glBindBufferRange" GLenum GLuint GLuint GLintptr GLsizeiptr))
-   (define glBindBufferBase (GL GLvoid "glBindBufferBase" GLenum GLuint GLuint))
-   (define glTransformFeedbackVaryings (GL GLvoid "glTransformFeedbackVaryings" GLuint GLsizei (fft* GLchar*) GLenum)) ; todo: check this
-   (define glGetTransformFeedbackVarying (GL GLvoid "glGetTransformFeedbackVarying" GLuint GLuint GLsizei (fft& GLsizei) (fft& GLsizei) (fft& GLenum) type-string)) ; todo: check this
-   (define glClampColor (GL GLvoid "glClampColor" GLenum GLenum))
-   (define glBeginConditionalRender (GL GLvoid "glBeginConditionalRender" GLuint GLenum))
-   (define glEndConditionalRender (GL GLvoid "glEndConditionalRender"))
-   (define glVertexAttribIPointer (GL GLvoid "glVertexAttribIPointer" GLuint GLint GLenum GLsizei GLvoid*))
-   (define glGetVertexAttribIiv (GL GLvoid "glGetVertexAttribIiv" GLuint GLenum GLint*))
-   (define glGetVertexAttribIuiv (GL GLvoid "glGetVertexAttribIuiv" GLuint GLenum GLuint*))
-   (define glVertexAttribI1i (GL GLvoid "glVertexAttribI1i" GLuint GLint))
-   (define glVertexAttribI2i (GL GLvoid "glVertexAttribI2i" GLuint GLint GLint))
-   (define glVertexAttribI3i (GL GLvoid "glVertexAttribI3i" GLuint GLint GLint GLint))
-   (define glVertexAttribI4i (GL GLvoid "glVertexAttribI4i" GLuint GLint GLint GLint GLint))
-   (define glVertexAttribI1ui (GL GLvoid "glVertexAttribI1ui" GLuint GLuint))
-   (define glVertexAttribI2ui (GL GLvoid "glVertexAttribI2ui" GLuint GLuint GLuint))
-   (define glVertexAttribI3ui (GL GLvoid "glVertexAttribI3ui" GLuint GLuint GLuint GLuint))
-   (define glVertexAttribI4ui (GL GLvoid "glVertexAttribI4ui" GLuint GLuint GLuint GLuint GLuint))
-   (define glVertexAttribI1iv (GL GLvoid "glVertexAttribI1iv" GLuint GLint*))
-   (define glVertexAttribI2iv (GL GLvoid "glVertexAttribI2iv" GLuint GLint*))
-   (define glVertexAttribI3iv (GL GLvoid "glVertexAttribI3iv" GLuint GLint*))
-   (define glVertexAttribI4iv (GL GLvoid "glVertexAttribI4iv" GLuint GLint*))
-   (define glVertexAttribI1uiv (GL GLvoid "glVertexAttribI1uiv" GLuint GLuint*))
-   (define glVertexAttribI2uiv (GL GLvoid "glVertexAttribI2uiv" GLuint GLuint*))
-   (define glVertexAttribI3uiv (GL GLvoid "glVertexAttribI3uiv" GLuint GLuint*))
-   (define glVertexAttribI4uiv (GL GLvoid "glVertexAttribI4uiv" GLuint GLuint*))
-   (define glVertexAttribI4bv (GL GLvoid "glVertexAttribI4bv" GLuint GLbyte*))
-   (define glVertexAttribI4sv (GL GLvoid "glVertexAttribI4sv" GLuint GLshort*))
-   (define glVertexAttribI4ubv (GL GLvoid "glVertexAttribI4ubv" GLuint GLubyte*))
-   (define glVertexAttribI4usv (GL GLvoid "glVertexAttribI4usv" GLuint GLushort*))
-   (define glGetUniformuiv (GL GLvoid "glGetUniformuiv" GLuint GLint GLuint*))
-   (define glBindFragDataLocation (GL GLvoid "glBindFragDataLocation" GLuint GLuint GLchar*))
-   (define glGetFragDataLocation (GL GLint "glGetFragDataLocation" GLuint GLchar*))
-   (define glUniform1ui (GL GLvoid "glUniform1ui" GLint GLuint))
-   (define glUniform2ui (GL GLvoid "glUniform2ui" GLint GLuint GLuint))
-   (define glUniform3ui (GL GLvoid "glUniform3ui" GLint GLuint GLuint GLuint))
-   (define glUniform4ui (GL GLvoid "glUniform4ui" GLint GLuint GLuint GLuint GLuint))
-   (define glUniform1uiv (GL GLvoid "glUniform1uiv" GLint GLsizei GLuint*))
-   (define glUniform2uiv (GL GLvoid "glUniform2uiv" GLint GLsizei GLuint*))
-   (define glUniform3uiv (GL GLvoid "glUniform3uiv" GLint GLsizei GLuint*))
-   (define glUniform4uiv (GL GLvoid "glUniform4uiv" GLint GLsizei GLuint*))
-   (define glTexParameterIiv (GL GLvoid "glTexParameterIiv" GLenum GLenum GLint*))
-   (define glTexParameterIuiv (GL GLvoid "glTexParameterIuiv" GLenum GLenum GLuint*))
-   (define glGetTexParameterIiv (GL GLvoid "glGetTexParameterIiv" GLenum GLenum GLint*))
-   (define glGetTexParameterIuiv (GL GLvoid "glGetTexParameterIuiv" GLenum GLenum GLuint*))
-   (define glClearBufferiv (GL GLvoid "glClearBufferiv" GLenum GLint GLint*))
-   (define glClearBufferuiv (GL GLvoid "glClearBufferuiv" GLenum GLint GLuint*))
-   (define glClearBufferfv (GL GLvoid "glClearBufferfv" GLenum GLint GLfloat*))
-   (define glClearBufferfi (GL GLvoid "glClearBufferfi" GLenum GLint GLfloat GLint))
-   (define glGetStringi (GL GLubyte* "glGetStringi" GLenum GLuint))
-   (define glIsRenderbuffer (GL GLboolean "glIsRenderbuffer" GLuint))
-   (define glBindRenderbuffer (GL GLvoid "glBindRenderbuffer" GLenum GLuint))
-   (define glDeleteRenderbuffers (GL GLvoid "glDeleteRenderbuffers" GLsizei GLuint*))
-   (define glGenRenderbuffers (GL GLvoid "glGenRenderbuffers" GLsizei GLuint&))
-   (define glRenderbufferStorage (GL GLvoid "glRenderbufferStorage" GLenum GLenum GLsizei GLsizei))
-   (define glGetRenderbufferParameteriv (GL GLvoid "glGetRenderbufferParameteriv" GLenum GLenum GLint*))
-   (define glIsFramebuffer (GL GLboolean "glIsFramebuffer" GLuint))
-   (define glBindFramebuffer (GL GLvoid "glBindFramebuffer" GLenum GLuint))
-   (define glDeleteFramebuffers (GL GLvoid "glDeleteFramebuffers" GLsizei GLuint*))
-   (define glGenFramebuffers (GL GLvoid "glGenFramebuffers" GLsizei GLuint&))
-   (define glCheckFramebufferStatus (GL GLenum "glCheckFramebufferStatus" GLenum))
-   (define glFramebufferTexture1D (GL GLvoid "glFramebufferTexture1D" GLenum GLenum GLenum GLuint GLint))
-   (define glFramebufferTexture2D (GL GLvoid "glFramebufferTexture2D" GLenum GLenum GLenum GLuint GLint))
-   (define glFramebufferTexture3D (GL GLvoid "glFramebufferTexture3D" GLenum GLenum GLenum GLuint GLint GLint))
-   (define glFramebufferRenderbuffer (GL GLvoid "glFramebufferRenderbuffer" GLenum GLenum GLenum GLuint))
+   (define glColorMaski                      (GL GLvoid "glColorMaski" GLuint GLboolean GLboolean GLboolean GLboolean))
+   (define glGetBooleani_v                   (GL GLvoid "glGetBooleani_v" GLenum GLuint GLboolean*))
+   (define glGetIntegeri_v                   (GL GLvoid "glGetIntegeri_v" GLenum GLuint GLint*))
+   (define glEnablei                         (GL GLvoid "glEnablei" GLenum GLuint))
+   (define glDisablei                        (GL GLvoid "glDisablei" GLenum GLuint))
+   (define glIsEnabledi                      (GL GLboolean "glIsEnabledi" GLenum GLuint))
+   (define glBeginTransformFeedback          (GL GLvoid "glBeginTransformFeedback" GLenum))
+   (define glEndTransformFeedback            (GL GLvoid "glEndTransformFeedback"))
+   (define glBindBufferRange                 (GL GLvoid "glBindBufferRange" GLenum GLuint GLuint GLintptr GLsizeiptr))
+   (define glBindBufferBase                  (GL GLvoid "glBindBufferBase" GLenum GLuint GLuint))
+   (define glTransformFeedbackVaryings       (GL GLvoid "glTransformFeedbackVaryings" GLuint GLsizei (fft* GLchar*) GLenum)) ; todo: check this
+   (define glGetTransformFeedbackVarying     (GL GLvoid "glGetTransformFeedbackVarying" GLuint GLuint GLsizei (fft& GLsizei) (fft& GLsizei) (fft& GLenum) type-string)) ; todo: check this
+   (define glClampColor                      (GL GLvoid "glClampColor" GLenum GLenum))
+   (define glBeginConditionalRender          (GL GLvoid "glBeginConditionalRender" GLuint GLenum))
+   (define glEndConditionalRender            (GL GLvoid "glEndConditionalRender"))
+   (define glVertexAttribIPointer            (GL GLvoid "glVertexAttribIPointer" GLuint GLint GLenum GLsizei GLvoid*))
+   (define glGetVertexAttribIiv              (GL GLvoid "glGetVertexAttribIiv" GLuint GLenum GLint*))
+   (define glGetVertexAttribIuiv             (GL GLvoid "glGetVertexAttribIuiv" GLuint GLenum GLuint*))
+   (define glVertexAttribI1i                 (GL GLvoid "glVertexAttribI1i" GLuint GLint))
+   (define glVertexAttribI2i                 (GL GLvoid "glVertexAttribI2i" GLuint GLint GLint))
+   (define glVertexAttribI3i                 (GL GLvoid "glVertexAttribI3i" GLuint GLint GLint GLint))
+   (define glVertexAttribI4i                 (GL GLvoid "glVertexAttribI4i" GLuint GLint GLint GLint GLint))
+   (define glVertexAttribI1ui                (GL GLvoid "glVertexAttribI1ui" GLuint GLuint))
+   (define glVertexAttribI2ui                (GL GLvoid "glVertexAttribI2ui" GLuint GLuint GLuint))
+   (define glVertexAttribI3ui                (GL GLvoid "glVertexAttribI3ui" GLuint GLuint GLuint GLuint))
+   (define glVertexAttribI4ui                (GL GLvoid "glVertexAttribI4ui" GLuint GLuint GLuint GLuint GLuint))
+   (define glVertexAttribI1iv                (GL GLvoid "glVertexAttribI1iv" GLuint GLint*))
+   (define glVertexAttribI2iv                (GL GLvoid "glVertexAttribI2iv" GLuint GLint*))
+   (define glVertexAttribI3iv                (GL GLvoid "glVertexAttribI3iv" GLuint GLint*))
+   (define glVertexAttribI4iv                (GL GLvoid "glVertexAttribI4iv" GLuint GLint*))
+   (define glVertexAttribI1uiv               (GL GLvoid "glVertexAttribI1uiv" GLuint GLuint*))
+   (define glVertexAttribI2uiv               (GL GLvoid "glVertexAttribI2uiv" GLuint GLuint*))
+   (define glVertexAttribI3uiv               (GL GLvoid "glVertexAttribI3uiv" GLuint GLuint*))
+   (define glVertexAttribI4uiv               (GL GLvoid "glVertexAttribI4uiv" GLuint GLuint*))
+   (define glVertexAttribI4bv                (GL GLvoid "glVertexAttribI4bv" GLuint GLbyte*))
+   (define glVertexAttribI4sv                (GL GLvoid "glVertexAttribI4sv" GLuint GLshort*))
+   (define glVertexAttribI4ubv               (GL GLvoid "glVertexAttribI4ubv" GLuint GLubyte*))
+   (define glVertexAttribI4usv               (GL GLvoid "glVertexAttribI4usv" GLuint GLushort*))
+   (define glGetUniformuiv                   (GL GLvoid "glGetUniformuiv" GLuint GLint GLuint*))
+   (define glBindFragDataLocation            (GL GLvoid "glBindFragDataLocation" GLuint GLuint GLchar*))
+   (define glGetFragDataLocation             (GL GLint "glGetFragDataLocation" GLuint GLchar*))
+   (define glUniform1ui                      (GL GLvoid "glUniform1ui" GLint GLuint))
+   (define glUniform2ui                      (GL GLvoid "glUniform2ui" GLint GLuint GLuint))
+   (define glUniform3ui                      (GL GLvoid "glUniform3ui" GLint GLuint GLuint GLuint))
+   (define glUniform4ui                      (GL GLvoid "glUniform4ui" GLint GLuint GLuint GLuint GLuint))
+   (define glUniform1uiv                     (GL GLvoid "glUniform1uiv" GLint GLsizei GLuint*))
+   (define glUniform2uiv                     (GL GLvoid "glUniform2uiv" GLint GLsizei GLuint*))
+   (define glUniform3uiv                     (GL GLvoid "glUniform3uiv" GLint GLsizei GLuint*))
+   (define glUniform4uiv                     (GL GLvoid "glUniform4uiv" GLint GLsizei GLuint*))
+   (define glTexParameterIiv                 (GL GLvoid "glTexParameterIiv" GLenum GLenum GLint*))
+   (define glTexParameterIuiv                (GL GLvoid "glTexParameterIuiv" GLenum GLenum GLuint*))
+   (define glGetTexParameterIiv              (GL GLvoid "glGetTexParameterIiv" GLenum GLenum GLint*))
+   (define glGetTexParameterIuiv             (GL GLvoid "glGetTexParameterIuiv" GLenum GLenum GLuint*))
+   (define glClearBufferiv                   (GL GLvoid "glClearBufferiv" GLenum GLint GLint*))
+   (define glClearBufferuiv                  (GL GLvoid "glClearBufferuiv" GLenum GLint GLuint*))
+   (define glClearBufferfv                   (GL GLvoid "glClearBufferfv" GLenum GLint GLfloat*))
+   (define glClearBufferfi                   (GL GLvoid "glClearBufferfi" GLenum GLint GLfloat GLint))
+   (define glGetStringi                      (GL GLubyte* "glGetStringi" GLenum GLuint))
+   (define glIsRenderbuffer                  (GL GLboolean "glIsRenderbuffer" GLuint))
+   (define glBindRenderbuffer                (GL GLvoid "glBindRenderbuffer" GLenum GLuint))
+   (define glDeleteRenderbuffers             (GL GLvoid "glDeleteRenderbuffers" GLsizei GLuint*))
+   (define glGenRenderbuffers                (GL GLvoid "glGenRenderbuffers" GLsizei GLuint&))
+   (define glRenderbufferStorage             (GL GLvoid "glRenderbufferStorage" GLenum GLenum GLsizei GLsizei))
+   (define glGetRenderbufferParameteriv      (GL GLvoid "glGetRenderbufferParameteriv" GLenum GLenum GLint*))
+   (define glIsFramebuffer                   (GL GLboolean "glIsFramebuffer" GLuint))
+   (define glBindFramebuffer                 (GL GLvoid "glBindFramebuffer" GLenum GLuint))
+   (define glDeleteFramebuffers              (GL GLvoid "glDeleteFramebuffers" GLsizei GLuint*))
+   (define glGenFramebuffers                 (GL GLvoid "glGenFramebuffers" GLsizei GLuint&))
+   (define glCheckFramebufferStatus          (GL GLenum "glCheckFramebufferStatus" GLenum))
+   (define glFramebufferTexture1D            (GL GLvoid "glFramebufferTexture1D" GLenum GLenum GLenum GLuint GLint))
+   (define glFramebufferTexture2D            (GL GLvoid "glFramebufferTexture2D" GLenum GLenum GLenum GLuint GLint))
+   (define glFramebufferTexture3D            (GL GLvoid "glFramebufferTexture3D" GLenum GLenum GLenum GLuint GLint GLint))
+   (define glFramebufferRenderbuffer         (GL GLvoid "glFramebufferRenderbuffer" GLenum GLenum GLenum GLuint))
    (define glGetFramebufferAttachmentParameteriv (GL GLvoid "glGetFramebufferAttachmentParameteriv" GLenum GLenum GLenum GLint*))
-   (define glGenerateMipmap (GL GLvoid "glGenerateMipmap" GLenum))
-   (define glBlitFramebuffer (GL GLvoid "glBlitFramebuffer" GLint GLint GLint GLint GLint GLint GLint GLint GLbitfield GLenum))
-   (define glRenderbufferStorageMultisample (GL GLvoid "glRenderbufferStorageMultisample" GLenum GLsizei GLenum GLsizei GLsizei))
-   (define glFramebufferTextureLayer (GL GLvoid "glFramebufferTextureLayer" GLenum GLenum GLuint GLint GLint))
-   (define glMapBufferRange (GL GLvoid* "glMapBufferRange" GLenum  GLintptr GLsizeiptr GLbitfield))    ; not in 3.0 spec
-   (define glFlushMappedBufferRange (GL GLvoid "glFlushMappedBufferRange" GLenum GLintptr GLsizeiptr)) ; not in 3.0 spec
-   (define glBindVertexArray (GL GLvoid "glBindVertexArray" GLuint))
-   (define glDeleteVertexArrays (GL GLvoid "glDeleteVertexArrays" GLsizei GLuint*))
-   (define glGenVertexArrays (GL GLvoid "glGenVertexArrays" GLsizei GLuint&))
-   (define glIsVertexArray (GL GLboolean "glIsVertexArray" GLuint))
+   (define glGenerateMipmap                  (GL GLvoid "glGenerateMipmap" GLenum))
+   (define glBlitFramebuffer                 (GL GLvoid "glBlitFramebuffer" GLint GLint GLint GLint GLint GLint GLint GLint GLbitfield GLenum))
+   (define glRenderbufferStorageMultisample  (GL GLvoid "glRenderbufferStorageMultisample" GLenum GLsizei GLenum GLsizei GLsizei))
+   (define glFramebufferTextureLayer         (GL GLvoid "glFramebufferTextureLayer" GLenum GLenum GLuint GLint GLint))
+   (define glMapBufferRange                  (GL GLvoid* "glMapBufferRange" GLenum  GLintptr GLsizeiptr GLbitfield)) ; not in 3.0 spec
+   (define glFlushMappedBufferRange          (GL GLvoid "glFlushMappedBufferRange" GLenum GLintptr GLsizeiptr)) ; not in 3.0 spec
+   (define glBindVertexArray                 (GL GLvoid "glBindVertexArray" GLuint))
+   (define glDeleteVertexArrays              (GL GLvoid "glDeleteVertexArrays" GLsizei GLuint*))
+   (define glGenVertexArrays                 (GL GLvoid "glGenVertexArrays" GLsizei GLuint&))
+   (define glIsVertexArray                   (GL GLboolean "glIsVertexArray" GLuint))
 
  ; 3.1 core ------------------------------
    (define GL_SAMPLER_2D_RECT                #x8B63)
@@ -2233,8 +2153,33 @@
    (define GL_SIGNED_NORMALIZED              #x8F9C)
    (define GL_PRIMITIVE_RESTART              #x8F9D)
    (define GL_PRIMITIVE_RESTART_INDEX        #x8F9E)
+
+   (define glDrawArraysInstanced             (GL GLvoid "glDrawArraysInstanced" GLenum GLint GLsizei GLsizei))
+   (define glDrawElementsInstanced           (GL GLvoid "glDrawElementsInstanced" GLenum GLsizei GLenum GLvoid* GLsizei))
+   (define glTexBuffer                       (GL GLvoid "glTexBuffer" GLenum GLenum GLuint))
+   (define glPrimitiveRestartIndex           (GL GLvoid "glPrimitiveRestartIndex" GLuint))
+
+  ; ARB_copy_buffer
+   (define GL_ARB_copy_buffer 1)
+
    (define GL_COPY_READ_BUFFER               #x8F36)
    (define GL_COPY_WRITE_BUFFER              #x8F37)
+   (define glCopyBufferSubData               (GL GLvoid "glCopyBufferSubData" GLenum GLenum GLintptr GLintptr GLsizeiptr))
+
+ ; ARB_uniform_buffer_object
+   (define GL_ARB_uniform_buffer_object 1)
+
+   (define glGetUniformIndices               (GL GLvoid "GetUniformIndices" GLuint GLsizei (fft* GLchar*) GLuint&))
+   (define glGetActiveUniformsiv             (GL GLvoid "GetActiveUniformsiv" GLuint GLsizei GLuint* GLenum GLint&))
+   (define glGetActiveUniformName            (GL GLvoid "GetActiveUniformName" GLuint GLuint GLsizei GLsizei* GLchar*))
+   (define glGetUniformBlockIndex            (GL GLuint "GetUniformBlockIndex" GLuint GLchar*))
+   (define glGetActiveUniformBlockiv         (GL GLvoid "GetActiveUniformBlockiv" GLuint GLuint GLenum GLint*))
+   (define glGetActiveUniformBlockName       (GL GLvoid "GetActiveUniformBlockName" GLuint GLuint GLsizei GLsizei* GLchar*))
+   (define glBindBufferRange                 (GL GLvoid "BindBufferRange" GLenum GLuint GLuint GLintptr GLsizeiptr))
+   (define glBindBufferBase                  (GL GLvoid "BindBufferBase" GLenum GLuint GLuint))
+   (define glGetIntegeri_v                   (GL GLvoid "GetIntegeri_v" GLenum GLuint GLint*))
+   (define glUniformBlockBinding             (GL GLvoid "UniformBlockBinding" GLuint GLuint GLuint))
+
    (define GL_UNIFORM_BUFFER                 #x8A11)
    (define GL_UNIFORM_BUFFER_BINDING         #x8A28)
    (define GL_UNIFORM_BUFFER_START           #x8A29)
@@ -2245,11 +2190,11 @@
    (define GL_MAX_COMBINED_UNIFORM_BLOCKS    #x8A2E)
    (define GL_MAX_UNIFORM_BUFFER_BINDINGS    #x8A2F)
    (define GL_MAX_UNIFORM_BLOCK_SIZE         #x8A30)
-   (define GL_MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS #x8A31)
+   (define GL_MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS   #x8A31)
    (define GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS #x8A32)
    (define GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS #x8A33)
-   (define GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT #x8A34)
-   (define GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH #x8A35)
+   (define GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT          #x8A34)
+   (define GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH     #x8A35)
    (define GL_ACTIVE_UNIFORM_BLOCKS          #x8A36)
    (define GL_UNIFORM_TYPE                   #x8A37)
    (define GL_UNIFORM_SIZE                   #x8A38)
@@ -2263,117 +2208,10 @@
    (define GL_UNIFORM_BLOCK_DATA_SIZE        #x8A40)
    (define GL_UNIFORM_BLOCK_NAME_LENGTH      #x8A41)
    (define GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS  #x8A42)
-   (define GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES #x8A43)
-   (define GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER #x8A44)
+   (define GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES        #x8A43)
+   (define GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER   #x8A44)
    (define GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER #x8A45)
    (define GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER #x8A46)
    (define GL_INVALID_INDEX                  #xFFFFFFFF)
-
-   ; GL_ARB_draw_instanced
-   (define glDrawArraysInstanced (GL GLvoid "glDrawArraysInstanced" GLenum GLint GLsizei GLsizei))
-   (define glDrawElementsInstanced (GL GLvoid "glDrawElementsInstanced" GLenum GLsizei GLenum GLvoid* GLsizei))
-
-   ; GL_ARB_copy_buffer
-   (define GL_COPY_READ_BUFFER                    #x8F36)
-   (define GL_COPY_WRITE_BUFFER                   #x8F37)
-   (define glCopyBufferSubData (GL GLvoid "glCopyBufferSubData" GLenum GLenum GLintptr GLintptr GLsizeiptr))
-
-   ; GL_NV_primitive_restart
-   (define GL_PRIMITIVE_RESTART                           #x8558)
-   (define GL_PRIMITIVE_RESTART_INDEX                     #x8559)
-   (define glPrimitiveRestart (GL GLvoid "glPrimitiveRestartNV"))
-   (define glPrimitiveRestartIndex (GL GLvoid "glPrimitiveRestartIndexNV" GLuint))
-
-   ; GL_ARB_texture_buffer_object
-   (define GL_TEXTURE_BUFFER                              #x8C2A)
-   (define GL_MAX_TEXTURE_BUFFER_SIZE                     #x8C2B)
-   (define GL_TEXTURE_BINDING_BUFFER                      #x8C2C)
-   (define GL_TEXTURE_BUFFER_DATA_STORE_BINDING           #x8C2D)
-   (define GL_TEXTURE_BUFFER_FORMAT                       #x8C2E)
-   (define glTexBuffer (GL GLvoid "glTexBufferARB" GLenum GLenum GLuint))
-
-   ; GL_ARB_texture_rectangle
-   (define GL_TEXTURE_RECTANGLE            #x84F5)
-   (define GL_TEXTURE_BINDING_RECTANGLE    #x84F6)
-   (define GL_PROXY_TEXTURE_RECTANGLE      #x84F7)
-   (define GL_MAX_RECTANGLE_TEXTURE_SIZE   #x84F8)
-   (define GL_SAMPLER_2D_RECT              #x8B63)
-   (define GL_SAMPLER_2D_RECT_SHADOW       #x8B64)
-
-   ; GL_ARB_uniform_buffer_object
-   (define glGetUniformIndices (GL GLvoid "GetUniformIndices" GLuint GLsizei (fft* GLchar*) GLuint&))
-   (define glGetActiveUniformsiv (GL GLvoid "GetActiveUniformsiv" GLuint GLsizei GLuint* GLenum GLint&))
-   (define glGetActiveUniformName (GL GLvoid "GetActiveUniformName" GLuint GLuint GLsizei GLsizei* GLchar*))
-   (define glGetUniformBlockIndex (GL GLuint "GetUniformBlockIndex" GLuint GLchar*))
-   (define glGetActiveUniformBlockiv (GL GLvoid "GetActiveUniformBlockiv" GLuint GLuint GLenum GLint*))
-   (define glGetActiveUniformBlockName (GL GLvoid "GetActiveUniformBlockName" GLuint GLuint GLsizei GLsizei* GLchar*))
-   (define glBindBufferRange (GL GLvoid "BindBufferRange" GLenum GLuint GLuint GLintptr GLsizeiptr))
-   (define glBindBufferBase (GL GLvoid "BindBufferBase" GLenum GLuint GLuint))
-   (define glGetIntegeri_v (GL GLvoid "GetIntegeri_v" GLenum GLuint GLint*))
-   (define glUniformBlockBinding (GL GLvoid "UniformBlockBinding" GLuint GLuint GLuint))
-
-   (define GL_UNIFORM_BUFFER                                  #x8A11)
-   (define GL_UNIFORM_BUFFER_BINDING                          #x8A28)
-   (define GL_UNIFORM_BUFFER_START                            #x8A29)
-   (define GL_UNIFORM_BUFFER_SIZE                             #x8A2A)
-   (define GL_MAX_VERTEX_UNIFORM_BLOCKS                       #x8A2B)
-   (define GL_MAX_GEOMETRY_UNIFORM_BLOCKS                     #x8A2C)
-   (define GL_MAX_FRAGMENT_UNIFORM_BLOCKS                     #x8A2D)
-   (define GL_MAX_COMBINED_UNIFORM_BLOCKS                     #x8A2E)
-   (define GL_MAX_UNIFORM_BUFFER_BINDINGS                     #x8A2F)
-   (define GL_MAX_UNIFORM_BLOCK_SIZE                          #x8A30)
-   (define GL_MAX_COMBINED_VERTEX_UNIFORM_COMPONENTS          #x8A31)
-   (define GL_MAX_COMBINED_GEOMETRY_UNIFORM_COMPONENTS        #x8A32)
-   (define GL_MAX_COMBINED_FRAGMENT_UNIFORM_COMPONENTS        #x8A33)
-   (define GL_UNIFORM_BUFFER_OFFSET_ALIGNMENT                 #x8A34)
-   (define GL_ACTIVE_UNIFORM_BLOCK_MAX_NAME_LENGTH            #x8A35)
-   (define GL_ACTIVE_UNIFORM_BLOCKS                           #x8A36)
-   (define GL_UNIFORM_TYPE                                    #x8A37)
-   (define GL_UNIFORM_SIZE                                    #x8A38)
-   (define GL_UNIFORM_NAME_LENGTH                             #x8A39)
-   (define GL_UNIFORM_BLOCK_INDEX                             #x8A3A)
-   (define GL_UNIFORM_OFFSET                                  #x8A3B)
-   (define GL_UNIFORM_ARRAY_STRIDE                            #x8A3C)
-   (define GL_UNIFORM_MATRIX_STRIDE                           #x8A3D)
-   (define GL_UNIFORM_IS_ROW_MAJOR                            #x8A3E)
-   (define GL_UNIFORM_BLOCK_BINDING                           #x8A3F)
-   (define GL_UNIFORM_BLOCK_DATA_SIZE                         #x8A40)
-   (define GL_UNIFORM_BLOCK_NAME_LENGTH                       #x8A41)
-   (define GL_UNIFORM_BLOCK_ACTIVE_UNIFORMS                   #x8A42)
-   (define GL_UNIFORM_BLOCK_ACTIVE_UNIFORM_INDICES            #x8A43)
-   (define GL_UNIFORM_BLOCK_REFERENCED_BY_VERTEX_SHADER       #x8A44)
-   (define GL_UNIFORM_BLOCK_REFERENCED_BY_GEOMETRY_SHADER     #x8A45)
-   (define GL_UNIFORM_BLOCK_REFERENCED_BY_FRAGMENT_SHADER     #x8A46)
-   (define GL_INVALID_INDEX                                   #xFFFFFFFF)
-
-   ; Signed normalized texture component formats
-   (define GL_RED_SNORM                      #x8F90)
-   (define GL_RG_SNORM                       #x8F91)
-   (define GL_RGB_SNORM                      #x8F92)
-   (define GL_RGBA_SNORM                     #x8F93)
-   (define GL_R8_SNORM                       #x8F94)
-   (define GL_RG8_SNORM                      #x8F95)
-   (define GL_RGB8_SNORM                     #x8F96)
-   (define GL_RGBA8_SNORM                    #x8F97)
-   (define GL_R16_SNORM                      #x8F98)
-   (define GL_RG16_SNORM                     #x8F99)
-   (define GL_RGB16_SNORM                    #x8F9A)
-   (define GL_RGBA16_SNORM                   #x8F9B)
-   (define GL_SIGNED_NORMALIZED              #x8F9C)
-   (define GL_PRIMITIVE_RESTART              #x8F9D)
-   (define GL_PRIMITIVE_RESTART_INDEX        #x8F9E)
-
-   ;; GLAPI void APIENTRY glDrawArraysInstanced (GLenum mode, GLint first, GLsizei count, GLsizei instancecount);
-   ;; GLAPI void APIENTRY glDrawElementsInstanced (GLenum mode, GLsizei count, GLenum type, const void *indices, GLsizei instancecount);
-   ;; GLAPI void APIENTRY glTexBuffer (GLenum target, GLenum internalformat, GLuint buffer);
-   ;; GLAPI void APIENTRY glPrimitiveRestartIndex (GLuint index);
-   ;; GLAPI void APIENTRY glCopyBufferSubData (GLenum readTarget, GLenum writeTarget, GLintptr readOffset, GLintptr writeOffset, GLsizeiptr size);
-   ;; GLAPI void APIENTRY glGetUniformIndices (GLuint program, GLsizei uniformCount, const GLchar *const*uniformNames, GLuint *uniformIndices);
-   ;; GLAPI void APIENTRY glGetActiveUniformsiv (GLuint program, GLsizei uniformCount, const GLuint *uniformIndices, GLenum pname, GLint *params);
-   ;; GLAPI void APIENTRY glGetActiveUniformName (GLuint program, GLuint uniformIndex, GLsizei bufSize, GLsizei *length, GLchar *uniformName);
-   ;; GLAPI GLuint APIENTRY glGetUniformBlockIndex (GLuint program, const GLchar *uniformBlockName);
-   ;; GLAPI void APIENTRY glGetActiveUniformBlockiv (GLuint program, GLuint uniformBlockIndex, GLenum pname, GLint *params);
-   ;; GLAPI void APIENTRY glGetActiveUniformBlockName (GLuint program, GLuint uniformBlockIndex, GLsizei bufSize, GLsizei *length, GLchar *uniformBlockName);
-   ;; GLAPI void APIENTRY glUniformBlockBinding (GLuint program, GLuint uniformBlockIndex, GLuint uniformBlockBinding);
 
 ))
