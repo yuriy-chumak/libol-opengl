@@ -12,12 +12,12 @@
    ; none
 
 ;; J.2 Non-Square Matrices
-   glUniformMatrix2x3fv ;void (GLint location, GLsizei count, GLboolean transpose, const GLfloat *value)
-   glUniformMatrix3x2fv ;void (GLint location, GLsizei count, GLboolean transpose, const GLfloat *value)
-   glUniformMatrix2x4fv ;void (GLint location, GLsizei count, GLboolean transpose, const GLfloat *value)
-   glUniformMatrix4x2fv ;void (GLint location, GLsizei count, GLboolean transpose, const GLfloat *value)
-   glUniformMatrix3x4fv ;void (GLint location, GLsizei count, GLboolean transpose, const GLfloat *value)
-   glUniformMatrix4x3fv ;void (GLint location, GLsizei count, GLboolean transpose, const GLfloat *value)
+   glUniformMatrix2x3fv
+   glUniformMatrix3x2fv
+   glUniformMatrix2x4fv
+   glUniformMatrix4x2fv
+   glUniformMatrix3x4fv
+   glUniformMatrix4x3fv
 
 ;; J.3 ARB_pixel_buffer_object
 

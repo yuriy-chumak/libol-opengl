@@ -292,8 +292,8 @@
    (define glGetAttachedShaders (GL GLvoid "glGetAttachedShaders" GLuint GLsizei GLsizei& GLuint&))
    (define glGetUniformLocation (GL GLint "glGetUniformLocation" GLuint GLchar*))
    (define glGetActiveUniform (GL GLvoid "glGetActiveUniform" GLuint GLuint GLsizei GLsizei& GLint& GLenum& type-bytevector))
-   (define glGetUniformfv    (GL GLvoid "glGetUniformfv" GLuint GLint (fft& GLfloat)))
-   (define glGetUniformiv    (GL GLvoid "glGetUniformiv" GLuint GLint (fft& GLint)))
+   (define glGetUniformfv    (GL GLvoid "glGetUniformfv" GLuint GLint GLfloat&))
+   (define glGetUniformiv    (GL GLvoid "glGetUniformiv" GLuint GLint GLint&))
    (define glGetShaderSource (GL GLvoid "glGetShaderSource" GLuint GLsizei GLsizei& type-bytevector))
 
  ; I.1.2 ARB_vertex_shader and ARB_fragment_shader
@@ -346,9 +346,9 @@
    (define glGetActiveAttrib (GL GLvoid "glGetActiveAttrib" GLuint GLuint GLsizei GLsizei& GLint& GLenum& type-bytevector))
    (define glGetAttribLocation (GL GLint "glGetAttribLocation" GLuint GLchar*))
 
-   (define glGetVertexAttribdv (GL GLvoid "glGetVertexAttribdv" GLuint GLenum (fft& GLdouble)))
-   (define glGetVertexAttribfv (GL GLvoid "glGetVertexAttribfv" GLuint GLenum (fft& GLfloat)))
-   (define glGetVertexAttribiv (GL GLvoid "glGetVertexAttribiv" GLuint GLenum (fft& GLint)))
+   (define glGetVertexAttribdv (GL GLvoid "glGetVertexAttribdv" GLuint GLenum GLdouble&))
+   (define glGetVertexAttribfv (GL GLvoid "glGetVertexAttribfv" GLuint GLenum GLfloat&))
+   (define glGetVertexAttribiv (GL GLvoid "glGetVertexAttribiv" GLuint GLenum GLint&))
    (define glGetVertexAttribPointerv (GL GLvoid "glGetVertexAttribPointerv" GLuint GLenum (fft& type-vptr)))
 
  ; I.1.3 ARB_shading_language_100

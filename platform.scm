@@ -14,20 +14,20 @@
    GLbitfield                 ; unsigned 32-bit
    GLbyte   GLbyte*           ;   signed  8-bit
    GLshort  GLshort*          ;   signed 16-bit
-   GLint64  ; OpenGL 3.2
+   GLint64  GLint64*   ; 3.2 types
    GLint    GLint*   GLint&   ;   signed 32-bit
    GLsizei  GLsizei*          ;   signed 32-bit
    GLubyte  GLubyte*          ; unsigned  8-bit
    GLushort GLushort*         ; unsigned 16-bit
    GLuint   GLuint*  GLuint&  ; unsigned 32-bit
-   GLuint64 ; OpenGL 3.2
+   GLuint64            ; 3.2 types
 
-   GLfloat  GLfloat*  ; floating 32-bit
+   GLfloat  GLfloat*  GLfloat&  ; floating 32-bit
    GLclampf           ; floating 32-bit (clamped to the range [0,1])
-   GLdouble GLdouble* ; floating 64-bit
+   GLdouble GLdouble* GLdouble& ; floating 64-bit
    GLclampd           ; floating 64-bit (clamped to the range [0,1])
 
-   GLvoid   GLvoid*       ; void, void*
+   GLvoid   GLvoid*   ; void, void*
    GLchar*
 
    GLintptr GLsizeiptr ; 1.5 types
@@ -130,7 +130,7 @@
    ; -- types
    (define GLvoid   fft-void)
    (define GLvoid*  fft-void*)
-   (define GLchar* type-string)
+   (define GLchar*  type-string)
 
    (define GLenum     fft-unsigned-int)
    (define GLboolean  fft-unsigned-char) ;?
@@ -165,6 +165,7 @@
    (define GLushort*  (fft* GLushort))
    (define GLint*     (fft* GLint))
    (define GLuint*    (fft* GLuint))
+   (define GLint64*   (fft* GLint64))
    (define GLfloat*   (fft* GLfloat))
    (define GLdouble*  (fft* GLdouble))
    (define GLsizei*   (fft* GLsizei))
@@ -172,6 +173,8 @@
    ; -- references
    (define GLint&     (fft& GLint))
    (define GLuint&    (fft& GLuint))
+   (define GLfloat&   (fft& GLfloat))
+   (define GLdouble&  (fft& GLdouble))
    ; -------------------------------------------------------------------------
 
    ; Strings GL_VENDOR and GL_RENDERER together uniquely specify a platform.
@@ -185,7 +188,7 @@
    (define glGetString (GL type-string "glGetString" fft-unsigned-int))
    (define glHint (GL fft-void "glHint" GLenum GLenum))
    (define glViewport (GL fft-void "glViewport" GLint GLint GLsizei GLsizei))
-   (define glGetIntegerv (GL fft-void "glGetIntegerv" GLenum (fft& GLint)))
+   (define glGetIntegerv (GL fft-void "glGetIntegerv" GLenum GLint&))
 
 )
 
