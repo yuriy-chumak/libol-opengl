@@ -13,7 +13,7 @@
    GL_VERSION_4_1
 
 ;; ARB_ES2_compatibility
-   GL_ARB_ES2_compatibility
+GL_ARB_ES2_compatibility
    GL_FIXED
    GL_IMPLEMENTATION_COLOR_READ_TYPE
    GL_IMPLEMENTATION_COLOR_READ_FORMAT
@@ -38,7 +38,7 @@
    glClearDepthf
 
 ;; ARB_get_program_binary
-   GL_ARB_get_program_binary
+GL_ARB_get_program_binary
    GL_PROGRAM_BINARY_RETRIEVABLE_HINT
    GL_PROGRAM_BINARY_LENGTH
    GL_NUM_PROGRAM_BINARY_FORMATS
@@ -49,7 +49,7 @@
    glProgramParameteri
 
 ;; ARB_separate_shader_objects
-   GL_ARB_separate_shader_objects
+GL_ARB_separate_shader_objects
    GL_VERTEX_SHADER_BIT
    GL_FRAGMENT_SHADER_BIT
    GL_GEOMETRY_SHADER_BIT
@@ -122,12 +122,11 @@
    glGetProgramPipelineInfoLog
 
 ;; ARB_shader_precision
-   GL_ARB_shader_precision
+GL_ARB_shader_precision
    ; none
 
 ;; ARB_vertex_attrib_64bit
-   GL_ARB_vertex_attrib_64bit
-
+GL_ARB_vertex_attrib_64bit
    glVertexAttribL1d
    glVertexAttribL2d
    glVertexAttribL3d
@@ -140,7 +139,7 @@
    glGetVertexAttribLdv
 
 ;; ARB_viewport_array
-   GL_ARB_viewport_array
+GL_ARB_viewport_array
    GL_MAX_VIEWPORTS
    GL_VIEWPORT_SUBPIXEL_BITS
    GL_VIEWPORT_BOUNDS_RANGE
@@ -171,7 +170,7 @@
 
    (define GL gl:GetProcAddress)
 
-;; ARB_ES2_compatibility
+ ; ARB_ES2_compatibility
    (define GL_ARB_ES2_compatibility 1)
 
    (define GL_FIXED                                         #x140C)
@@ -196,7 +195,7 @@
    (define glDepthRangef                                    (GL GLvoid "glDepthRangef" GLfloat GLfloat))
    (define glClearDepthf                                    (GL GLvoid "glClearDepthf" GLfloat))
 
-;; ARB_get_program_binary
+ ; ARB_get_program_binary
    (define GL_ARB_get_program_binary 1)
 
    (define GL_PROGRAM_BINARY_RETRIEVABLE_HINT               #x8257)
@@ -208,7 +207,7 @@
    (define glProgramBinary                                  (GL GLvoid "glProgramBinary" GLuint GLenum GLvoid* GLsizei))
    (define glProgramParameteri                              (GL GLvoid "glProgramParameteri" GLuint GLenum GLint))
 
-;; ARB_separate_shader_objects
+ ; ARB_separate_shader_objects
    (define GL_ARB_separate_shader_objects 1)
 
    (define GL_VERTEX_SHADER_BIT                             #x00000001)
@@ -282,12 +281,12 @@
    (define glValidateProgramPipeline                        (GL GLvoid "glValidateProgramPipeline" GLuint))
    (define glGetProgramPipelineInfoLog                      (GL GLvoid "glGetProgramPipelineInfoLog" GLuint GLsizei (fft& GLsizei) type-bytevector))
 
-;; ARB_shader_precision
+ ; ARB_shader_precision
    (define GL_ARB_shader_precision 1)
 
    ; none
 
-;; ARB_vertex_attrib_64bit
+ ; ARB_vertex_attrib_64bit
    (define GL_ARB_vertex_attrib_64bit 1)
 
    (define glVertexAttribL1d                                (GL GLvoid "glVertexAttribL1d" GLuint GLdouble))
@@ -301,7 +300,7 @@
    (define glVertexAttribLPointer                           (GL GLvoid "glVertexAttribLPointer" GLuint GLint GLenum GLsizei GLvoid*))
    (define glGetVertexAttribLdv                             (GL GLvoid "glGetVertexAttribLdv" GLuint GLenum GLdouble&))
 
-;; ARB_viewport_array
+ ; ARB_viewport_array
    (define GL_ARB_viewport_array 1)
 
    (define GL_MAX_VIEWPORTS                                 #x825B)
