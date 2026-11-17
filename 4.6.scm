@@ -130,7 +130,7 @@ GL_ARB_transform_feedback_overflow_query
 
    (define GL_CONTEXT_FLAG_NO_ERROR_BIT                     #x00000008)
 
-;; ARB_pipeline_statistics_query
+ ; ARB_pipeline_statistics_query
    (define GL_ARB_pipeline_statistics_query 1)
 
    (define GL_VERTICES_SUBMITTED                            #x82EE)

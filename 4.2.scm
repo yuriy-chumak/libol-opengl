@@ -195,6 +195,7 @@ GL_ARB_texture_storage
 
    (setq GL gl:GetProcAddress)
 
+ ; New aliases for old tokens
    (define GL_COPY_READ_BUFFER_BINDING              #x8F36)
    (define GL_COPY_WRITE_BUFFER_BINDING             #x8F37)
    (define GL_TRANSFORM_FEEDBACK_ACTIVE             #x8E24)

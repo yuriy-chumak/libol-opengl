@@ -123,7 +123,7 @@ GL_ARB_vertex_type_10f_11f_11f_rev
    (define GL_TRANSFORM_FEEDBACK_BUFFER_INDEX               #x934B)
    (define GL_TRANSFORM_FEEDBACK_BUFFER_STRIDE              #x934C)
 
-;; ARB_multi_bind
+ ; ARB_multi_bind
    (define GL_ARB_multi_bind 1)
 
    (define glBindBuffersBase                                (GL GLvoid "glBindBuffersBase" GLenum GLuint GLsizei GLuint*))
@@ -133,7 +133,7 @@ GL_ARB_vertex_type_10f_11f_11f_rev
    (define glBindImageTextures                              (GL GLvoid "glBindImageTextures" GLuint GLsizei GLuint*))
    (define glBindVertexBuffers                              (GL GLvoid "glBindVertexBuffers" GLuint GLsizei GLuint* GLintptr* GLsizei*))
 
-;; ARB_query_buffer_object
+ ; ARB_query_buffer_object
    (define GL_ARB_query_buffer_object 1)
 
    (define GL_QUERY_BUFFER                                  #x9192)
@@ -141,19 +141,18 @@ GL_ARB_vertex_type_10f_11f_11f_rev
    (define GL_QUERY_BUFFER_BINDING                          #x9193)
    (define GL_QUERY_RESULT_NO_WAIT                          #x9194)
 
-;; ARB_texture_mirror_clamp_to_edge
+ ; ARB_texture_mirror_clamp_to_edge
    (define GL_ARB_texture_mirror_clamp_to_edge 1)
 
    (define GL_MIRROR_CLAMP_TO_EDGE                          #x8743)
 
-;; ARB_texture_stencil8
+ ; ARB_texture_stencil8
    (define GL_ARB_texture_stencil8 1)
 
    (define GL_STENCIL_INDEX                                 GL_STENCIL_INDEX)  ; since 3.1
    (define GL_STENCIL_INDEX8                                GL_STENCIL_INDEX8)  ; since 3.1
-   ; none
 
-;; ARB_vertex_type_10f_11f_11f_rev
+ ; ARB_vertex_type_10f_11f_11f_rev
    (define GL_ARB_vertex_type_10f_11f_11f_rev 1)
 
    (define GL_UNSIGNED_INT_10F_11F_11F_REV                  GL_UNSIGNED_INT_10F_11F_11F_REV)  ; since 3.1

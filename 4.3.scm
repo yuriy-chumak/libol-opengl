@@ -398,6 +398,7 @@ GL_ARB_vertex_attrib_binding
    GL_VERTEX_BINDING_STRIDE
    GL_MAX_VERTEX_ATTRIB_RELATIVE_OFFSET
    GL_MAX_VERTEX_ATTRIB_BINDINGS
+   GL_VERTEX_BINDING_BUFFER
    glBindVertexBuffer
    glVertexAttribFormat
    glVertexAttribIFormat
@@ -510,7 +511,7 @@ GL_ARB_vertex_attrib_binding
    (define GL_BUFFER                                                  #x82E0)
    (define GL_SHADER                                                  #x82E1)
    (define GL_PROGRAM                                                 #x82E2)
-   (define GL_VERTEX_ARRAY                                            GL_VERTEX_ARRAY)
+   (define GL_VERTEX_ARRAY                                            GL_VERTEX_ARRAY)  ; since 3.1
    (define GL_QUERY                                                   #x82E3)
    (define GL_PROGRAM_PIPELINE                                        #x82E4)
    (define GL_SAMPLER                                                 #x82E6)
@@ -526,7 +527,7 @@ GL_ARB_vertex_attrib_binding
 
    (define glDebugMessageControl                                      (GL GLvoid "glDebugMessageControl" GLenum GLenum GLenum GLsizei GLuint* GLboolean))
    (define glDebugMessageInsert                                       (GL GLvoid "glDebugMessageInsert" GLenum GLenum GLuint GLenum GLsizei GLchar*))
-   (define glDebugMessageCallback                                     (GL GLvoid "glDebugMessageCallback" GLvoid* GLvoid*))
+   (define glDebugMessageCallback                                     (GL GLvoid "glDebugMessageCallback" type-callable GLvoid*))
    (define glGetDebugMessageLog                                       (GL GLuint "glGetDebugMessageLog" GLuint GLsizei GLenum& GLenum& GLuint& GLenum& GLsizei& type-bytevector))
    (define glPushDebugGroup                                           (GL GLvoid "glPushDebugGroup" GLenum GLuint GLsizei GLchar*))
    (define glPopDebugGroup                                            (GL GLvoid "glPopDebugGroup"))
@@ -534,7 +535,7 @@ GL_ARB_vertex_attrib_binding
    (define glGetObjectLabel                                           (GL GLvoid "glGetObjectLabel" GLenum GLuint GLsizei GLsizei& type-bytevector))
    (define glObjectPtrLabel                                           (GL GLvoid "glObjectPtrLabel" GLvoid* GLsizei GLchar*))
    (define glGetObjectPtrLabel                                        (GL GLvoid "glGetObjectPtrLabel" GLvoid* GLsizei GLsizei& type-bytevector))
-   (define glGetPointerv                                              glGetPointerv)
+   (define glGetPointerv                                              glGetPointerv)  ; since 3.1
 
  ; KHR_debug functionality not supported in core profile
    (define GL_DISPLAY_LIST                   #x82E7)
@@ -813,6 +814,7 @@ GL_ARB_vertex_attrib_binding
    (define GL_VERTEX_BINDING_STRIDE                                   #x82D8)
    (define GL_MAX_VERTEX_ATTRIB_RELATIVE_OFFSET                       #x82D9)
    (define GL_MAX_VERTEX_ATTRIB_BINDINGS                              #x82DA)
+   (define GL_VERTEX_BINDING_BUFFER                                   #x8F4F) ; Added in 2013/10/22 update to the spec
 
    (define glBindVertexBuffer                                         (GL GLvoid "glBindVertexBuffer" GLuint GLuint GLintptr GLsizei))
    (define glVertexAttribFormat                                       (GL GLvoid "glVertexAttribFormat" GLuint GLint GLenum GLboolean GLuint))
