@@ -220,7 +220,7 @@
    (define glClientWaitSync                   (GL GLenum "glClientWaitSync" GLsync GLbitfield GLuint64))
    (define glWaitSync                         (GL GLvoid "glWaitSync" GLsync GLbitfield GLuint64))
    (define glGetInteger64v                    (GL GLvoid "glGetInteger64v" GLenum (fft& GLint64)))
-   (define glGetSynciv                        (GL GLvoid "glGetSynciv" GLsync GLenum GLsizei GLsizei* GLint*))
+   (define glGetSynciv                        (GL GLvoid "glGetSynciv" GLsync GLenum GLsizei (fft& GLsizei) GLint&))
 
  ; ARB_texture_multisample
    (define GL_ARB_texture_multisample 1)

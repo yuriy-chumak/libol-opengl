@@ -136,7 +136,7 @@
 (begin
    (define GL_VERSION_3_3 1)
 
-   (define GL gl:GetProcAddress)
+   (setq GL gl:GetProcAddress)
 
    (define GL_VERTEX_ATTRIB_ARRAY_DIVISOR           #x88FE)
 
@@ -153,8 +153,6 @@
 
  ; ARB_explicit_attrib_location
    (define GL_ARB_explicit_attrib_location 1)
-
-   ; none
 
  ; ARB_occlusion_query2
    (define GL_ARB_occlusion_query2 1)
@@ -183,8 +181,6 @@
 
  ; ARB_shader_bit_encoding
    (define GL_ARB_shader_bit_encoding 1)
-
-   ; none
 
  ; ARB_texture_rgb10_a2ui
    (define GL_ARB_texture_rgb10_a2ui 1)

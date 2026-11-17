@@ -77,6 +77,12 @@ GL_ARB_gpu_shader_fp64
    glUniformMatrix4x3dv
    glGetUniformdv
 
+;; ARB_sample_shading
+GL_ARB_sample_shading
+   GL_SAMPLE_SHADING
+   GL_MIN_SAMPLE_SHADING_VALUE
+   glMinSampleShading
+
 ;; ARB_shader_subroutine
 GL_ARB_shader_subroutine
    GL_ACTIVE_SUBROUTINES
@@ -194,7 +200,7 @@ GL_ARB_transform_feedback3
 (begin
    (define GL_VERSION_4_0 1)
 
-   (define GL gl:GetProcAddress)
+   (setq GL gl:GetProcAddress)
 
  ; ARB_draw_buffers_blend
    (define GL_ARB_draw_buffers_blend 1)
@@ -260,8 +266,10 @@ GL_ARB_transform_feedback3
 
  ; ARB_sample_shading
    (define GL_ARB_sample_shading 1)
+
    (define GL_SAMPLE_SHADING                                    #x8C36)
    (define GL_MIN_SAMPLE_SHADING_VALUE                          #x8C37)
+
    (define glMinSampleShading                                   (GL GLvoid "glMinSampleShading" GLfloat))
 
  ; ARB_shader_subroutine
@@ -348,8 +356,6 @@ GL_ARB_transform_feedback3
 
  ; ARB_texture_query_lod
    (define GL_ARB_texture_query_lod 1)
-
-   ; none
 
  ; ARB_transform_feedback2
    (define GL_ARB_transform_feedback2 1)

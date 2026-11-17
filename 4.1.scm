@@ -168,7 +168,7 @@ GL_ARB_viewport_array
 (begin
    (define GL_VERSION_4_1 1)
 
-   (define GL gl:GetProcAddress)
+   (setq GL gl:GetProcAddress)
 
  ; ARB_ES2_compatibility
    (define GL_ARB_ES2_compatibility 1)
@@ -283,8 +283,6 @@ GL_ARB_viewport_array
 
  ; ARB_shader_precision
    (define GL_ARB_shader_precision 1)
-
-   ; none
 
  ; ARB_vertex_attrib_64bit
    (define GL_ARB_vertex_attrib_64bit 1)
