@@ -20,20 +20,22 @@
    GL_VERSION_4_0
 
 ;; ARB_draw_buffers_blend
-   GL_ARB_draw_buffers_blend
+GL_ARB_draw_buffers_blend
    glBlendEquationi
    glBlendEquationSeparatei
    glBlendFunci
    glBlendFuncSeparatei
 
 ;; ARB_draw_indirect
+GL_ARB_draw_indirect
    GL_DRAW_INDIRECT_BUFFER
    GL_DRAW_INDIRECT_BUFFER_BINDING
+
    glDrawArraysIndirect
    glDrawElementsIndirect
 
 ;; ARB_gpu_shader5
-   GL_ARB_gpu_shader5
+GL_ARB_gpu_shader5
    GL_GEOMETRY_SHADER_INVOCATIONS
    GL_MAX_GEOMETRY_SHADER_INVOCATIONS
    GL_MIN_FRAGMENT_INTERPOLATION_OFFSET
@@ -42,7 +44,7 @@
    GL_MAX_VERTEX_STREAMS
 
 ;; ARB_gpu_shader_fp64
-   GL_ARB_gpu_shader_fp64
+GL_ARB_gpu_shader_fp64
    GL_DOUBLE_VEC2
    GL_DOUBLE_VEC3
    GL_DOUBLE_VEC4
@@ -55,6 +57,7 @@
    GL_DOUBLE_MAT3x4
    GL_DOUBLE_MAT4x2
    GL_DOUBLE_MAT4x3
+
    glUniform1d
    glUniform2d
    glUniform3d
@@ -75,7 +78,7 @@
    glGetUniformdv
 
 ;; ARB_shader_subroutine
-   GL_ARB_shader_subroutine
+GL_ARB_shader_subroutine
    GL_ACTIVE_SUBROUTINES
    GL_ACTIVE_SUBROUTINE_UNIFORMS
    GL_ACTIVE_SUBROUTINE_UNIFORM_LOCATIONS
@@ -95,7 +98,7 @@
    glGetProgramStageiv
 
 ;; ARB_tessellation_shader
-   GL_ARB_tessellation_shader
+GL_ARB_tessellation_shader
    GL_PATCHES
    GL_PATCH_VERTICES
    GL_PATCH_DEFAULT_INNER_LEVEL
@@ -134,11 +137,11 @@
    glPatchParameterfv
 
 ;; ARB_texture_buffer_object_rgb32
-   GL_ARB_texture_buffer_object_rgb32
+GL_ARB_texture_buffer_object_rgb32
    ; none
 
 ;; ARB_texture_cube_map_array
-   GL_ARB_texture_cube_map_array
+GL_ARB_texture_cube_map_array
    GL_TEXTURE_CUBE_MAP_ARRAY
    GL_TEXTURE_BINDING_CUBE_MAP_ARRAY
    GL_PROXY_TEXTURE_CUBE_MAP_ARRAY
@@ -148,19 +151,19 @@
    GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY
 
 ;; ARB_texture_gather
-   GL_ARB_texture_gather
+GL_ARB_texture_gather
    GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET
    GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET
 
 ;; ARB_texture_query_lod
-   GL_ARB_texture_query_lod
+GL_ARB_texture_query_lod
    ; none
 
 ;; ARB_transform_feedback2
-   GL_ARB_transform_feedback2
+GL_ARB_transform_feedback2
    GL_TRANSFORM_FEEDBACK
-   GL_TRANSFORM_FEEDBACK_PAUSED
-   GL_TRANSFORM_FEEDBACK_ACTIVE
+   GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED
+   GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE
    GL_TRANSFORM_FEEDBACK_BINDING
 
    glBindTransformFeedback
@@ -172,7 +175,7 @@
    glDrawTransformFeedback
 
 ;; ARB_transform_feedback3
-   GL_ARB_transform_feedback3
+GL_ARB_transform_feedback3
    GL_MAX_TRANSFORM_FEEDBACK_BUFFERS
    GL_MAX_VERTEX_STREAMS
 
@@ -183,8 +186,8 @@
 
 )
 
-; ============================================================================
-; == implementation ==========================================================
+; ==============================================================
+; == implementation ============================================
 (import (scheme core)
         (OpenGL 3.3))
 
@@ -193,7 +196,7 @@
 
    (define GL gl:GetProcAddress)
 
-;; ARB_draw_buffers_blend
+ ; ARB_draw_buffers_blend
    (define GL_ARB_draw_buffers_blend 1)
 
    (define glBlendEquationi                                     (GL GLvoid "glBlendEquationi" GLuint GLenum))
@@ -201,7 +204,7 @@
    (define glBlendFunci                                         (GL GLvoid "glBlendFunci" GLuint GLenum GLenum))
    (define glBlendFuncSeparatei                                 (GL GLvoid "glBlendFuncSeparatei" GLuint GLenum GLenum GLenum GLenum))
 
-;; ARB_draw_indirect
+ ; ARB_draw_indirect
    (define GL_ARB_draw_indirect 1)
 
    (define GL_DRAW_INDIRECT_BUFFER                              #x8F3F)
@@ -210,7 +213,7 @@
    (define glDrawArraysIndirect                                 (GL GLvoid "glDrawArraysIndirect" GLenum GLvoid*))
    (define glDrawElementsIndirect                               (GL GLvoid "glDrawElementsIndirect" GLenum GLenum GLvoid*))
 
-;; ARB_gpu_shader5
+ ; ARB_gpu_shader5
    (define GL_ARB_gpu_shader5 1)
 
    (define GL_GEOMETRY_SHADER_INVOCATIONS                       #x887F)
@@ -220,7 +223,7 @@
    (define GL_FRAGMENT_INTERPOLATION_OFFSET_BITS                #x8E5D)
    (define GL_MAX_VERTEX_STREAMS                                #x8E71)
 
-;; ARB_gpu_shader_fp64
+ ; ARB_gpu_shader_fp64
    (define GL_ARB_gpu_shader_fp64 1)
 
    (define GL_DOUBLE_VEC2                                       #x8FFC)
@@ -255,13 +258,13 @@
    (define glUniformMatrix4x3dv                                 (GL GLvoid "glUniformMatrix4x3dv" GLint GLsizei GLboolean GLdouble*))
    (define glGetUniformdv                                       (GL GLvoid "glGetUniformdv" GLuint GLint GLdouble&))
 
-;; ARB_sample_shading
+ ; ARB_sample_shading
    (define GL_ARB_sample_shading 1)
    (define GL_SAMPLE_SHADING                                    #x8C36)
    (define GL_MIN_SAMPLE_SHADING_VALUE                          #x8C37)
    (define glMinSampleShading                                   (GL GLvoid "glMinSampleShading" GLfloat))
 
-;; ARB_shader_subroutine
+ ; ARB_shader_subroutine
    (define GL_ARB_shader_subroutine 1)
 
    (define GL_ACTIVE_SUBROUTINES                                #x8DE5)
@@ -283,7 +286,7 @@
    (define glGetUniformSubroutineuiv                            (GL GLvoid "glGetUniformSubroutineuiv" GLenum GLint GLuint&))
    (define glGetProgramStageiv                                  (GL GLvoid "glGetProgramStageiv" GLuint GLenum GLenum GLint&))
 
-;; ARB_tessellation_shader
+ ; ARB_tessellation_shader
    (define GL_ARB_tessellation_shader 1)
 
    (define GL_PATCHES                                           #x000E)
@@ -302,32 +305,31 @@
    (define GL_MAX_PATCH_VERTICES                                #x8E7D)
    (define GL_MAX_TESS_GEN_LEVEL                                #x8E7E)
    (define GL_MAX_TESS_CONTROL_UNIFORM_COMPONENTS               #x8E7F)
-   (define GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS           #x8E80)
-   (define GL_MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS             #x8E81)
-   (define GL_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS          #x8E82)
-   (define GL_MAX_TESS_CONTROL_OUTPUT_COMPONENTS               #x8E83)
-   (define GL_MAX_TESS_PATCH_COMPONENTS                        #x8E84)
-   (define GL_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS         #x8E85)
-   (define GL_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS            #x8E86)
-   (define GL_MAX_TESS_CONTROL_UNIFORM_BLOCKS                  #x8E89)
-   (define GL_MAX_TESS_EVALUATION_UNIFORM_BLOCKS               #x8E8A)
-   (define GL_MAX_TESS_CONTROL_INPUT_COMPONENTS                #x886C)
-   (define GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS             #x886D)
-   (define GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS     #x8E1E)
-   (define GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS  #x8E1F)
-   (define GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_CONTROL_SHADER  #x84F0)
+   (define GL_MAX_TESS_EVALUATION_UNIFORM_COMPONENTS            #x8E80)
+   (define GL_MAX_TESS_CONTROL_TEXTURE_IMAGE_UNITS              #x8E81)
+   (define GL_MAX_TESS_EVALUATION_TEXTURE_IMAGE_UNITS           #x8E82)
+   (define GL_MAX_TESS_CONTROL_OUTPUT_COMPONENTS                #x8E83)
+   (define GL_MAX_TESS_PATCH_COMPONENTS                         #x8E84)
+   (define GL_MAX_TESS_CONTROL_TOTAL_OUTPUT_COMPONENTS          #x8E85)
+   (define GL_MAX_TESS_EVALUATION_OUTPUT_COMPONENTS             #x8E86)
+   (define GL_MAX_TESS_CONTROL_UNIFORM_BLOCKS                   #x8E89)
+   (define GL_MAX_TESS_EVALUATION_UNIFORM_BLOCKS                #x8E8A)
+   (define GL_MAX_TESS_CONTROL_INPUT_COMPONENTS                 #x886C)
+   (define GL_MAX_TESS_EVALUATION_INPUT_COMPONENTS              #x886D)
+   (define GL_MAX_COMBINED_TESS_CONTROL_UNIFORM_COMPONENTS      #x8E1E)
+   (define GL_MAX_COMBINED_TESS_EVALUATION_UNIFORM_COMPONENTS   #x8E1F)
+   (define GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_CONTROL_SHADER   #x84F0)
    (define GL_UNIFORM_BLOCK_REFERENCED_BY_TESS_EVALUATION_SHADER #x84F1)
-   (define GL_TESS_EVALUATION_SHADER                           #x8E87)
-   (define GL_TESS_CONTROL_SHADER                              #x8E88)
+   (define GL_TESS_EVALUATION_SHADER                            #x8E87)
+   (define GL_TESS_CONTROL_SHADER                               #x8E88)
 
    (define glPatchParameteri                                    (GL GLvoid "glPatchParameteri" GLenum GLint))
    (define glPatchParameterfv                                   (GL GLvoid "glPatchParameterfv" GLenum GLfloat*))
 
-;; ARB_texture_buffer_object_rgb32
+ ; ARB_texture_buffer_object_rgb32
    (define GL_ARB_texture_buffer_object_rgb32 1)
-   ; none
 
-;; ARB_texture_cube_map_array
+ ; ARB_texture_cube_map_array
    (define GL_ARB_texture_cube_map_array 1)
 
    (define GL_TEXTURE_CUBE_MAP_ARRAY                           #x9009)
@@ -338,23 +340,23 @@
    (define GL_INT_SAMPLER_CUBE_MAP_ARRAY                       #x900E)
    (define GL_UNSIGNED_INT_SAMPLER_CUBE_MAP_ARRAY              #x900F)
 
-;; ARB_texture_gather
+ ; ARB_texture_gather
    (define GL_ARB_texture_gather 1)
 
    (define GL_MIN_PROGRAM_TEXTURE_GATHER_OFFSET                #x8E5E)
    (define GL_MAX_PROGRAM_TEXTURE_GATHER_OFFSET                #x8E5F)
 
-;; ARB_texture_query_lod
+ ; ARB_texture_query_lod
    (define GL_ARB_texture_query_lod 1)
 
    ; none
 
-;; ARB_transform_feedback2
+ ; ARB_transform_feedback2
    (define GL_ARB_transform_feedback2 1)
 
    (define GL_TRANSFORM_FEEDBACK                                #x8E22)
-   (define GL_TRANSFORM_FEEDBACK_PAUSED                         #x8E23)
-   (define GL_TRANSFORM_FEEDBACK_ACTIVE                         #x8E24)
+   (define GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED                  #x8E23)
+   (define GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE                  #x8E24)
    (define GL_TRANSFORM_FEEDBACK_BINDING                        #x8E25)
 
    (define glBindTransformFeedback                              (GL GLvoid "glBindTransformFeedback" GLenum GLuint))
@@ -365,7 +367,7 @@
    (define glResumeTransformFeedback                            (GL GLvoid "glResumeTransformFeedback"))
    (define glDrawTransformFeedback                              (GL GLvoid "glDrawTransformFeedback" GLenum GLuint))
 
-;; ARB_transform_feedback3
+ ; ARB_transform_feedback3
    (define GL_ARB_transform_feedback3 1)
 
    (define GL_MAX_TRANSFORM_FEEDBACK_BUFFERS                    #x8E70)
